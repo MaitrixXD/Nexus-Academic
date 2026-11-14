@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Student Progress Monitoring - Nexus Academic</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-container": "#eff0ff",
+                        "inverse-primary": "#b4c5ff",
+                        "inverse-on-surface": "#eff1f3",
+                        "surface-container-low": "#f2f4f6",
+                        "inverse-surface": "#2d3133",
+                        "tertiary-fixed-dim": "#b8c4ff",
+                        "outline": "#737686",
+                        "on-primary-fixed": "#00174b",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-error-container": "#93000a",
+                        "on-surface": "#191c1e",
+                        "tertiary": "#2c4bb9",
+                        "tertiary-container": "#4865d4",
+                        "on-tertiary-fixed": "#001453",
+                        "background": "#f7f9fb",
+                        "tertiary-fixed": "#dde1ff",
+                        "surface-container": "#eceef0",
+                        "on-primary": "#ffffff",
+                        "on-background": "#191c1e",
+                        "surface-bright": "#f7f9fb",
+                        "primary-fixed": "#dbe1ff",
+                        "secondary": "#516070",
+                        "on-tertiary-fixed-variant": "#173bab",
+                        "on-secondary-fixed": "#0e1d2b",
+                        "primary": "#004ac6",
+                        "secondary-fixed-dim": "#b9c8db",
+                        "secondary-fixed": "#d5e4f8",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "on-secondary-container": "#576676",
+                        "error-container": "#ffdad6",
+                        "on-secondary": "#ffffff",
+                        "primary-container": "#2563eb",
+                        "on-surface-variant": "#434655",
+                        "outline-variant": "#c3c6d7",
+                        "surface-dim": "#d8dadc",
+                        "secondary-container": "#d5e4f8",
+                        "surface-container-high": "#e6e8ea",
+                        "surface": "#f7f9fb",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed-variant": "#3a4858",
+                        "surface-variant": "#e0e3e5",
+                        "on-error": "#ffffff",
+                        "on-primary-container": "#eeefff",
+                        "surface-tint": "#0053db"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "gutter": "24px",
+                        "xl": "80px",
+                        "margin-desktop": "64px",
+                        "lg": "48px",
+                        "base": "8px",
+                        "sm": "12px",
+                        "xs": "4px",
+                        "md": "24px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "display": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-md": ["14px", { "lineHeight": "1.0", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "display": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "label-sm": ["12px", { "lineHeight": "1.0", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+  <script src="../nexus-shared.js"></script>
+</head>
+<body data-active-tab="Student Tracker" class="bg-background text-on-background font-body-md h-screen overflow-hidden flex">
+<!-- SideNavBar -->
+<nav class="hidden md:flex flex-col h-full py-md gap-base docked left-0 w-64 bg-surface-container-low dark:bg-surface-container-lowest flex-shrink-0 relative z-20">
+<div class="px-md mb-lg">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-lg object-cover" data-alt="A clean, modern geometric logo representing academic excellence and industry connection, featuring interlocking circles in primary blue and dark navy on a pure white background. The style is flat, illustrative, and minimal." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBf3Tda920m0CVtUP7W4qarMbEEYroUpVoCoFn7fvyQc4032TfDAp-NVfPa4ExD3V63fnTJ2KtQ9z2yhgnAoNUnApKj80HKAMiDDa1-9aLkCqOwYHv_0Kt8K3nLDVlFxTIvfXSWhKe6NbdDoiMNeHq-6EHhxjghzQUwcGfb97i9iedgVXtCpK31JiI1wuEfVgdXZOJBE9MFCFtAvdOfVC1B_4o5m_LjPis6_5F8bE6J9mFnZ9id26Nl"/>
+<div>
+<h1 class="font-headline-md text-headline-md text-primary dark:text-inverse-primary truncate">Faculty Portal</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant truncate">Academician Access</p>
+</div>
+</div>
+</div>
+<div class="flex-1 px-md space-y-2 overflow-y-auto">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-highest dark:hover:bg-inverse-surface transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Overview</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-primary dark:text-inverse-primary font-bold border-r-4 border-primary dark:border-inverse-primary bg-primary-fixed dark:bg-primary-fixed-dim translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="group" data-weight="fill" style="font-variation-settings: 'FILL' 1;">group</span>
+<span class="font-label-md text-label-md">Student Roster</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-highest dark:hover:bg-inverse-surface transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="trending_up">trending_up</span>
+<span class="font-label-md text-label-md">Skill Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-highest dark:hover:bg-inverse-surface transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="business_center">business_center</span>
+<span class="font-label-md text-label-md">Internships</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-highest dark:hover:bg-inverse-surface transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</div>
+<div class="px-md mt-auto space-y-4">
+<button class="w-full bg-primary-container text-on-primary py-2 px-4 rounded-lg font-label-md text-label-md hover:bg-primary transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">add</span>
+                Post Research
+            </button>
+<div class="pt-4 border-t border-outline-variant dark:border-outline space-y-2">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-highest dark:hover:bg-inverse-surface transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="font-label-md text-label-md">Help Center</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-highest dark:hover:bg-inverse-surface transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-label-md text-label-md">Logout</span>
+</a>
+</div>
+</div>
+</nav>
+<!-- Main Content Area -->
+<div class="flex-1 flex flex-col h-screen overflow-hidden">
+<!-- TopNavBar (Mobile Only based on layout logic, but keeping for TopNavBar component requirements) -->
+<header class="flex justify-between items-center w-full px-margin-desktop max-w-[1280px] mx-auto h-16 bg-surface dark:bg-inverse-surface docked full-width top-0 border-b border-outline-variant dark:border-outline md:hidden z-30">
+<div class="flex items-center gap-4">
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-inverse-primary">Nexus Academic</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors focus:ring-2 focus:ring-primary-container rounded-full p-1">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors focus:ring-2 focus:ring-primary-container rounded-full p-1">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+<img class="w-8 h-8 rounded-full object-cover border border-outline-variant" data-alt="Professional headshot of a faculty member in modern academic attire, well-lit, natural expression, solid light background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBG4-EqSjBPkMiPSaiE6SXP1088MYX6fsCUk9fMsmm_oXBf9ebIJ0CPlhM4xIGz0PZpUPIBvv5vIPG-TfhAjXVFoQm1Q-LCUhBgaoVjSGqvNJ7K8jVMTb__8tbh8Arnwna_aX11jTB9HDgQqzapEJaQmjlvJpD59vK1ovkxAw3wZrRmQ6unH_cxXVMGNdBsXOL-Q4x8MVdTXgN76tspgYA5f8Ue62gjWbscZV4AXBPie2omjLQ2709b"/>
+</div>
+</header>
+<!-- Main Workspace -->
+<main class="flex-1 overflow-y-auto bg-surface-container-lowest p-margin-mobile md:p-margin-desktop">
+<div class="max-w-[1280px] mx-auto">
+<!-- Header -->
+<div class="mb-lg">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-2">Student Progress Monitoring</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl">Track and manage your assigned students' academic and career readiness.</p>
+</div>
+<!-- Controls -->
+<div class="flex flex-col sm:flex-row gap-4 mb-md">
+<div class="relative flex-1 max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-low border border-surface-variant rounded-lg font-body-md focus:outline-none focus:border-primary-container focus:ring-2 focus:ring-secondary-container transition-all" placeholder="Search students by name or ID..." type="text"/>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md text-on-surface-variant whitespace-nowrap">Sort by:</span>
+<select class="bg-surface-container-low border border-surface-variant rounded-lg px-4 py-2 font-body-md focus:outline-none focus:border-primary-container focus:ring-2 focus:ring-secondary-container transition-all">
+<option>Name (A-Z)</option>
+<option>Skill Score (High-Low)</option>
+<option>Placement Status</option>
+</select>
+</div>
+</div>
+<!-- Table -->
+<div class="bg-surface-container-lowest border border-secondary-fixed rounded-xl shadow-[0_4px_20px_-4px_rgba(37,99,235,0.05)] overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-surface-variant bg-surface-bright">
+<th class="py-4 px-6 font-label-md text-label-md text-on-surface-variant">Student</th>
+<th class="py-4 px-6 font-label-md text-label-md text-on-surface-variant">Skill Index</th>
+<th class="py-4 px-6 font-label-md text-label-md text-on-surface-variant">Internship Status</th>
+<th class="py-4 px-6 font-label-md text-label-md text-on-surface-variant">Placement Status</th>
+<th class="py-4 px-6 font-label-md text-label-md text-on-surface-variant text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-variant" id="students-table-body">
+    <tr><td colspan="5" class="py-4 px-6 text-center text-on-surface-variant">Loading roster...</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</main>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+    const user = getLoggedUser();
+    if (!user || user.role !== 'ACADEMICIAN') {
+        alert('Please log in as an Academician first.');
+        window.location.href = '../login_sign_up_nexus_academic/code.html';
+        return;
+    }
+
+    const tbody = document.getElementById('students-table-body');
+    const searchInput = document.querySelector('input[placeholder="Search students by name or ID..."]');
+    const sortSelect = document.querySelector('main select');
+
+    let students = [];
+
+    async function loadRoster() {
+        tbody.innerHTML = '<tr><td colspan="5" class="py-4 px-6 text-center text-on-surface-variant">Loading roster...</td></tr>';
+        try {
+            const res = await nexusFetch('/academicians/student-progress');
+            students = await res.json();
+            if (!res.ok) throw new Error(students.message || 'Failed to load roster');
+            renderRoster();
+        } catch (e) {
+            console.error(e);
+            tbody.innerHTML = `<tr><td colspan="5" class="py-4 px-6 text-center text-error">Failed to load student roster: ${e.message}</td></tr>`;
+        }
+    }
+
+    function renderRoster() {
+        tbody.innerHTML = '';
+        
+        const searchVal = searchInput.value.toLowerCase();
+        let filtered = students.filter(s => {
+            if (searchVal) {
+                return s.name.toLowerCase().includes(searchVal) || (s.department || '').toLowerCase().includes(searchVal);
+            }
+            return true;
+        });
+
+        // Apply Sorting
+        const sortVal = sortSelect.value;
+        if (sortVal === 'Name (A-Z)') {
+            filtered.sort((a, b) => a.name.localeCompare(b.name));
+        } else if (sortVal === 'Skill Score (High-Low)') {
+            filtered.sort((a, b) => b.skillScore - a.skillScore);
+        } else if (sortVal === 'Placement Status') {
+            filtered.sort((a, b) => a.placementStatus.localeCompare(b.placementStatus));
+        }
+
+        if (filtered.length === 0) {
+            tbody.innerHTML = '<tr><td colspan="5" class="py-4 px-6 text-center text-on-surface-variant">No students found.</td></tr>';
+            return;
+        }
+
+        filtered.forEach(s => {
+            const initials = s.name.split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase();
+            
+            const internStatusClass = s.internshipStatus === 'SELECTED'
+                ? 'bg-emerald-100 text-emerald-800'
+                : s.internshipStatus === 'REJECTED'
+                ? 'bg-red-100 text-red-800'
+                : s.internshipStatus === 'SHORTLISTED'
+                ? 'bg-blue-100 text-blue-800'
+                : 'bg-surface-container-high text-on-surface-variant';
+                
+            const placementStatusClass = s.placementStatus === 'Placed'
+                ? 'bg-[#EFF6FF] text-primary'
+                : 'bg-amber-100 text-amber-800';
+
+            tbody.innerHTML += `
+                <tr class="hover:bg-surface-container-low transition-colors group">
+                    <td class="py-4 px-6">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-bold">
+                                ${initials}
+                            </div>
+                            <div>
+                                <div class="font-label-md text-label-md text-on-surface">${s.name}</div>
+                                <div class="font-label-sm text-label-sm text-on-surface-variant">${s.department} (${s.year || '2026'})</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="py-4 px-6">
+                        <div class="flex items-center gap-2">
+                            <div class="w-full bg-surface-variant rounded-full h-2 max-w-[120px]">
+                                <div class="bg-primary-container h-2 rounded-full" style="width: ${s.skillScore}%"></div>
+                            </div>
+                            <span class="font-label-sm text-label-sm text-on-surface-variant">${s.skillScore}</span>
+                        </div>
+                    </td>
+                    <td class="py-4 px-6">
+                        <span class="inline-flex items-center px-2 py-1 rounded font-label-sm text-label-sm ${internStatusClass}">${s.internshipStatus}</span>
+                    </td>
+                    <td class="py-4 px-6">
+                        <span class="inline-flex items-center px-2 py-1 rounded font-label-sm text-label-sm ${placementStatusClass}">${s.placementStatus}</span>
+                    </td>
+                    <td class="py-4 px-6 text-right">
+                        <button onclick="window.location.href='../digital_portfolio_nexus_academic/code.html?studentId=${s.id}'" class="text-primary hover:text-primary-fixed-dim transition-colors font-label-md text-label-md">View Details</button>
+                    </td>
+                </tr>
+            `;
+        });
+    }
+
+    searchInput.addEventListener('input', renderRoster);
+    sortSelect.addEventListener('change', renderRoster);
+
+    loadRoster();
+});
+</script>
+</body></html>

@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nexus Academic - Messaging</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#dde1ff",
+                        "on-primary-fixed": "#00174b",
+                        "on-error": "#ffffff",
+                        "surface-variant": "#e0e3e5",
+                        "secondary-fixed": "#d5e4f8",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "outline": "#737686",
+                        "on-background": "#191c1e",
+                        "on-secondary-container": "#576676",
+                        "on-primary-container": "#eeefff",
+                        "on-tertiary-fixed-variant": "#173bab",
+                        "on-secondary-fixed": "#0e1d2b",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#d8dadc",
+                        "error-container": "#ffdad6",
+                        "inverse-surface": "#2d3133",
+                        "tertiary-container": "#4865d4",
+                        "outline-variant": "#c3c6d7",
+                        "surface-container": "#eceef0",
+                        "primary-fixed": "#dbe1ff",
+                        "tertiary-fixed-dim": "#b8c4ff",
+                        "on-tertiary-fixed": "#001453",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-high": "#e6e8ea",
+                        "background": "#f7f9fb",
+                        "inverse-primary": "#b4c5ff",
+                        "surface-tint": "#0053db",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-low": "#f2f4f6",
+                        "primary-container": "#2563eb",
+                        "on-primary": "#ffffff",
+                        "tertiary": "#2c4bb9",
+                        "secondary-fixed-dim": "#b9c8db",
+                        "on-error-container": "#93000a",
+                        "on-surface-variant": "#434655",
+                        "primary": "#004ac6",
+                        "error": "#ba1a1a",
+                        "secondary-container": "#d5e4f8",
+                        "on-secondary-fixed-variant": "#3a4858",
+                        "surface": "#f7f9fb",
+                        "surface-bright": "#f7f9fb",
+                        "on-surface": "#191c1e",
+                        "secondary": "#516070",
+                        "on-tertiary-container": "#eff0ff",
+                        "inverse-on-surface": "#eff1f3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xl": "80px",
+                        "margin-desktop": "64px",
+                        "sm": "12px",
+                        "md": "24px",
+                        "base": "8px",
+                        "xs": "4px",
+                        "lg": "48px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "display": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["24px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "1.0", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "1.0", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "display": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined[data-weight="fill"] {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Custom Scrollbar for Chat */
+        .chat-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+        .chat-scroll::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .chat-scroll::-webkit-scrollbar-thumb {
+            background-color: #c3c6d7; /* outline-variant */
+            border-radius: 20px;
+        }
+    </style>
+  <script src="../nexus-shared.js"></script>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md text-body-md">
+<!-- TopNavBar Shared Component -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center h-16 px-margin-desktop max-w-[1280px] mx-auto bg-surface-container-lowest dark:bg-inverse-surface border-b border-outline-variant dark:border-outline">
+<div class="text-headline-md font-headline-md font-extrabold text-primary dark:text-inverse-primary">
+            CollabPortal
+        </div>
+<nav class="hidden md:flex gap-md items-center">
+<a class="text-on-surface-variant dark:text-surface-variant font-label-md text-label-md hover:text-primary dark:hover:text-inverse-primary transition-colors" href="#">Find Projects</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-md text-label-md hover:text-primary dark:hover:text-inverse-primary transition-colors" href="#">For Industry</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-md text-label-md hover:text-primary dark:hover:text-inverse-primary transition-colors" href="#">For Academia</a>
+</nav>
+<div class="flex items-center gap-sm">
+<button class="font-label-md text-label-md text-primary bg-secondary-fixed hover:bg-secondary-fixed-dim transition-colors px-4 py-2 rounded-lg">Login</button>
+<button class="font-label-md text-label-md text-on-primary bg-primary-container hover:bg-primary transition-colors px-4 py-2 rounded-lg shadow-sm">Join</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-[100px] pb-xl px-margin-desktop max-w-[1280px] w-full mx-auto">
+<div class="flex items-center gap-sm mb-md">
+<h1 class="font-headline-lg text-headline-lg text-on-surface">Messages</h1>
+<span class="bg-secondary-container text-on-secondary-container font-label-sm text-label-sm px-2 py-1 rounded-full">3 New</span>
+</div>
+<!-- Messaging Two-Panel Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter h-[700px]">
+<!-- Left Panel: Contacts -->
+<div class="md:col-span-4 lg:col-span-3 bg-surface-container-lowest border border-outline-variant rounded-xl flex flex-col overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.02)]">
+<!-- Search Bar -->
+<div class="p-sm border-b border-outline-variant">
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-on-surface-variant">search</span>
+<input id="search-threads" class="w-full bg-surface-container border-none rounded-lg py-2 pl-10 pr-4 font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant focus:ring-2 focus:ring-primary-container outline-none transition-all" placeholder="Search conversations..." type="text"/>
+</div>
+</div>
+<!-- Contact List -->
+<div class="flex-1 overflow-y-auto chat-scroll p-xs" id="contacts-list">
+    <p class="text-body-md text-on-surface-variant text-center py-8">Loading conversations...</p>
+</div>
+</div>
+<!-- Right Panel: Active Chat -->
+<div class="md:col-span-8 lg:col-span-9 bg-surface-container-lowest border border-outline-variant rounded-xl flex flex-col shadow-[0_4px_20px_rgba(0,0,0,0.02)] relative overflow-hidden">
+<!-- Chat Header -->
+<div class="p-md border-b border-outline-variant flex justify-between items-center bg-surface-container-lowest z-10" id="chat-header">
+    <p class="text-body-md text-on-surface-variant">Select a conversation to start messaging</p>
+</div>
+<!-- Message Area -->
+<div class="flex-1 overflow-y-auto chat-scroll p-md flex flex-col gap-sm bg-surface" id="messages-container">
+    <div class="flex flex-col items-center justify-center h-full text-on-surface-variant">
+        <span class="material-symbols-outlined text-[48px] mb-2 text-outline">chat_bubble</span>
+        <p class="font-body-lg text-body-lg">Your Inbox</p>
+    </div>
+</div>
+<!-- Input Area -->
+<div class="p-sm bg-surface-container-lowest border-t border-outline-variant z-10 hidden" id="chat-input-bar">
+<div class="flex items-center gap-sm bg-surface-container border border-outline-variant rounded-full pr-2 pl-4 py-2 focus-within:ring-2 focus-within:ring-primary-container focus-within:border-transparent transition-all">
+<input id="message-input" class="flex-1 bg-transparent border-none outline-none font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant focus:ring-0 px-2 py-1" placeholder="Type a message..." type="text"/>
+<button id="send-btn" class="bg-primary-container text-on-primary w-10 h-10 rounded-full flex items-center justify-center hover:bg-primary transition-colors shadow-sm flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]">send</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer Shared Component -->
+<footer class="w-full py-lg px-margin-desktop flex flex-col md:flex-row justify-between items-start gap-gutter max-w-[1280px] mx-auto bg-surface-container-low dark:bg-inverse-surface border-t border-outline-variant dark:border-outline mt-auto">
+<div class="flex flex-col gap-sm">
+<div class="text-headline-md font-headline-md font-extrabold text-primary dark:text-inverse-primary">
+                Nexus Academic
+            </div>
+<p class="text-body-md font-body-md text-on-surface-variant">© 2024 Nexus Academic Platform. All rights reserved.</p>
+</div>
+<div class="flex flex-wrap gap-x-md gap-y-sm max-w-md">
+<a class="text-label-sm font-label-sm text-on-secondary-container dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors" href="../student_dashboard_nexus_academic/code.html">Dashboard</a>
+<a class="text-label-sm font-label-sm text-on-secondary-container dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors" href="#">Contact Support</a>
+<a class="text-label-sm font-label-sm text-on-secondary-container dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors" href="#">Privacy Policy</a>
+<a class="text-label-sm font-label-sm text-on-secondary-container dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors" href="#">Terms of Service</a>
+</div>
+</footer>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+    const user = getLoggedUser();
+    if (!user) {
+        alert('Please log in first.');
+        window.location.href = '../login_sign_up_nexus_academic/code.html';
+        return;
+    }
+
+    const contactsList = document.getElementById('contacts-list');
+    const chatHeader = document.getElementById('chat-header');
+    const messagesContainer = document.getElementById('messages-container');
+    const chatInputBar = document.getElementById('chat-input-bar');
+    const messageInput = document.getElementById('message-input');
+    const sendBtn = document.getElementById('send-btn');
+    const searchInput = document.getElementById('search-threads');
+
+    let conversations = [];
+    let activeConvId = null;
+    let recipientInfo = null;
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const startRecipientId = urlParams.get('startRecipientId');
+
+    function getOtherParticipant(conv) {
+        const p = conv.participants.find(part => part.userId !== user.sub);
+        if (!p) return { name: 'System User', avatar: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBXmu7h_GSbX7JR8f4vbbNL9Ar0PrgU4W5-AihvJioNGmOvra0qWOq2v_C59Jm-LyGhKKcE8V6_IW5iGNj1ln6OguOOmnL9ld9wua3nFmzuOknTomrYGqSGzliaP3fFt_EUJP2y1jWwKfaQ58TAf3Rkd-sWIWnh7TF6yqfCa7vHNbZ-fmvt6ZIjtXpHz1yALTPV2HQBBhPSXJ2YdStqWzuXfthcLvF5bxrVnzbN8ScGsyGZqzdHRefc', role: 'Nexus User' };
+        const u = p.user;
+        if (u.role === 'STUDENT' && u.studentProfile) {
+            return {
+                id: u.id,
+                name: `${u.studentProfile.firstName} ${u.studentProfile.lastName}`,
+                avatar: u.studentProfile.avatarUrl || 'https://lh3.googleusercontent.com/aida-public/AB6AXuCr_XUyXZw_FtaTIJ9eIG3FxClhoe_dFa4qNvySLeyUfEpdbPePmjdnPU9QXlSMk2ZTHeRX23ZGOeMd2Z2060R_oQjksK2dhgQWu5GFiGZrIkKW_o_etZYZ7yi9UYedUt-0HRgulw9kJYLe1_yI7um1UIc9mApP4xNwalC2p_RKZE4NhTCpvwAEJ1DUUSgt6uodmHNfu5W8oYl6kNyFb6puEhmP8HMRIylS1S10u22IykuPNNemN7nV',
+                role: 'Student'
+            };
+        } else if (u.role === 'INDUSTRY' && u.industryProfile) {
+            return {
+                id: u.id,
+                name: u.industryProfile.companyName,
+                avatar: u.industryProfile.logoUrl || 'https://lh3.googleusercontent.com/aida-public/AB6AXuCewXz6oo0l0LM75DQgXagdUppE_SJ8fIwAc6bAVkvriQfYMPWARV_HrRledhwJR2C3KkUxPnuVXHApTPnEbBL4vsGGHuLiR7DCsLga1Pu6vsCes2d63BW0wGb9cCxYESnIa8-ifS79rMwOvXTegk6JXQwlh7jf5icyRTXLtymTfJ1H4besCGe3BeoCTk3pDqwwSun0dxBQlb2wjFWaaeEluMR9OyWUW2wcPhwxODij8yiFgeS_xtJJ',
+                role: 'Hiring Partner'
+            };
+        }
+        return { id: u.id, name: u.email, avatar: '', role: u.role };
+    }
+
+    async function loadInbox() {
+        try {
+            const res = await nexusFetch('/messages/conversations');
+            conversations = await res.json();
+            if (!res.ok) throw new Error(conversations.message || 'Failed to load conversations');
+
+            renderInbox();
+
+            if (startRecipientId) {
+                // Check if conversation already exists
+                const existing = conversations.find(c => c.participants.some(p => p.userId === startRecipientId));
+                if (existing) {
+                    selectConversation(existing.id);
+                } else {
+                    // Start new conversation
+                    const startRes = await nexusFetch('/messages/start', {
+                        method: 'POST',
+                        body: JSON.stringify({ recipientId: startRecipientId })
+                    });
+                    const newConv = await startRes.json();
+                    if (startRes.ok && newConv) {
+                        activeConvId = newConv.id;
+                        await loadInbox();
+                        selectConversation(newConv.id);
+                    }
+                }
+            }
+        } catch (e) {
+            console.error(e);
+            contactsList.innerHTML = '<p class="text-body-md text-error text-center py-8">Failed to load contacts list.</p>';
+        }
+    }
+
+    function renderInbox() {
+        contactsList.innerHTML = '';
+        const searchVal = searchInput.value.toLowerCase();
+
+        const filtered = conversations.filter(c => {
+            const recipient = getOtherParticipant(c);
+            return recipient.name.toLowerCase().includes(searchVal);
+        });
+
+        if (filtered.length === 0) {
+            contactsList.innerHTML = '<p class="text-body-md text-on-surface-variant text-center py-8">No chats found.</p>';
+            return;
+        }
+
+        filtered.forEach(c => {
+            const recipient = getOtherParticipant(c);
+            const activeClass = c.id === activeConvId ? 'bg-primary-fixed' : 'hover:bg-surface-container-high';
+            const lastMsg = c.messages && c.messages[0] ? c.messages[0].content : 'No messages yet';
+            const lastMsgTime = c.messages && c.messages[0] ? new Date(c.messages[0].sentAt).toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' }) : '';
+
+            contactsList.innerHTML += `
+                <div onclick="selectConversation('${c.id}')" class="flex items-center gap-sm p-sm rounded-lg ${activeClass} cursor-pointer transition-colors mb-xs">
+                    <img src="${recipient.avatar}" class="w-12 h-12 rounded-full object-cover border border-outline-variant flex-shrink-0" />
+                    <div class="flex-1 min-w-0">
+                        <div class="flex justify-between items-center mb-1">
+                            <h3 class="font-label-md text-label-md text-on-surface truncate">${recipient.name}</h3>
+                            <span class="font-label-sm text-label-sm text-on-surface-variant">${lastMsgTime}</span>
+                        </div>
+                        <p class="font-body-md text-label-sm text-on-surface-variant truncate">${lastMsg}</p>
+                    </div>
+                </div>
+            `;
+        });
+    }
+
+    window.selectConversation = async (id) => {
+        activeConvId = id;
+        renderInbox();
+
+        const activeConv = conversations.find(c => c.id === id);
+        if (!activeConv) return;
+
+        recipientInfo = getOtherParticipant(activeConv);
+
+        // Render Active Chat Header
+        chatHeader.innerHTML = `
+            <div class="flex items-center gap-sm">
+                <img src="${recipientInfo.avatar}" class="w-10 h-10 rounded-full object-cover border border-outline-variant" />
+                <div>
+                    <h2 class="font-headline-md text-[18px] font-semibold text-on-surface leading-tight">${recipientInfo.name}</h2>
+                    <span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+                        <span class="w-2 h-2 rounded-full bg-[#10b981]"></span> ${recipientInfo.role}
+                    </span>
+                </div>
+            </div>
+        `;
+
+        chatInputBar.classList.remove('hidden');
+        messagesContainer.innerHTML = '<p class="text-body-md text-on-surface-variant text-center py-8">Loading message history...</p>';
+
+        try {
+            const res = await nexusFetch(`/messages/conversations/${id}`);
+            const messages = await res.json();
+            if (!res.ok) throw new Error(messages.message || 'Failed to load messages');
+
+            messagesContainer.innerHTML = '';
+            if (messages.length === 0) {
+                messagesContainer.innerHTML = '<p class="text-body-md text-on-surface-variant text-center py-8">No messages. Say hello!</p>';
+            } else {
+                messages.forEach(msg => {
+                    const isSelf = msg.senderId === user.sub;
+                    const containerClass = isSelf ? 'self-end' : 'self-start';
+                    const bgClass = isSelf ? 'bg-primary-container text-on-primary' : 'bg-surface-container-high border border-outline-variant text-on-surface';
+                    const timeLabel = new Date(msg.sentAt).toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' });
+
+                    messagesContainer.innerHTML += `
+                        <div class="flex gap-sm max-w-[80%] ${containerClass}">
+                            <div class="${bgClass} px-4 py-3 rounded-2xl shadow-sm">
+                                <p class="font-body-md text-body-md">${msg.content}</p>
+                                <span class="block text-[10px] opacity-70 mt-1 text-right">${timeLabel}</span>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        } catch (e) {
+            console.error(e);
+            messagesContainer.innerHTML = '<p class="text-body-md text-error text-center py-8">Error loading messages.</p>';
+        }
+    };
+
+    async function sendTextMessage() {
+        const text = messageInput.value.trim();
+        if (!text || !activeConvId) return;
+
+        try {
+            const res = await nexusFetch(`/messages/conversations/${activeConvId}`, {
+                method: 'POST',
+                body: JSON.stringify({ content: text })
+            });
+            const data = await res.json();
+            if (!res.ok) throw new Error(data.message || 'Failed to send message');
+
+            messageInput.value = '';
+            // Reload inbox to update last message preview and scroll chat
+            await loadInbox();
+            selectConversation(activeConvId);
+        } catch (e) {
+            alert(e.message);
+        }
+    }
+
+    sendBtn.addEventListener('click', sendTextMessage);
+    messageInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            sendTextMessage();
+        }
+    });
+
+    searchInput.addEventListener('input', renderInbox);
+
+    loadInbox();
+});
+</script>
+</body></html>>

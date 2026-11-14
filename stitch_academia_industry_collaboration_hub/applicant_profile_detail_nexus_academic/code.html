@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Applicant Profile Detail - CollabPortal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-container": "#2563eb",
+                        "primary": "#004ac6",
+                        "surface-container-highest": "#e0e3e5",
+                        "surface-bright": "#f7f9fb",
+                        "on-primary-container": "#eeefff",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "primary-fixed": "#dbe1ff",
+                        "on-surface-variant": "#434655",
+                        "surface-container": "#eceef0",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-background": "#191c1e",
+                        "on-secondary-container": "#576676",
+                        "tertiary": "#2c4bb9",
+                        "on-error-container": "#93000a",
+                        "inverse-surface": "#2d3133",
+                        "surface-variant": "#e0e3e5",
+                        "on-secondary": "#ffffff",
+                        "on-surface": "#191c1e",
+                        "on-tertiary-fixed-variant": "#173bab",
+                        "surface-container-high": "#e6e8ea",
+                        "on-secondary-fixed-variant": "#3a4858",
+                        "error-container": "#ffdad6",
+                        "tertiary-container": "#4865d4",
+                        "secondary": "#516070",
+                        "secondary-fixed": "#d5e4f8",
+                        "surface-container-low": "#f2f4f6",
+                        "on-primary-fixed": "#00174b",
+                        "tertiary-fixed": "#dde1ff",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-container": "#eff0ff",
+                        "surface": "#f7f9fb",
+                        "background": "#f7f9fb",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#b4c5ff",
+                        "secondary-container": "#d5e4f8",
+                        "outline-variant": "#c3c6d7",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "secondary-fixed-dim": "#b9c8db",
+                        "outline": "#737686",
+                        "surface-tint": "#0053db",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed": "#0e1d2b",
+                        "on-tertiary-fixed": "#001453",
+                        "surface-dim": "#d8dadc",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed-dim": "#b8c4ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "margin-desktop": "64px",
+                        "xl": "80px",
+                        "sm": "12px",
+                        "gutter": "24px",
+                        "base": "8px",
+                        "lg": "48px",
+                        "md": "24px",
+                        "xs": "4px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "display": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "display": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "label-sm": ["12px", { "lineHeight": "1.0", "fontWeight": "500" }],
+                        "label-md": ["14px", { "lineHeight": "1.0", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }]
+                    },
+                    "boxShadow": {
+                        "card": "0 10px 20px -5px rgba(37, 99, 235, 0.05), 0 0 0 1px #DBEAFE",
+                        "overlay": "0 20px 25px -5px rgba(37, 99, 235, 0.1), 0 10px 10px -5px rgba(37, 99, 235, 0.04)"
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+  <script src="../nexus-shared.js"></script>
+</head>
+<body class="bg-surface-bright flex h-full overflow-hidden">
+<!-- SideNavBar -->
+<aside class="hidden md:flex flex-col h-full w-64 bg-surface-container-low dark:bg-inverse-surface p-md gap-base border-r border-outline-variant shrink-0">
+<div class="mb-md">
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed">Recruiter Portal</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Academia-Industry Bridge</p>
+</div>
+<nav class="flex flex-col gap-sm flex-1">
+<a class="flex items-center gap-3 p-3 rounded-lg text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-highest dark:hover:bg-on-surface-variant transition-colors font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary transition-transform scale-95 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span>Talent Pool</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-highest dark:hover:bg-on-surface-variant transition-colors font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span>Interviews</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-highest dark:hover:bg-on-surface-variant transition-colors font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="mail">mail</span>
+<span>Messages</span>
+</a>
+</nav>
+<div class="mt-auto border-t border-outline-variant pt-md">
+<a class="flex items-center gap-3 p-3 rounded-lg text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-highest dark:hover:bg-on-surface-variant transition-colors font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+<div class="flex items-center gap-3 mt-4">
+<img alt="Recruiter Profile" class="w-10 h-10 rounded-full object-cover" data-alt="A small, professional headshot portrait of a recruiter wearing modern business casual attire against a clean, light blue background. High-key lighting, scholarly yet agile aesthetic. Shallow depth of field." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfxBl8mAmMezUyNSnrMkV5j8e-ImVrV1oTeczwFHaoJm_2YokqQk1i6m9b78vrlHH2ug1oYwOex3iEP_5dLwkYoVQm5qgQcgHGstkBHR_nE5Dol8oN-DoGLe-IUmOpzkp8tsHBIxQrdih1RcoB98ztNG1Mh5PWgXZLa2t4piiZY1Vk9ULfcnrvXyNrc80fVjCs1PqPQ5C2xDN3oxL1nsF7vMFaqOngCKhTbBAZKifzX9vCqxK0HO1O"/>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Alex HR</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Nexus Academic</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Wrapper -->
+<main class="flex-1 flex flex-col h-full overflow-hidden">
+<!-- TopNavBar -->
+<header class="bg-surface-container-lowest dark:bg-on-background border-b border-outline-variant dark:border-on-surface-variant w-full shrink-0">
+<div class="flex justify-between items-center px-margin-desktop w-full max-w-[1280px] mx-auto h-16">
+<!-- Mobile Menu Button & Brand -->
+<div class="flex items-center gap-4">
+<button class="md:hidden text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed md:hidden">
+                        CollabPortal
+                    </div>
+</div>
+<!-- Search (Left aligned as per JSON, but leaving space for nav) -->
+<div class="flex-1 flex items-center justify-start ml-4 md:ml-0 max-w-md">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="w-full bg-surface-container-low border border-outline-variant rounded-full py-2 pl-10 pr-4 text-body-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" placeholder="Search candidates..." type="text"/>
+</div>
+</div>
+<!-- Desktop Navigation Links -->
+<nav class="hidden md:flex items-center gap-6 mx-6">
+<a class="font-label-md text-label-md text-primary dark:text-primary-fixed border-b-2 border-primary dark:border-primary-fixed pb-1 opacity-80 transition-opacity" href="#">Candidates</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-outline hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Projects</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-outline hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Partnerships</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-outline hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Insights</a>
+</nav>
+<!-- Trailing Actions -->
+<div class="flex items-center gap-3">
+<button class="hidden md:block px-4 py-2 bg-[#DBEAFE] text-primary rounded-lg font-label-md text-label-md hover:bg-[#BFDBFE] transition-colors">Shortlist</button>
+<button class="px-4 py-2 bg-primary-container text-white rounded-lg font-label-md text-label-md hover:bg-primary transition-colors">Schedule Interview</button>
+</div>
+</div>
+</header>
+<!-- Scrollable Content Canvas -->
+<div class="flex-1 overflow-y-auto p-margin-mobile md:p-margin-desktop">
+<div class="max-w-[1280px] mx-auto space-y-md">
+<!-- Back Link -->
+<a class="inline-flex items-center gap-2 text-primary font-label-sm text-label-sm hover:underline" href="#">
+<span class="material-symbols-outlined text-[16px]" data-icon="arrow_back">arrow_back</span>
+                    Back to Talent Pool
+                </a>
+<!-- Profile Header Section -->
+<section class="bg-surface-container-lowest rounded-xl shadow-card p-lg relative overflow-hidden flex flex-col md:flex-row gap-lg items-start">
+<!-- Decorative Background element -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-[#DBEAFE] rounded-full blur-3xl opacity-50 -translate-y-1/2 translate-x-1/4"></div>
+<!-- Photo -->
+<div class="relative shrink-0 z-10">
+<img class="w-32 h-32 md:w-48 md:h-48 rounded-full border-4 border-white shadow-lg object-cover" data-alt="A highly professional, high-resolution portrait photograph of a female academic researcher (Dr. Elena Rostova). She looks confident, intelligent, and approachable. Shot in a well-lit, modern university lab environment with subtle out-of-focus background details. Modern corporate minimalism style, soft high-key lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAq0Dvo627Q84OKRsVODz5XNR9iIYqy1WhyzgGyrYS8k17qaNs_vwzU9L-yHpmjAMgExRTHR-sDP9m7WtR58we7s5p8wObuEQBSIoHfRc7iGWAg6jN_BbOAdGWdAGUT75CBPG-BSS3MaoYpPANfRKyGqt4OBDsbD4BLy492oKKA03uKyYMJz203jCyZbzAY6cDaUEGppMtCm-66Mar-atwxxg2kqWhyRGP4udvHOvEFbD98RKS1aVcA"/>
+<!-- Match Score Badge -->
+<div class="absolute -bottom-2 -right-2 bg-primary-container text-white w-16 h-16 md:w-20 md:h-20 rounded-full flex flex-col items-center justify-center shadow-lg border-2 border-white">
+<span class="font-headline-md text-headline-md">98%</span>
+<span class="font-label-sm text-label-sm text-on-primary-container opacity-90 text-[10px] md:text-[12px]">Match</span>
+</div>
+</div>
+<!-- Info -->
+<div class="flex-1 z-10 pt-2">
+<div class="flex flex-col md:flex-row md:justify-between md:items-start gap-4">
+<div>
+<h2 class="font-display text-display text-on-surface">Dr. Elena Rostova</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]" data-icon="school">school</span>
+                                    PhD Candidate in AI, Stanford University
+                                </p>
+<div class="flex flex-wrap gap-2 mt-4">
+<span class="px-3 py-1 bg-surface-container text-on-surface-variant rounded text-label-sm font-label-sm">AI Research</span>
+<span class="px-3 py-1 bg-surface-container text-on-surface-variant rounded text-label-sm font-label-sm">Machine Learning</span>
+<span class="px-3 py-1 bg-surface-container text-on-surface-variant rounded text-label-sm font-label-sm">Available Summer 2024</span>
+</div>
+</div>
+<!-- Action Buttons (Mobile visible here, Desktop duplicates top nav intent but localized to profile) -->
+<div class="flex gap-3 md:hidden mt-4">
+<button class="px-4 py-2 bg-[#DBEAFE] text-primary rounded-lg font-label-md text-label-md flex-1 text-center">Shortlist</button>
+<button class="px-4 py-2 bg-primary-container text-white rounded-lg font-label-md text-label-md flex-1 text-center">Interview</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Tabbed Interface & Main Content -->
+<section class="mt-xl">
+<!-- Tabs -->
+<div class="border-b border-outline-variant flex overflow-x-auto no-scrollbar gap-8">
+<button class="font-label-md text-label-md text-primary dark:text-primary-fixed border-b-2 border-primary dark:border-primary-fixed pb-3 whitespace-nowrap">Skill Assessment</button>
+<button class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors pb-3 whitespace-nowrap">Portfolio</button>
+<button class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors pb-3 whitespace-nowrap">Resume Preview</button>
+<button class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors pb-3 whitespace-nowrap">Internship History</button>
+</div>
+<!-- Tab Content: Skill Assessment (Bento Grid Layout) -->
+<div class="mt-lg grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<!-- Radar Chart Area -->
+<div class="lg:col-span-2 bg-surface-container-lowest rounded-xl shadow-card p-lg flex flex-col items-center justify-center min-h-[400px]">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-6 w-full text-left">Technical Competency Profile</h3>
+<!-- Placeholder for Radar Chart - Using CSS shapes/borders for a mock spider web -->
+<div class="relative w-64 h-64 md:w-80 md:h-80 flex items-center justify-center my-8">
+<!-- Concentric Hexagons -->
+<div class="absolute inset-4 border border-[#DBEAFE] opacity-50 rounded-full"></div>
+<div class="absolute inset-12 border border-[#DBEAFE] opacity-70 rounded-full"></div>
+<div class="absolute inset-20 border border-[#DBEAFE] rounded-full"></div>
+<!-- Axes -->
+<div class="absolute w-full h-px bg-[#DBEAFE] rotate-0"></div>
+<div class="absolute w-full h-px bg-[#DBEAFE] rotate-45"></div>
+<div class="absolute w-full h-px bg-[#DBEAFE] rotate-90"></div>
+<div class="absolute w-full h-px bg-[#DBEAFE] -rotate-45"></div>
+<!-- Data Polygon (Simulated with clip-path or complex borders, here simplified to an irregular polygon shape) -->
+<div class="absolute w-[70%] h-[80%] bg-primary-container opacity-20 rounded-[40%_60%_70%_30%/40%_50%_60%_50%] border-2 border-primary"></div>
+<!-- Labels -->
+<span class="absolute -top-6 font-label-sm text-label-sm text-on-surface-variant font-semibold">Python</span>
+<span class="absolute -bottom-6 font-label-sm text-label-sm text-on-surface-variant font-semibold">Data Viz</span>
+<span class="absolute -right-12 font-label-sm text-label-sm text-on-surface-variant font-semibold">Deep Learning</span>
+<span class="absolute -left-8 font-label-sm text-label-sm text-on-surface-variant font-semibold">PyTorch</span>
+<span class="absolute top-8 -right-8 font-label-sm text-label-sm text-on-surface-variant font-semibold">NLP</span>
+</div>
+</div>
+<!-- Summary Sidebar -->
+<div class="flex flex-col gap-gutter">
+<!-- Readiness Score Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-card p-md border-t-4 border-t-primary-container">
+<h3 class="font-label-md text-label-md text-on-surface-variant mb-2">Industry Readiness Score</h3>
+<div class="flex items-end gap-2">
+<span class="font-display text-display text-on-surface">9.5</span>
+<span class="font-body-md text-body-md text-on-surface-variant mb-2">/10</span>
+</div>
+<div class="w-full bg-surface-container h-2 rounded-full mt-4 overflow-hidden">
+<div class="bg-primary-container h-full w-[95%]"></div>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-4">Top 5% of candidate pool in applied AI research.</p>
+</div>
+<!-- Key Strengths -->
+<div class="bg-surface-container-lowest rounded-xl shadow-card p-md flex-1">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4">Key Strengths</h3>
+<ul class="space-y-4">
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-primary-container mt-1" data-icon="check_circle">check_circle</span>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Advanced NLP Architecture</p>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mt-1">Published 3 papers on efficient transformer models.</p>
+</div>
+</li>
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-primary-container mt-1" data-icon="check_circle">check_circle</span>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Commercial Viability Focus</p>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mt-1">Previous internship successfully deployed model to prod.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+</body></html>

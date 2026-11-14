@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nexus Academic - Analytics</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed-dim": "#b8c4ff",
+                        "on-error": "#ffffff",
+                        "surface-container": "#eceef0",
+                        "on-primary-fixed": "#00174b",
+                        "outline-variant": "#c3c6d7",
+                        "inverse-surface": "#2d3133",
+                        "on-tertiary-fixed-variant": "#173bab",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed": "#0e1d2b",
+                        "surface-tint": "#0053db",
+                        "surface-variant": "#e0e3e5",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed-variant": "#3a4858",
+                        "on-primary-container": "#eeefff",
+                        "on-surface-variant": "#434655",
+                        "primary": "#004ac6",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-background": "#191c1e",
+                        "tertiary": "#2c4bb9",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-surface": "#191c1e",
+                        "on-secondary": "#ffffff",
+                        "outline": "#737686",
+                        "on-tertiary": "#ffffff",
+                        "secondary-container": "#d5e4f8",
+                        "tertiary-fixed": "#dde1ff",
+                        "on-tertiary-fixed": "#001453",
+                        "on-secondary-container": "#576676",
+                        "surface-dim": "#d8dadc",
+                        "background": "#f7f9fb",
+                        "primary-container": "#2563eb",
+                        "error-container": "#ffdad6",
+                        "primary-fixed": "#dbe1ff",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "surface": "#f7f9fb",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "inverse-primary": "#b4c5ff",
+                        "secondary-fixed": "#d5e4f8",
+                        "tertiary-container": "#4865d4",
+                        "surface-container-high": "#e6e8ea",
+                        "surface-bright": "#f7f9fb",
+                        "on-tertiary-container": "#eff0ff",
+                        "secondary": "#516070",
+                        "secondary-fixed-dim": "#b9c8db",
+                        "surface-container-low": "#f2f4f6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "gutter": "24px",
+                        "md": "24px",
+                        "base": "8px",
+                        "sm": "12px",
+                        "margin-mobile": "16px",
+                        "xl": "80px",
+                        "lg": "48px",
+                        "margin-desktop": "64px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "display": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "1.0", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "display": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "label-sm": ["12px", { "lineHeight": "1.0", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+        }
+        .bento-card {
+            background: #ffffff;
+            border-radius: 16px;
+            border: 1px solid #DBEAFE;
+            padding: 32px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            transition: border-color 0.2s ease-in-out;
+        }
+        .bento-card:hover {
+            border-color: #2563EB;
+        }
+    </style>
+  <script src="../nexus-shared.js"></script>
+</head>
+<body data-active-tab="Analytics & Reports" class="flex flex-col min-h-screen font-body-md text-body-md">
+<!-- TopNavBar -->
+<header class="bg-surface border-b border-outline-variant flat no shadows docked full-width top-0 w-full">
+<div class="flex justify-between items-center px-margin-desktop h-20 w-full max-w-[1280px] mx-auto">
+<div class="flex items-center gap-6">
+<span class="text-headline-md font-headline-md font-bold text-primary">Nexus Academic</span>
+<nav class="hidden md:flex gap-6">
+<a class="font-label-md text-label-md text-secondary hover:text-primary transition-colors duration-200 ease-in-out" href="#">Dashboard</a>
+<a class="font-label-md text-label-md text-secondary hover:text-primary transition-colors duration-200 ease-in-out" href="#">Research</a>
+<a class="font-label-md text-label-md text-secondary hover:text-primary transition-colors duration-200 ease-in-out" href="#">Partnerships</a>
+<a class="font-label-md text-label-md text-primary border-b-2 border-primary pb-1 transition-all duration-200 ease-in-out" href="#">Analytics</a>
+<a class="font-label-md text-label-md text-secondary hover:text-primary transition-colors duration-200 ease-in-out" href="#">Reports</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-secondary hover:text-primary transition-colors duration-200 ease-in-out">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-secondary hover:text-primary transition-colors duration-200 ease-in-out">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-surface-variant overflow-hidden border border-outline-variant">
+<img alt="Administrator Profile" class="object-cover w-full h-full" data-alt="A small, circular profile picture of an academic administrator in a light-filled office. The portrait is professional, well-lit, and conveys authority and approachability in a modern corporate setting. The colors are muted and natural, fitting an academic administrative portal." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6H0U7d8tjECisaRBZ7iNaei-Azn0w0S0FO1W6q5biTPHzG2XiF6xnMss-VbrRoAaJ3Es2yR3mNGCywHty_kxTFQNdiUZ2aVkZOj_QOkZW9SjFTufv6CraR2lbAc4jFgJTA07bTzUQWCjPOj0vV5fQ_OCxO8SjsuJH-b5X6-37OvigzRIfSTdMMolX_Nfm0Fl4q4laHRvy-_PEcB0q2U8pcYw7IxNl6gUkMEZKGCgxJCO11u2lVjtI"/>
+</div>
+</div>
+</div>
+</header>
+<div class="flex flex-1 overflow-hidden w-full max-w-[1280px] mx-auto">
+<!-- SideNavBar -->
+<nav class="hidden lg:flex flex-col h-screen sticky top-0 p-4 gap-4 bg-surface-container-low border-r border-outline-variant flat no shadows docked left-0 h-full w-64 shrink-0 overflow-y-auto">
+<div class="mb-6 flex flex-col items-start">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-10 h-10 rounded-full bg-primary-container overflow-hidden shrink-0">
+<img alt="Nexus Admin" class="object-cover w-full h-full" data-alt="A small avatar image representing an administrative portal. The image features an abstract geometric design in shades of blue and white, conveying a sense of order, structure, and data management in a professional, modern style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAt-InKF_H5oGb_W54l9PRKJfSYF-Y5BPjnskxPa7oez9ls5bIZtV4coqv7Yrh_15vrNODdhJhG-61WdyQdmVhRkjO8NDAkgNKr7AgZKs2ZH2Xe8v7QlLbeFXMcREKtjusiCdV2rddOtpd5aXG3d4twurzqjViOs50y65XwNiKlT_CdPr7aXxJ2DFyBCKFq32HpSJqfjZNKSPshqq6zRddBnlLnvK7RBSRyvIC_KkD550OEDzbslv1"/>
+</div>
+<div>
+<h2 class="font-label-md text-label-md text-primary font-bold">Nexus Analytics</h2>
+<p class="font-label-sm text-label-sm text-secondary">Admin Portal</p>
+</div>
+</div>
+</div>
+<a class="flex items-center gap-3 p-3 rounded-lg font-label-md text-label-md text-secondary hover:bg-surface-variant hover:bg-surface-container-highest transition-all" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span>Overview</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg font-label-md text-label-md text-primary font-bold bg-secondary-container Active: scale-[0.98] transition-transform" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">science</span>
+<span>Research Stats</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg font-label-md text-label-md text-secondary hover:bg-surface-variant hover:bg-surface-container-highest transition-all" href="#">
+<span class="material-symbols-outlined">business_center</span>
+<span>Industry Engagement</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg font-label-md text-label-md text-secondary hover:bg-surface-variant hover:bg-surface-container-highest transition-all" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span>Financials</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg font-label-md text-label-md text-secondary hover:bg-surface-variant hover:bg-surface-container-highest transition-all" href="#">
+<span class="material-symbols-outlined">description</span>
+<span>Export Center</span>
+</a>
+<div class="mt-auto pt-4">
+<button class="w-full bg-primary-container text-on-primary font-label-md text-label-md py-3 rounded-lg hover:bg-primary transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">add</span>
+                     Generate Report
+                 </button>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-1 p-margin-mobile md:p-margin-desktop overflow-y-auto">
+<div class="mb-8">
+<h1 class="font-headline-lg text-headline-lg md:font-headline-lg text-headline-lg text-on-surface mb-2">Analytics Dashboard</h1>
+<p class="font-body-lg text-body-lg text-secondary">Comprehensive overview of academic-industry performance metrics.</p>
+</div>
+<!-- Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Line Chart -->
+<div class="bento-card lg:col-span-2">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">trending_up</span>
+                         Placement Trends
+                    </h3>
+<div class="w-full h-[300px] relative">
+<canvas id="placementChart"></canvas>
+</div>
+</div>
+<!-- Donut Chart -->
+<div class="bento-card">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">pie_chart</span>
+                        Internship Participation
+                    </h3>
+<div class="w-full h-[300px] relative flex justify-center items-center">
+<canvas id="internshipChart"></canvas>
+</div>
+</div>
+<!-- Bar Chart -->
+<div class="bento-card lg:col-span-2">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">bar_chart</span>
+                         Top Demanded Skills
+                     </h3>
+<div class="w-full h-[300px] relative">
+<canvas id="skillsChart"></canvas>
+</div>
+</div>
+<!-- Reports List -->
+<div class="bento-card flex flex-col">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">folder_open</span>
+                         Recent Reports
+                     </h3>
+<div class="flex-1 flex flex-col gap-4">
+<div class="flex justify-between items-center p-3 rounded-lg bg-surface-container-low border border-outline-variant hover:border-primary transition-colors cursor-pointer">
+<div>
+<p class="font-label-md text-label-md text-on-surface">Q3 Placement Report</p>
+<p class="font-label-sm text-label-sm text-secondary">PDF • 2.4 MB</p>
+</div>
+<button class="text-primary hover:bg-secondary-container p-2 rounded-full transition-colors">
+<span class="material-symbols-outlined">download</span>
+</button>
+</div>
+<div class="flex justify-between items-center p-3 rounded-lg bg-surface-container-low border border-outline-variant hover:border-primary transition-colors cursor-pointer">
+<div>
+<p class="font-label-md text-label-md text-on-surface">Oct Skills Analysis</p>
+<p class="font-label-sm text-label-sm text-secondary">CSV • 1.1 MB</p>
+</div>
+<button class="text-primary hover:bg-secondary-container p-2 rounded-full transition-colors">
+<span class="material-symbols-outlined">download</span>
+</button>
+</div>
+<div class="flex justify-between items-center p-3 rounded-lg bg-surface-container-low border border-outline-variant hover:border-primary transition-colors cursor-pointer">
+<div>
+<p class="font-label-md text-label-md text-on-surface">Annual Internship Review</p>
+<p class="font-label-sm text-label-sm text-secondary">PDF • 5.6 MB</p>
+</div>
+<button class="text-primary hover:bg-secondary-container p-2 rounded-full transition-colors">
+<span class="material-symbols-outlined">download</span>
+</button>
+</div>
+</div>
+<button class="mt-6 w-full bg-[#2563EB] text-white font-label-md text-label-md py-3 rounded-lg hover:bg-primary transition-colors">
+                         Export All Reports
+                     </button>
+</div>
+</div>
+</main>
+</div>
+<!-- Footer -->
+<footer class="bg-surface-container border-t border-outline-variant flat no shadows full-width w-full">
+<div class="py-8 px-margin-desktop flex flex-col md:flex-row justify-between items-center max-w-[1280px] mx-auto">
+<span class="font-headline-md text-headline-md mb-4 md:mb-0">Nexus Academic</span>
+<div class="flex gap-6">
+<a class="font-label-sm text-label-sm text-secondary hover:text-primary transition-colors duration-200" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-secondary hover:text-primary transition-colors duration-200" href="#">Terms of Service</a>
+<a class="font-label-sm text-label-sm text-secondary hover:text-primary transition-colors duration-200" href="#">Support</a>
+</div>
+<p class="font-body-md text-body-md text-secondary mt-4 md:mt-0">© 2024 Nexus Academic Portal. All rights reserved.</p>
+</div>
+</footer>
+<script>
+        // Chart Configs
+        const commonOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: false }
+            },
+            scales: {
+                x: { grid: { display: false } },
+                y: { grid: { color: '#e0e3e5' } }
+            }
+        };
+
+        // Placement Line Chart
+        new Chart(document.getElementById('placementChart'), {
+            type: 'line',
+            data: {
+                labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+                datasets: [{
+                    label: 'Placements',
+                    data: [65, 78, 90, 85],
+                    borderColor: '#2563EB',
+                    backgroundColor: 'rgba(37, 99, 235, 0.1)',
+                    borderWidth: 2,
+                    fill: true,
+                    tension: 0.4
+                }]
+            },
+            options: commonOptions
+        });
+
+        // Skills Bar Chart
+        new Chart(document.getElementById('skillsChart'), {
+            type: 'bar',
+            data: {
+                labels: ['AI/ML', 'Data Sci', 'Web Dev', 'Soft Skills', 'Cloud'],
+                datasets: [{
+                    label: 'Demand',
+                    data: [95, 88, 75, 82, 70],
+                    backgroundColor: '#2563EB',
+                    borderRadius: 4
+                }]
+            },
+            options: commonOptions
+        });
+
+        // Internship Donut Chart
+        new Chart(document.getElementById('internshipChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ['Engineering', 'Business', 'Arts', 'Sciences'],
+                datasets: [{
+                    data: [45, 30, 10, 15],
+                    backgroundColor: ['#2563EB', '#4865d4', '#b4c5ff', '#d5e4f8'],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'bottom', labels: { usePointStyle: true, boxWidth: 8 } }
+                }
+            }
+        });
+    </script>
+</body></html>

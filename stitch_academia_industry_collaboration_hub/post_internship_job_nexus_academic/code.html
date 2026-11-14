@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Post a New Job - Nexus Academic</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed": "#dbe1ff",
+                    "surface": "#f7f9fb",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "on-primary": "#ffffff",
+                    "primary": "#004ac6",
+                    "surface-container": "#eceef0",
+                    "on-tertiary-container": "#eff0ff",
+                    "tertiary-container": "#4865d4",
+                    "secondary-container": "#d5e4f8",
+                    "surface-bright": "#f7f9fb",
+                    "surface-tint": "#0053db",
+                    "surface-container-highest": "#e0e3e5",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "surface-container-high": "#e6e8ea",
+                    "surface-variant": "#e0e3e5",
+                    "on-secondary-fixed": "#0e1d2b",
+                    "surface-container-low": "#f2f4f6",
+                    "secondary-fixed-dim": "#b9c8db",
+                    "on-secondary-container": "#576676",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-container": "#eeefff",
+                    "outline": "#737686",
+                    "surface-dim": "#d8dadc",
+                    "surface-container-lowest": "#ffffff",
+                    "on-background": "#191c1e",
+                    "on-primary-fixed": "#00174b",
+                    "tertiary-fixed": "#dde1ff",
+                    "secondary-fixed": "#d5e4f8",
+                    "outline-variant": "#c3c6d7",
+                    "on-tertiary-fixed-variant": "#173bab",
+                    "on-error": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "tertiary": "#2c4bb9",
+                    "secondary": "#516070",
+                    "inverse-on-surface": "#eff1f3",
+                    "on-tertiary-fixed": "#001453",
+                    "on-secondary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "primary-container": "#2563eb",
+                    "inverse-primary": "#b4c5ff",
+                    "on-surface": "#191c1e",
+                    "tertiary-fixed-dim": "#b8c4ff",
+                    "inverse-surface": "#2d3133",
+                    "on-secondary-fixed-variant": "#3a4858",
+                    "on-surface-variant": "#434655",
+                    "error-container": "#ffdad6",
+                    "background": "#f7f9fb"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "sm": "12px",
+                    "md": "24px",
+                    "xs": "4px",
+                    "gutter": "24px",
+                    "margin-mobile": "16px",
+                    "margin-desktop": "64px",
+                    "xl": "80px",
+                    "lg": "48px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "display": ["Inter"],
+                    "label-md": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "label-md": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}]
+            }
+          }
+        }
+      }
+    </script>
+<style type="text/tailwindcss">
+        @layer utilities {
+            .material-symbols-outlined {
+                font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            }
+            .material-symbols-outlined[data-weight="fill"] {
+                font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            }
+        }
+    </style>
+  <script src="../nexus-shared.js"></script>
+</head>
+<body data-active-tab="Post Internship/Job" class="bg-background text-on-surface font-body-md h-screen overflow-hidden flex">
+<!-- SideNavBar -->
+<nav class="bg-surface-container-lowest dark:bg-surface-dim h-screen w-64 fixed left-0 top-0 overflow-y-auto border-r border-secondary-container dark:border-outline-variant hidden md:flex flex-col py-lg px-md gap-md z-40">
+<div class="mb-md">
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">Nexus Academic</h1>
+<p class="font-label-md text-label-md text-secondary mt-1">Industry Portal</p>
+</div>
+<div class="flex-1 space-y-sm">
+<a class="flex items-center gap-sm px-md py-sm text-secondary dark:text-secondary-fixed-dim hover:bg-surface-container-low dark:hover:bg-surface-variant transition-colors hover:bg-surface-container-high dark:hover:bg-surface-variant transition-all duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-sm px-md py-sm bg-secondary-container dark:bg-on-primary-fixed-variant text-on-secondary-container dark:text-primary-fixed rounded-lg font-bold scale-[0.98] transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="work">work</span>
+<span class="font-label-md text-label-md">My Postings</span>
+</a>
+<a class="flex items-center gap-sm px-md py-sm text-secondary dark:text-secondary-fixed-dim hover:bg-surface-container-low dark:hover:bg-surface-variant transition-colors hover:bg-surface-container-high dark:hover:bg-surface-variant transition-all duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-label-md text-label-md">Candidates</span>
+</a>
+<a class="flex items-center gap-sm px-md py-sm text-secondary dark:text-secondary-fixed-dim hover:bg-surface-container-low dark:hover:bg-surface-variant transition-colors hover:bg-surface-container-high dark:hover:bg-surface-variant transition-all duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="person_search">person_search</span>
+<span class="font-label-md text-label-md">Talent Pool</span>
+</a>
+<a class="flex items-center gap-sm px-md py-sm text-secondary dark:text-secondary-fixed-dim hover:bg-surface-container-low dark:hover:bg-surface-variant transition-colors hover:bg-surface-container-high dark:hover:bg-surface-variant transition-all duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-label-md text-label-md">Analytics</span>
+</a>
+</div>
+<div class="mt-auto space-y-sm">
+<a class="flex items-center gap-sm px-md py-sm text-secondary dark:text-secondary-fixed-dim hover:bg-surface-container-low dark:hover:bg-surface-variant transition-colors hover:bg-surface-container-high dark:hover:bg-surface-variant transition-all duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+<a class="flex items-center gap-sm px-md py-sm text-secondary dark:text-secondary-fixed-dim hover:bg-surface-container-low dark:hover:bg-surface-variant transition-colors hover:bg-surface-container-high dark:hover:bg-surface-variant transition-all duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="font-label-md text-label-md">Support</span>
+</a>
+</div>
+</nav>
+<!-- TopNavBar -->
+<header class="bg-surface-container-lowest/80 dark:bg-surface-dim/80 fixed top-0 right-0 w-[calc(100%-16rem)] z-50 border-b border-secondary-container dark:border-outline-variant backdrop-blur-md hidden md:flex justify-between items-center h-16 px-gutter">
+<div class="flex items-center gap-md">
+<!-- Search would go here based on design system -->
+</div>
+<div class="flex items-center gap-sm">
+<button class="p-2 text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed-dim hover:text-on-primary-container dark:hover:text-primary-fixed transition-colors rounded-full focus-within:ring-2 focus-within:ring-primary/20">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed-dim hover:text-on-primary-container dark:hover:text-primary-fixed transition-colors rounded-full focus-within:ring-2 focus-within:ring-primary/20">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-secondary-container overflow-hidden ml-2">
+<img alt="Recruiter Profile" class="w-full h-full object-cover" data-alt="A professional headshot portrait of a recruiter in a modern office environment, soft bright lighting, sharp focus, confident expression, minimalist corporate background, high quality photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3L2rDw6mJbrCS0_FkI0yBF2nn2BIGTM0caFTUiX53FpQGSZUAMBcvjsEzZRPOFScAW0RmmKr5E4Xv3FS8R3Z_bmgLlTJq9dQmdju9fMRlEMLjIDNzSGlssRLOfEa9WIqIP0ELMVyGBOuDinrmC824m4_JTXm0DrZe7eYrHFCdGnIAnZxAuDlLXWOBx7KCxrI2HWj8aIJsuLzWt24hPSw5ITPtSk3yn_J5peJJn8oBURoQbHTTYxrt"/>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 ml-0 md:ml-64 mt-0 md:mt-16 overflow-y-auto p-margin-mobile md:p-margin-desktop w-full max-w-[1280px] mx-auto">
+<div class="mb-lg">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">Post a New Job</h2>
+<p class="font-body-lg text-body-lg text-secondary mt-2">Create a new internship or job listing for the Nexus Academic portal.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-lg">
+<!-- Left Column (Form) -->
+<div class="lg:col-span-7 space-y-lg">
+<div class="bg-surface-container-lowest p-md rounded-xl border border-secondary-container shadow-sm">
+<h3 class="font-headline-md text-headline-md mb-md border-b border-secondary-container pb-sm">1. Job Details</h3>
+<div class="space-y-md">
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-xs">Job Title</label>
+<input class="w-full bg-surface-container-lowest border border-[#CBD5E1] rounded-DEFAULT p-sm font-body-md focus:border-primary focus:ring-2 focus:ring-[#DBEAFE] outline-none transition-all" placeholder="e.g. Research Assistant in Bioengineering" type="text"/>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-xs">Department</label>
+<input class="w-full bg-surface-container-lowest border border-[#CBD5E1] rounded-DEFAULT p-sm font-body-md focus:border-primary focus:ring-2 focus:ring-[#DBEAFE] outline-none transition-all" placeholder="e.g. R&amp;D" type="text"/>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-xs">Location</label>
+<input class="w-full bg-surface-container-lowest border border-[#CBD5E1] rounded-DEFAULT p-sm font-body-md focus:border-primary focus:ring-2 focus:ring-[#DBEAFE] outline-none transition-all" placeholder="e.g. Cambridge, MA" type="text"/>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-md rounded-xl border border-secondary-container shadow-sm">
+<h3 class="font-headline-md text-headline-md mb-md border-b border-secondary-container pb-sm">2. Required Skills</h3>
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-xs">Add Skills (Press Enter)</label>
+<div class="w-full bg-surface-container-lowest border border-[#CBD5E1] rounded-DEFAULT p-sm focus-within:border-primary focus-within:ring-2 focus-within:ring-[#DBEAFE] transition-all flex flex-wrap gap-xs items-center min-h-[48px]">
+<div class="flex items-center bg-[#F1F5F9] text-[#475569] px-2 py-1 rounded-[4px] font-label-sm text-label-sm">
+                                Python <span class="material-symbols-outlined text-[14px] ml-1 cursor-pointer hover:text-error" data-icon="close">close</span>
+</div>
+<div class="flex items-center bg-[#F1F5F9] text-[#475569] px-2 py-1 rounded-[4px] font-label-sm text-label-sm">
+                                Data Analysis <span class="material-symbols-outlined text-[14px] ml-1 cursor-pointer hover:text-error" data-icon="close">close</span>
+</div>
+<input class="flex-1 border-none bg-transparent outline-none p-0 text-body-md min-w-[120px] focus:ring-0" placeholder="Type a skill..." type="text"/>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-md rounded-xl border border-secondary-container shadow-sm">
+<h3 class="font-headline-md text-headline-md mb-md border-b border-secondary-container pb-sm">3. Duration &amp; Stipend</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-xs">Internship Duration</label>
+<input class="w-full bg-surface-container-lowest border border-[#CBD5E1] rounded-DEFAULT p-sm font-body-md focus:border-primary focus:ring-2 focus:ring-[#DBEAFE] outline-none transition-all" placeholder="e.g. 6 Months" type="text"/>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-xs">Monthly Stipend</label>
+<input class="w-full bg-surface-container-lowest border border-[#CBD5E1] rounded-DEFAULT p-sm font-body-md focus:border-primary focus:ring-2 focus:ring-[#DBEAFE] outline-none transition-all" placeholder="e.g. $4,000" type="text"/>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-md rounded-xl border border-secondary-container shadow-sm">
+<h3 class="font-headline-md text-headline-md mb-md border-b border-secondary-container pb-sm">4. Eligibility Criteria</h3>
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-xs">Academic Requirements &amp; Details</label>
+<textarea class="w-full bg-surface-container-lowest border border-[#CBD5E1] rounded-DEFAULT p-sm font-body-md focus:border-primary focus:ring-2 focus:ring-[#DBEAFE] outline-none transition-all min-h-[120px] resize-y" placeholder="Describe the ideal candidate, required year of study, degrees, etc."></textarea>
+</div>
+</div>
+<div class="flex justify-end pt-md">
+    <button id="publish-btn" class="bg-primary-container text-on-primary px-lg py-sm rounded-lg font-label-md text-label-md hover:bg-primary transition-colors flex items-center gap-2">
+        <span class="material-symbols-outlined">publish</span> Publish Posting
+    </button>
+</div>
+</div>
+<!-- Right Column (Preview) -->
+<div class="lg:col-span-5">
+<div class="sticky top-md">
+<h3 class="font-headline-md text-headline-md mb-md text-secondary">Live Preview</h3>
+<!-- Preview Card -->
+<div class="bg-surface-container-lowest border border-[#DBEAFE] rounded-[16px] p-[32px] hover:border-primary transition-colors duration-300 shadow-[0_4px_10px_rgba(0,0,0,0.05)]">
+<div class="flex items-start justify-between mb-md">
+<div class="flex items-center gap-sm">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center overflow-hidden border border-outline-variant">
+<img id="preview-logo" alt="Company Logo" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVYQSEwqe35KicFQLmrOXL8n8lxSkq-zpqizQdaUOuvHcQUa4uH1QoQuaqt4LZZGa_XSv4o_gKF668A42K9GlonGaHb9hpWhOKs2C0O4FOcph7xfhtD0hg4StcuV2lZ_T09WAIHE-SN6KCRhou3HJy5z0SM9i8kes0oUujXCFC2x8Z2vE0xZIyLMgQHrVsjFDCyPoAwAnCpMUIHXo4Pfbdtjk7eWLHPX0s44bN6BO7A1B9tNn9C3zR"/>
+</div>
+<div>
+<h4 id="preview-title" class="font-headline-md text-headline-md text-on-surface">Research Assistant in Bioengineering</h4>
+<p id="preview-company" class="font-body-md text-body-md text-secondary">Nexus Academic</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-secondary">bookmark_border</span>
+</div>
+<div class="flex items-center gap-sm mb-md text-on-surface-variant font-label-sm text-label-sm">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+<span id="preview-location">Cambridge, MA</span>
+</div>
+<span>•</span>
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+<span id="preview-duration">6 Months</span>
+</div>
+</div>
+<div class="mb-md">
+<p class="font-body-md text-body-md text-on-surface mb-2 font-semibold">Stipend: <span class="font-normal" id="preview-stipend">$4,000 / month</span></p>
+</div>
+<div class="flex flex-wrap gap-xs mb-lg" id="preview-skills">
+    <span class="bg-[#F1F5F9] text-[#475569] px-2 py-1 rounded-[4px] font-label-sm text-label-sm">Python</span>
+</div>
+<button class="w-full bg-[#DBEAFE] text-[#2563EB] py-sm rounded-lg font-label-md text-label-md hover:bg-secondary-container transition-colors border border-transparent cursor-not-allowed" disabled>
+                            Apply Now
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+    const user = getLoggedUser();
+    if (!user || user.role !== 'INDUSTRY') {
+        alert('Please log in as an Industry Partner first.');
+        window.location.href = '../login_sign_up_nexus_academic/code.html';
+        return;
+    }
+
+    // Input elements
+    const titleInput = document.querySelector('input[placeholder="e.g. Research Assistant in Bioengineering"]');
+    const deptInput = document.querySelector('input[placeholder="e.g. R&D"]');
+    const locInput = document.querySelector('input[placeholder="e.g. Cambridge, MA"]');
+    const durInput = document.querySelector('input[placeholder="e.g. 6 Months"]');
+    const stipendInput = document.querySelector('input[placeholder="e.g. $4,000"]');
+    const eligibilityArea = document.querySelector('textarea');
+    const skillInput = document.querySelector('input[placeholder="Type a skill..."]');
+    const skillsContainer = skillInput.parentElement;
+    const publishBtn = document.getElementById('publish-btn');
+
+    // Preview elements
+    const previewTitle = document.getElementById('preview-title');
+    const previewCompany = document.getElementById('preview-company');
+    const previewLocation = document.getElementById('preview-location');
+    const previewDuration = document.getElementById('preview-duration');
+    const previewStipend = document.getElementById('preview-stipend');
+    const previewSkills = document.getElementById('preview-skills');
+    const previewLogo = document.getElementById('preview-logo');
+
+    // Skills array
+    let skills = ['Python', 'Data Analysis'];
+
+    // Load company logo and details if profile exists
+    try {
+        const res = await nexusFetch('/industry/profile');
+        const profile = await res.json();
+        if (res.ok && profile) {
+            previewCompany.textContent = profile.companyName;
+            if (profile.logoUrl) previewLogo.src = profile.logoUrl;
+        }
+    } catch (e) {
+        console.error('Failed to load profile for preview:', e);
+    }
+
+    function renderSkills() {
+        // Remove existing tags (except the input)
+        const tags = skillsContainer.querySelectorAll('.flex.items-center');
+        tags.forEach(t => t.remove());
+
+        // Insert new tags
+        skills.forEach(skill => {
+            const tag = document.createElement('div');
+            tag.className = 'flex items-center bg-[#F1F5F9] text-[#475569] px-2 py-1 rounded-[4px] font-label-sm text-label-sm';
+            tag.innerHTML = `${skill} <span class="material-symbols-outlined text-[14px] ml-1 cursor-pointer hover:text-error">close</span>`;
+            
+            // Bind remove click
+            tag.querySelector('span').addEventListener('click', () => {
+                skills = skills.filter(s => s !== skill);
+                renderSkills();
+            });
+            skillsContainer.insertBefore(tag, skillInput);
+        });
+
+        // Update preview tags
+        previewSkills.innerHTML = '';
+        skills.forEach(skill => {
+            previewSkills.innerHTML += `<span class="bg-[#F1F5F9] text-[#475569] px-2 py-1 rounded-[4px] font-label-sm text-label-sm">${skill}</span>`;
+        });
+    }
+
+    function updatePreview() {
+        previewTitle.textContent = titleInput.value.trim() || 'Research Assistant in Bioengineering';
+        previewLocation.textContent = locInput.value.trim() || 'Cambridge, MA';
+        previewDuration.textContent = durInput.value.trim() || '6 Months';
+        previewStipend.textContent = stipendInput.value.trim() ? `${stipendInput.value.trim()} / month` : '$4,000 / month';
+    }
+
+    // Add skill on enter
+    skillInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            const val = skillInput.value.trim();
+            if (val && !skills.includes(val)) {
+                skills.push(val);
+                skillInput.value = '';
+                renderSkills();
+            }
+        }
+    });
+
+    // Inputs change listners
+    [titleInput, locInput, durInput, stipendInput].forEach(inp => {
+        inp.addEventListener('input', updatePreview);
+    });
+
+    // Form Publish Action
+    publishBtn.addEventListener('click', async () => {
+        if (!titleInput.value.trim() || !eligibilityArea.value.trim()) {
+            alert('Please fill out Job Title and Academic Requirements.');
+            return;
+        }
+
+        const rawStipend = stipendInput.value.replace(/[^0-9.]/g, '');
+
+        const dto = {
+            title: titleInput.value.trim(),
+            description: eligibilityArea.value.trim(),
+            requiredSkills: skills,
+            jobType: 'internship',
+            location: locInput.value.trim() || 'Remote',
+            stipend: parseFloat(rawStipend) || 0,
+            duration: durInput.value.trim() || 'Flexible',
+            eligibility: eligibilityArea.value.trim()
+        };
+
+        publishBtn.disabled = true;
+        publishBtn.textContent = 'Publishing...';
+
+        try {
+            const res = await nexusFetch('/internships', {
+                method: 'POST',
+                body: JSON.stringify(dto)
+            });
+            const data = await res.json();
+            if (!res.ok) throw new Error(data.message || 'Failed to publish posting');
+
+            alert('Opportunity published successfully!');
+            window.location.href = '../manage_postings_nexus_academic/code.html';
+        } catch (e) {
+            alert(e.message);
+            publishBtn.disabled = false;
+            publishBtn.textContent = 'Publish Posting';
+        }
+    });
+
+    // Initial tags rendering
+    renderSkills();
+});
+</script>
+</body></html>

@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Login - Nexus Academic</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-dim": "#d8dadc",
+                    "inverse-surface": "#2d3133",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "primary-container": "#2563eb",
+                    "outline-variant": "#c3c6d7",
+                    "tertiary": "#2c4bb9",
+                    "on-error-container": "#93000a",
+                    "tertiary-container": "#4865d4",
+                    "surface-container-highest": "#e0e3e5",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "on-secondary": "#ffffff",
+                    "secondary-container": "#d5e4f8",
+                    "background": "#f7f9fb",
+                    "on-primary-fixed": "#00174b",
+                    "inverse-on-surface": "#eff1f3",
+                    "primary-fixed": "#dbe1ff",
+                    "surface-tint": "#0053db",
+                    "surface-container": "#eceef0",
+                    "surface-container-lowest": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "on-primary-container": "#eeefff",
+                    "on-tertiary-container": "#eff0ff",
+                    "error": "#ba1a1a",
+                    "secondary": "#516070",
+                    "primary": "#004ac6",
+                    "surface-bright": "#f7f9fb",
+                    "on-primary": "#ffffff",
+                    "outline": "#737686",
+                    "tertiary-fixed": "#dde1ff",
+                    "on-secondary-fixed": "#0e1d2b",
+                    "tertiary-fixed-dim": "#b8c4ff",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed-dim": "#b9c8db",
+                    "on-background": "#191c1e",
+                    "surface-container-low": "#f2f4f6",
+                    "on-surface-variant": "#434655",
+                    "secondary-fixed": "#d5e4f8",
+                    "surface-variant": "#e0e3e5",
+                    "inverse-primary": "#b4c5ff",
+                    "surface": "#f7f9fb",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed": "#001453",
+                    "on-secondary-fixed-variant": "#3a4858",
+                    "on-surface": "#191c1e",
+                    "on-secondary-container": "#576676",
+                    "on-tertiary-fixed-variant": "#173bab",
+                    "surface-container-high": "#e6e8ea"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "md": "24px",
+                    "gutter": "24px",
+                    "margin-desktop": "64px",
+                    "margin-mobile": "16px",
+                    "base": "8px",
+                    "lg": "48px",
+                    "xl": "80px",
+                    "xs": "4px",
+                    "sm": "12px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "display": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "label-md": ["Inter"],
+                    "label-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "1.0", "fontWeight": "500"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .nav-link-active {
+            @apply text-primary dark:text-inverse-primary border-b-2 border-primary dark:border-inverse-primary pb-1 font-label-md;
+        }
+        .nav-link-inactive {
+            @apply text-on-surface-variant dark:text-surface-variant font-label-md;
+        }
+        
+        .role-tab-active {
+            @apply bg-primary-container text-on-primary-container;
+        }
+        .role-tab-inactive {
+            @apply bg-surface-container text-on-surface-variant hover:bg-surface-variant;
+        }
+    </style>
+  <script src="../nexus-shared.js"></script>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased min-h-screen flex flex-col">
+<!-- Transactional Page, Suppressing Navigation Shell -->
+<!-- Content Canvas -->
+<main class="flex-grow flex w-full">
+<div class="flex flex-col md:flex-row w-full max-w-[1440px] mx-auto min-h-screen bg-surface-container-lowest">
+<!-- Left Side: Login Form -->
+<div class="w-full md:w-1/2 flex flex-col justify-center px-margin-mobile md:px-[120px] py-xl">
+<div class="w-full max-w-md mx-auto">
+<!-- Brand -->
+<div class="mb-lg">
+<span class="text-headline-md font-headline-md font-extrabold text-primary">Nexus Academic</span>
+</div>
+<!-- Tabs -->
+<div class="flex gap-gutter mb-lg border-b border-outline-variant/30">
+<button class="pb-base text-headline-md font-headline-md text-primary border-b-2 border-primary">Login</button>
+<button class="pb-base text-headline-md font-headline-md text-on-surface-variant hover:text-primary transition-colors">Sign Up</button>
+</div>
+<!-- Role Selector -->
+<div class="mb-lg">
+<label class="block text-label-md font-label-md text-on-surface mb-sm">Select Role</label>
+<div class="flex flex-wrap gap-xs">
+<button class="role-tab-active px-md py-sm rounded-full text-label-md font-label-md transition-colors">Student</button>
+<button class="role-tab-inactive px-md py-sm rounded-full text-label-md font-label-md transition-colors">Industry</button>
+<button class="role-tab-inactive px-md py-sm rounded-full text-label-md font-label-md transition-colors">Academician</button>
+<button class="role-tab-inactive px-md py-sm rounded-full text-label-md font-label-md transition-colors">Institution</button>
+</div>
+</div>
+<!-- Form -->
+<form class="space-y-md">
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-xs" for="email">Email or Phone</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant/50 rounded-md px-md py-sm focus:border-primary focus:ring-2 focus:ring-primary-fixed-dim transition-shadow outline-none text-body-md" id="email" placeholder="Enter your credentials" type="text"/>
+</div>
+<div>
+<div class="flex justify-between items-center mb-xs">
+<label class="block text-label-md font-label-md text-on-surface" for="password">Password</label>
+<a class="text-label-sm font-label-sm text-primary hover:underline" href="#">Forgot password?</a>
+</div>
+<input class="w-full bg-surface-container-lowest border border-outline-variant/50 rounded-md px-md py-sm focus:border-primary focus:ring-2 focus:ring-primary-fixed-dim transition-shadow outline-none text-body-md" id="password" placeholder="••••••••" type="password"/>
+</div>
+<div class="pt-base flex flex-col gap-sm">
+<div class="mt-xs mb-xs bg-surface-container-low p-sm rounded-lg border border-outline-variant/30 flex flex-col gap-xs">
+<span class="block text-label-sm font-label-sm text-on-surface-variant font-semibold">Quick Demo Login</span>
+<div class="flex flex-wrap gap-xs">
+<button type="button" onclick="quickLogin('STUDENT')" class="bg-primary-container text-on-primary-container px-sm py-xs rounded text-label-sm hover:opacity-90 transition-opacity">As Student</button>
+<button type="button" onclick="quickLogin('INDUSTRY')" class="bg-secondary-container text-on-secondary-container px-sm py-xs rounded text-label-sm hover:opacity-90 transition-opacity">As Industry</button>
+<button type="button" onclick="quickLogin('ACADEMICIAN')" class="bg-tertiary-container text-on-tertiary-container px-sm py-xs rounded text-label-sm hover:opacity-90 transition-opacity">As Academician</button>
+<button type="button" onclick="quickLogin('INSTITUTION_ADMIN')" class="bg-surface-variant text-on-surface-variant px-sm py-xs rounded text-label-sm hover:opacity-90 transition-opacity">As Admin</button>
+</div>
+</div>
+<button id="main-login-btn" class="w-full bg-primary-container text-on-primary-container rounded-md py-sm text-label-md font-label-md hover:bg-primary hover:text-on-primary transition-colors" type="button">
+                                Login
+                            </button>
+<div class="relative flex items-center py-base">
+<div class="flex-grow border-t border-outline-variant/30"></div>
+<span class="flex-shrink-0 mx-md text-label-sm font-label-sm text-on-surface-variant">or</span>
+<div class="flex-grow border-t border-outline-variant/30"></div>
+</div>
+<button class="w-full bg-surface-container text-on-surface rounded-md py-sm text-label-md font-label-md hover:bg-surface-variant transition-colors border border-outline-variant/30 flex items-center justify-center gap-sm" type="button">
+<span class="material-symbols-outlined text-[18px]">school</span>
+                                Continue with Institution ID
+                            </button>
+</div>
+</form>
+</div>
+</div>
+<!-- Right Side: Illustration Panel -->
+<div class="hidden md:flex w-1/2 bg-surface-container-low items-center justify-center p-xl relative overflow-hidden">
+<!-- Decorative Elements -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary-fixed rounded-full blur-3xl opacity-30 -mr-32 -mt-32"></div>
+<div class="absolute bottom-0 left-0 w-96 h-96 bg-secondary-fixed rounded-full blur-3xl opacity-20 -ml-48 -mb-48"></div>
+<div class="relative z-10 w-full max-w-[600px] flex flex-col items-center">
+<img class="w-full h-auto object-contain" data-alt="A flat illustration in modern corporate minimalism style showing two professionals, a man and a woman in business attire, shaking hands in front of abstract data charts and gears. The palette uses mid-blues and clean whites, portraying a collaborative, scholarly yet agile academic-industry partnership." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNiee4BKfY4lX5HKbJAsjCiNpiYs2qinjxatSMtI-sVfK7Ap76gsMvVNiyLBUgX75CoGjRCA_WZTxnhSdAJ1I5_VkohpFpvMXRiDI2nfQG11oz9JmO7iWHVbGFgmU1zo-u1UAT3UJkJ-tzkZZGuqkAwepAWk2gkSRx4TH8Am5DbC_edIlMlWQVKji7x-opGcRZoLhibAWV4ZRyTt618zkWpzceA_5gIQ7YUVUdxIoEAINezAHetDhK"/>
+<div class="mt-lg text-center max-w-sm">
+<h2 class="text-headline-md font-headline-md text-on-surface mb-sm">Bridging Research &amp; Innovation</h2>
+<p class="text-body-md font-body-md text-on-surface-variant">Join a network of academic institutions and industry leaders driving commercial potential.</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Suppressing Footer for Login Flow -->
+<script>
+        let currentMode = 'login'; // 'login' or 'signup'
+        let selectedRole = 'STUDENT'; // default role
+
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+        const actionButton = document.getElementById('main-login-btn');
+        
+        // Mode switching tabs
+        const tabContainer = document.querySelector('.flex.gap-gutter.mb-lg');
+        const tabs = tabContainer.querySelectorAll('button');
+        const loginTab = tabs[0];
+        const signupTab = tabs[1];
+
+        // Error message banner injector
+        function showError(message) {
+            let errDiv = document.getElementById('auth-error');
+            if (!errDiv) {
+                errDiv = document.createElement('div');
+                errDiv.id = 'auth-error';
+                errDiv.className = 'bg-error-container text-on-error-container p-sm rounded-md text-label-md mb-md font-medium text-center';
+                document.querySelector('form').prepend(errDiv);
+            }
+            errDiv.textContent = message;
+            errDiv.classList.remove('hidden');
+        }
+
+        function clearError() {
+            const errDiv = document.getElementById('auth-error');
+            if (errDiv) errDiv.classList.add('hidden');
+        }
+
+        loginTab.addEventListener('click', (e) => {
+            e.preventDefault();
+            currentMode = 'login';
+            loginTab.className = "pb-base text-headline-md font-headline-md text-primary border-b-2 border-primary";
+            signupTab.className = "pb-base text-headline-md font-headline-md text-on-surface-variant hover:text-primary transition-colors";
+            actionButton.textContent = "Login";
+            clearError();
+        });
+
+        signupTab.addEventListener('click', (e) => {
+            e.preventDefault();
+            currentMode = 'signup';
+            signupTab.className = "pb-base text-headline-md font-headline-md text-primary border-b-2 border-primary";
+            loginTab.className = "pb-base text-headline-md font-headline-md text-on-surface-variant hover:text-primary transition-colors";
+            actionButton.textContent = "Sign Up";
+            clearError();
+        });
+
+        // Role mapping
+        const roleMap = {
+            'Student': 'STUDENT',
+            'Industry': 'INDUSTRY',
+            'Academician': 'ACADEMICIAN',
+            'Institution': 'INSTITUTION_ADMIN'
+        };
+
+        // Role tab selection
+        const roleButtons = document.querySelectorAll('.role-tab-inactive, .role-tab-active');
+        roleButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                // Reset all
+                roleButtons.forEach(b => {
+                    b.classList.remove('role-tab-active');
+                    b.classList.add('role-tab-inactive');
+                });
+                // Set clicked
+                const target = e.currentTarget || e.target;
+                target.classList.remove('role-tab-inactive');
+                target.classList.add('role-tab-active');
+                
+                selectedRole = roleMap[target.textContent.trim()];
+            });
+        });
+
+        const demoCredentials = {
+            STUDENT: { email: 'alex.chen@student.iit-nexus.edu.in', password: 'Password@123' },
+            INDUSTRY: { email: 'hr@techcorp.io', password: 'Password@123' },
+            ACADEMICIAN: { email: 'prof.sharma@iit-nexus.edu.in', password: 'Password@123' },
+            INSTITUTION_ADMIN: { email: 'admin@iit-nexus.edu.in', password: 'Password@123' }
+        };
+
+        window.quickLogin = async (role) => {
+            clearError();
+            const creds = demoCredentials[role];
+            if (!creds) return;
+
+            // Autofill
+            emailInput.value = creds.email;
+            passwordInput.value = creds.password;
+
+            // Highlight corresponding role button in UI
+            selectedRole = role;
+            const roleNames = {
+                STUDENT: 'Student',
+                INDUSTRY: 'Industry',
+                ACADEMICIAN: 'Academician',
+                INSTITUTION_ADMIN: 'Institution'
+            };
+            roleButtons.forEach(b => {
+                if (b.textContent.trim() === roleNames[role]) {
+                    b.classList.remove('role-tab-inactive');
+                    b.classList.add('role-tab-active');
+                } else {
+                    b.classList.remove('role-tab-active');
+                    b.classList.add('role-tab-inactive');
+                }
+            });
+
+            // Perform Login
+            await performLogin(creds.email, creds.password);
+        };
+
+        async function performLogin(email, password) {
+            actionButton.disabled = true;
+            actionButton.textContent = 'Logging in...';
+
+            try {
+                const endpoint = currentMode === 'login' ? '/auth/login' : '/auth/register';
+                const payload = currentMode === 'login' 
+                    ? { email, password } 
+                    : { email, password, role: selectedRole };
+
+                const response = await fetch(`${window.API_BASE || 'http://127.0.0.1:3001/api/v1'}${endpoint}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(data.message || 'Authentication failed');
+                }
+
+                // Save tokens & profile details
+                localStorage.setItem('nexus_access_token', data.accessToken);
+                localStorage.setItem('nexus_refresh_token', data.refreshToken);
+                localStorage.setItem('nexus_user', JSON.stringify(data.user));
+
+                // Routing path dictionary
+                const dashboardRoutes = {
+                    STUDENT: '../student_dashboard_nexus_academic/code.html',
+                    INDUSTRY: '../industry_dashboard_nexus_academic/code.html',
+                    ACADEMICIAN: '../academician_dashboard_nexus_academic/code.html',
+                    INSTITUTION_ADMIN: '../institution_admin_dashboard_nexus_academic/code.html'
+                };
+
+                if (currentMode === 'signup') {
+                    window.location.href = '../onboarding_welcome_to_nexus_academic/code.html';
+                } else {
+                    window.location.href = dashboardRoutes[data.user.role];
+                }
+
+            } catch (err) {
+                showError(err.message);
+                actionButton.disabled = false;
+                actionButton.textContent = currentMode === 'login' ? 'Login' : 'Sign Up';
+            }
+        }
+
+        // Submit action
+        actionButton.addEventListener('click', async (e) => {
+            e.preventDefault();
+            clearError();
+            
+            const email = emailInput.value.trim();
+            const password = passwordInput.value;
+
+            if (!email || !password) {
+                showError('Please fill in all credentials.');
+                return;
+            }
+
+            await performLogin(email, password);
+        });
+    </script>
+</body></html>

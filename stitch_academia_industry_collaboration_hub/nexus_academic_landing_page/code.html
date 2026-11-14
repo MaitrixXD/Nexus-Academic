@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nexus Academic - Academia-Industry Collaboration Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface": "#f7f9fb",
+                        "secondary-container": "#d5e4f8",
+                        "surface-container-high": "#e6e8ea",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface-variant": "#434655",
+                        "error-container": "#ffdad6",
+                        "primary-container": "#2563eb",
+                        "primary-fixed": "#dbe1ff",
+                        "outline-variant": "#c3c6d7",
+                        "background": "#f7f9fb",
+                        "on-secondary-container": "#576676",
+                        "on-tertiary": "#ffffff",
+                        "surface-variant": "#e0e3e5",
+                        "on-surface": "#191c1e",
+                        "on-secondary": "#ffffff",
+                        "inverse-surface": "#2d3133",
+                        "inverse-primary": "#b4c5ff",
+                        "surface-bright": "#f7f9fb",
+                        "tertiary-fixed-dim": "#b8c4ff",
+                        "outline": "#737686",
+                        "surface-dim": "#d8dadc",
+                        "on-secondary-fixed-variant": "#3a4858",
+                        "on-tertiary-container": "#eff0ff",
+                        "secondary": "#516070",
+                        "surface-container-highest": "#e0e3e5",
+                        "inverse-on-surface": "#eff1f3",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed": "#dde1ff",
+                        "surface-container-low": "#f2f4f6",
+                        "secondary-fixed-dim": "#b9c8db",
+                        "on-primary": "#ffffff",
+                        "surface-container": "#eceef0",
+                        "on-primary-container": "#eeefff",
+                        "surface-tint": "#0053db",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed": "#00174b",
+                        "secondary-fixed": "#d5e4f8",
+                        "tertiary-container": "#4865d4",
+                        "on-secondary-fixed": "#0e1d2b",
+                        "on-background": "#191c1e",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed": "#001453",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "on-tertiary-fixed-variant": "#173bab",
+                        "tertiary": "#2c4bb9",
+                        "primary": "#004ac6",
+                        "brand-blue-mid": "#2563EB",
+                        "brand-blue-light": "#DBEAFE"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "base": "8px",
+                        "xl": "80px",
+                        "margin-desktop": "64px",
+                        "md": "24px",
+                        "xs": "4px",
+                        "lg": "48px",
+                        "sm": "12px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "display": ["Inter"],
+                        "label-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "display": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "label-md": ["14px", { "lineHeight": "1.0", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "1.0", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "1.2", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+  <script src="../nexus-shared.js"></script>
+</head>
+<body class="bg-surface-container-lowest font-body-md text-on-surface antialiased overflow-x-hidden">
+<!-- Top Navigation -->
+<nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center h-16 px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto bg-surface-container-lowest border-b border-outline-variant">
+<div class="text-headline-md font-headline-md font-extrabold text-primary flex items-center gap-2 tracking-tight">
+<span class="material-symbols-outlined text-primary" data-icon="hub" data-weight="fill" style="font-variation-settings: 'FILL' 1;">hub</span>
+            Nexus Academic
+        </div>
+<div class="hidden md:flex items-center gap-gutter">
+<a class="text-on-surface-variant font-label-md hover:text-primary transition-colors cursor-pointer" onclick="window.location.href='../login_sign_up_nexus_academic/code.html'">Find Projects</a>
+<a class="text-on-surface-variant font-label-md hover:text-primary transition-colors cursor-pointer" onclick="window.location.href='../login_sign_up_nexus_academic/code.html'">For Industry</a>
+<a class="text-on-surface-variant font-label-md hover:text-primary transition-colors cursor-pointer" onclick="window.location.href='../login_sign_up_nexus_academic/code.html'">For Academia</a>
+</div>
+<div class="flex items-center gap-md">
+<button onclick="window.location.href='../login_sign_up_nexus_academic/code.html'" class="hidden md:block text-primary font-label-md bg-transparent hover:bg-brand-blue-light px-sm py-xs rounded transition-colors">Login</button>
+<button onclick="window.location.href='../login_sign_up_nexus_academic/code.html'" class="bg-primary-container text-on-primary font-label-md px-md py-sm rounded-lg hover:opacity-90 transition-opacity">Join</button>
+</div>
+</nav>
+<!-- Hero Section -->
+<main class="mt-xl pt-lg pb-xl px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-xl items-center min-h-[80vh]">
+<div class="flex flex-col gap-md items-start z-10 relative">
+<h1 class="text-display font-display text-on-surface">Bridging Minds, Powering Innovation</h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant max-w-lg">
+                Connect students, industry experts, and researchers in one seamless platform. Accelerate your academic discoveries and drive commercial success through collaborative synergy.
+            </p>
+<div class="mt-sm flex gap-md">
+<button onclick="window.location.href='../login_sign_up_nexus_academic/code.html'" class="bg-primary-container text-on-primary font-label-md px-lg py-md rounded-lg shadow-[0_4px_14px_0_rgba(37,99,235,0.39)] hover:shadow-[0_6px_20px_rgba(37,99,235,0.23)] hover:-translate-y-0.5 transition-all duration-200">
+                    Get Started
+                </button>
+<button onclick="window.location.href='../login_sign_up_nexus_academic/code.html'" class="bg-brand-blue-light text-brand-blue-mid font-label-md px-lg py-md rounded-lg hover:bg-secondary-container transition-colors">
+                    Explore Projects
+                </button>
+</div>
+<!-- Decorative subtle glow -->
+<div class="absolute -top-20 -left-20 w-64 h-64 bg-brand-blue-light rounded-full blur-3xl opacity-30 -z-10"></div>
+</div>
+<div class="relative w-full h-[500px] flex items-center justify-center">
+<!-- Hero Illustration -->
+<img alt="Illustration of diverse people collaborating around a large laptop" class="object-contain w-full h-full drop-shadow-2xl z-10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBftwFLO1p4eACEDV7VJ8Iwo19QXhAetS5nK81oYZ1lX3JR0Tze3L0Qby5qhh018gT07LXMbnrWsXanakVB5vsoIhePyzgdBBepaJQQcAwfyKFTLf0MWw8UbnMga0Q0uxstGv1UxNDmpeU4wBaiVQnE9R1ZTvU6jRjEU_Hpjz6s44KiLrO3Icpn6wf60WbS4OlHmxQq1JVoKq32QUWmerLj3ddXGsdt6ElYZr9ZuZh-rDwJlAXqNO9M"/>
+<!-- Abstract background shape for illustration -->
+<div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] bg-surface-container-low rounded-full -z-0"></div>
+</div>
+</main>
+<!-- Stats Strip -->
+<section class="w-full bg-brand-blue-light py-lg border-y border-outline-variant/30">
+<div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop flex flex-wrap justify-around items-center gap-lg">
+<div class="flex flex-col items-center text-center">
+<span class="text-headline-lg font-headline-lg text-brand-blue-mid mb-xs">10,000+</span>
+<span class="text-label-md font-label-md text-on-surface-variant uppercase tracking-wider">Students</span>
+</div>
+<div class="w-px h-12 bg-outline-variant/50 hidden md:block"></div>
+<div class="flex flex-col items-center text-center">
+<span class="text-headline-lg font-headline-lg text-brand-blue-mid mb-xs">500+</span>
+<span class="text-label-md font-label-md text-on-surface-variant uppercase tracking-wider">Companies</span>
+</div>
+<div class="w-px h-12 bg-outline-variant/50 hidden md:block"></div>
+<div class="flex flex-col items-center text-center">
+<span class="text-headline-lg font-headline-lg text-brand-blue-mid mb-xs">2,500+</span>
+<span class="text-label-md font-label-md text-on-surface-variant uppercase tracking-wider">Research Projects</span>
+</div>
+</div>
+</section>
+<!-- Role Selection -->
+<section class="py-xl px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto">
+<div class="text-center mb-xl">
+<h2 class="text-headline-lg font-headline-lg text-on-surface mb-sm">How will you contribute?</h2>
+<p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl mx-auto">Join the ecosystem that matches your goals and expertise.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Student Card -->
+<div onclick="window.location.href='../login_sign_up_nexus_academic/code.html'" class="bg-surface-container-lowest border border-brand-blue-light rounded-[16px] p-lg flex flex-col items-center text-center shadow-[0_10px_30px_rgba(37,99,235,0.05)] hover:border-brand-blue-mid transition-colors duration-300 group cursor-pointer">
+<div class="w-24 h-24 mb-md rounded-full bg-surface-container-low flex items-center justify-center p-sm group-hover:scale-110 transition-transform duration-300">
+<img alt="Student icon" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuADYgxsquo2Ldbv7FiMcLFMhTFVJVM8it6__bQOii8eQ2HKmOJ5EQ0BGaEiXzKI-x3F_4HNzXhUxhGP6TpatRIRWzXU4nX0ofdh6yvvd9HkEy9qZ6Mxg1XXSmfw0Psjuz_83aCST2kncO4dn3xhJ0W-Ty2btBqd6m5hHPnH27oaosxGfTmJZsBGHoamE1wyY0PrU6SWHwY2BFlpTc7do7NyIPKLcuK5j6NV2b1IpHC-NjXXbSMM2h5r"/>
+</div>
+<h3 class="text-headline-md font-headline-md text-on-surface mb-sm">Student</h3>
+<p class="text-body-md font-body-md text-on-surface-variant mb-lg flex-grow">Find internships, join cutting-edge research projects, and build your professional network before graduation.</p>
+<span class="text-primary font-label-md flex items-center gap-xs group-hover:underline">
+                    Learn More <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</span>
+</div>
+<!-- Industry Card -->
+<div onclick="window.location.href='../login_sign_up_nexus_academic/code.html'" class="bg-surface-container-lowest border border-brand-blue-light rounded-[16px] p-lg flex flex-col items-center text-center shadow-[0_10px_30px_rgba(37,99,235,0.05)] hover:border-brand-blue-mid transition-colors duration-300 group cursor-pointer relative top-0 md:-top-4">
+<div class="w-24 h-24 mb-md rounded-full bg-surface-container-low flex items-center justify-center p-sm group-hover:scale-110 transition-transform duration-300">
+<img alt="Industry icon" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJEI8dKby_2g9oQkI0RZIZZejar1ZIo6tx02ewM41s_NeEy562MJVb5_UawOX_pXAnfGPPlnh6XGKZvg21a3FDWsN9OpCTeIRzGCW4_jD73yleJq8lamNDAp7oKqLCtRUyeDh3CfRr-QvldTD8SxCRqxXkNEqqpxWl-_eHyagjHNr14p10UG6kPZoYHgFGFbRJwJHyqyYDKC4ESptNzc3qYhNoUPWXlrtlx6-AwWWaylbxireeSjuG"/>
+</div>
+<h3 class="text-headline-md font-headline-md text-on-surface mb-sm">Industry</h3>
+<p class="text-body-md font-body-md text-on-surface-variant mb-lg flex-grow">Access top-tier academic talent, sponsor research, and leverage R&D support for commercial innovation.</p>
+<span class="text-primary font-label-md flex items-center gap-xs group-hover:underline">
+                    Learn More <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</span>
+</div>
+<!-- Academician Card -->
+<div onclick="window.location.href='../login_sign_up_nexus_academic/code.html'" class="bg-surface-container-lowest border border-brand-blue-light rounded-[16px] p-lg flex flex-col items-center text-center shadow-[0_10px_30px_rgba(37,99,235,0.05)] hover:border-brand-blue-mid transition-colors duration-300 group cursor-pointer">
+<div class="w-24 h-24 mb-md rounded-full bg-surface-container-low flex items-center justify-center p-sm group-hover:scale-110 transition-transform duration-300">
+<img alt="Academia icon" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6MZtjwR1aS9pTS-2PYUz7uJJrmjTiBt1BZh-4Q6C1LSJgV3Wr2ZPLGxX3q0Z9ShxkgKvCwXENphkGB5DtGz9u6vrm4lsfIB0k5BwO-btyJSJwNY4QTBA4RfW6lBKh2HqooHdoBGLsAOQC-h3oV5xqzJSF07SBVIb26IW2EKTEeMtQaqdyOsUAcdlOj6VslP6TcQYRWl3ODoGuNiLy9d22JnG2yU9OUiOG55NiUZyWtbOmTfStvT-C"/>
+</div>
+<h3 class="text-headline-md font-headline-md text-on-surface mb-sm">Academician</h3>
+<p class="text-body-md font-body-md text-on-surface-variant mb-lg flex-grow">Commercialize your research, secure funding, and collaborate with industry leaders to apply your findings.</p>
+<span class="text-primary font-label-md flex items-center gap-xs group-hover:underline">
+                    Learn More <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</span>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="w-full py-lg px-margin-mobile md:px-margin-desktop bg-surface-container-low border-t border-outline-variant mt-xl">
+<div class="max-w-[1280px] mx-auto flex flex-col md:flex-row justify-between items-start gap-gutter">
+<div class="flex flex-col gap-sm">
+<div class="text-headline-md font-headline-md font-extrabold text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="hub" data-weight="fill" style="font-variation-settings: 'FILL' 1;">hub</span>
+                    Nexus Academic
+                </div>
+<p class="text-body-md font-body-md text-on-surface-variant max-w-xs mt-sm">
+                    Connecting academic excellence with industry innovation for a better tomorrow.
+                </p>
+</div>
+<div class="flex flex-wrap gap-xl">
+<div class="flex flex-col gap-sm">
+<h4 class="text-label-md font-label-md text-on-surface uppercase tracking-wider mb-xs">Platform</h4>
+<a class="text-body-md font-body-md text-on-secondary-container hover:text-primary transition-colors" href="#">Find Projects</a>
+<a class="text-body-md font-body-md text-on-secondary-container hover:text-primary transition-colors" href="#">For Industry</a>
+<a class="text-body-md font-body-md text-on-secondary-container hover:text-primary transition-colors" href="#">For Academia</a>
+</div>
+<div class="flex flex-col gap-sm">
+<h4 class="text-label-md font-label-md text-on-surface uppercase tracking-wider mb-xs">Legal</h4>
+<a class="text-body-md font-body-md text-on-secondary-container hover:text-primary transition-colors" href="#">Contact</a>
+<a class="text-body-md font-body-md text-on-secondary-container hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="text-body-md font-body-md text-on-secondary-container hover:text-primary transition-colors" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+<div class="max-w-[1280px] mx-auto mt-xl pt-md border-t border-outline-variant/30 flex flex-col md:flex-row justify-between items-center gap-sm">
+<p class="text-label-sm font-label-sm text-on-secondary-container text-center md:text-left">
+                © 2024 Academia-Industry Collaboration Portal. All rights reserved.
+            </p>
+<div class="flex gap-md">
+<!-- Social placeholders -->
+<a class="text-on-secondary-container hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined" data-icon="public">public</span></a>
+<a class="text-on-secondary-container hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined" data-icon="share">share</span></a>
+</div>
+</div>
+</footer>
+</body></html>

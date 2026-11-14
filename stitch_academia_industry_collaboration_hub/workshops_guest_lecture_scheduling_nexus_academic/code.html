@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nexus Academic - Workshops &amp; Lectures</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed-variant": "#3a4858",
+                        "outline-variant": "#c3c6d7",
+                        "surface-container-highest": "#e0e3e5",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#f7f9fb",
+                        "on-surface": "#191c1e",
+                        "tertiary-fixed-dim": "#b8c4ff",
+                        "on-error-container": "#93000a",
+                        "tertiary-container": "#4865d4",
+                        "surface-bright": "#f7f9fb",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "surface-variant": "#e0e3e5",
+                        "inverse-on-surface": "#eff1f3",
+                        "error-container": "#ffdad6",
+                        "on-primary-container": "#eeefff",
+                        "surface-container-low": "#f2f4f6",
+                        "primary-container": "#2563eb",
+                        "inverse-primary": "#b4c5ff",
+                        "secondary-fixed": "#d5e4f8",
+                        "on-secondary": "#ffffff",
+                        "tertiary": "#2c4bb9",
+                        "background": "#f7f9fb",
+                        "on-error": "#ffffff",
+                        "primary": "#004ac6",
+                        "secondary": "#516070",
+                        "inverse-surface": "#2d3133",
+                        "outline": "#737686",
+                        "surface-tint": "#0053db",
+                        "tertiary-fixed": "#dde1ff",
+                        "on-tertiary-container": "#eff0ff",
+                        "surface-dim": "#d8dadc",
+                        "secondary-container": "#d5e4f8",
+                        "on-primary": "#ffffff",
+                        "primary-fixed": "#dbe1ff",
+                        "surface-container-high": "#e6e8ea",
+                        "on-surface-variant": "#434655",
+                        "surface-container": "#eceef0",
+                        "on-tertiary-fixed": "#001453",
+                        "on-primary-fixed": "#00174b",
+                        "on-background": "#191c1e",
+                        "secondary-fixed-dim": "#b9c8db",
+                        "on-secondary-fixed": "#0e1d2b",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed-variant": "#173bab",
+                        "on-secondary-container": "#576676"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xl": "80px",
+                        "margin-desktop": "64px",
+                        "base": "8px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px",
+                        "sm": "12px",
+                        "lg": "48px",
+                        "md": "24px",
+                        "xs": "4px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "display": ["Inter"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "1.0", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "display": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "label-md": ["14px", { "lineHeight": "1.0", "letterSpacing": "0.01em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f7f9fb; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-card { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border: 1px solid #dbeafe; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03); }
+        .calendar-day.active { background-color: #2563eb; color: white; }
+        .calendar-day.has-event { background-color: #dbeafe; color: #2563eb; font-weight: 600; }
+        .calendar-day:hover:not(.active) { background-color: #f1f5f9; cursor: pointer; }
+    </style>
+  <script src="../nexus-shared.js"></script>
+</head>
+<body data-active-tab="Workshops & Scheduling" class="flex bg-surface text-on-surface">
+<!-- Mobile TopNav (Visible only on mobile) -->
+<nav class="md:hidden flex justify-between items-center w-full px-margin-mobile mx-auto h-16 bg-surface-container-lowest border-b border-outline-variant fixed top-0 left-0 right-0 z-50">
+<div class="flex items-center gap-xs">
+<span class="font-headline-md text-headline-md font-bold text-primary">Nexus Academic</span>
+</div>
+<div class="flex items-center gap-sm">
+<button class="text-secondary hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-secondary hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+</div>
+</nav>
+<!-- SideNavBar (Visible on desktop) -->
+<nav class="hidden md:flex flex-col h-screen sticky top-0 py-6 bg-surface-container-lowest docked left-0 w-64 border-r border-outline-variant z-40">
+<div class="px-md mb-lg">
+<div class="flex items-center gap-sm mb-xs">
+<span class="font-headline-md text-headline-md font-bold text-primary">Nexus Academic</span>
+</div>
+<p class="font-label-sm text-label-sm text-secondary">Collaboration Portal</p>
+</div>
+<div class="flex-1 overflow-y-auto px-sm">
+<ul class="space-y-xs">
+<li>
+<a class="flex items-center gap-sm px-md py-sm rounded-lg text-secondary hover:bg-secondary-container/10 transition-all font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                        Overview
+                    </a>
+</li>
+<li>
+<a class="flex items-center gap-sm px-md py-sm rounded-lg text-primary font-bold border-r-4 border-primary bg-secondary-container/20 scale-[0.98] transition-transform font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="event">event</span>
+                        Workshops &amp; Lectures
+                    </a>
+</li>
+<li>
+<a class="flex items-center gap-sm px-md py-sm rounded-lg text-secondary hover:bg-secondary-container/10 transition-all font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+                        Student Roster
+                    </a>
+</li>
+<li>
+<a class="flex items-center gap-sm px-md py-sm rounded-lg text-secondary hover:bg-secondary-container/10 transition-all font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+                        Skill Analytics
+                    </a>
+</li>
+<li>
+<a class="flex items-center gap-sm px-md py-sm rounded-lg text-secondary hover:bg-secondary-container/10 transition-all font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="work">work</span>
+                        Internships
+                    </a>
+</li>
+<li>
+<a class="flex items-center gap-sm px-md py-sm rounded-lg text-secondary hover:bg-secondary-container/10 transition-all font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                        Settings
+                    </a>
+</li>
+</ul>
+</div>
+<div class="px-md mt-auto">
+<button class="w-full bg-primary-container text-on-primary font-label-md text-label-md py-sm rounded-lg flex items-center justify-center gap-xs hover:opacity-90 transition-opacity mb-md">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                New Research Project
+            </button>
+<ul class="space-y-xs">
+<li>
+<a class="flex items-center gap-sm px-sm py-xs rounded-lg text-secondary hover:bg-secondary-container/10 transition-all font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+                        Documentation
+                    </a>
+</li>
+<li>
+<a class="flex items-center gap-sm px-sm py-xs rounded-lg text-secondary hover:bg-secondary-container/10 transition-all font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined" data-icon="contact_support">contact_support</span>
+                        Support
+                    </a>
+</li>
+</ul>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 min-h-screen pt-16 md:pt-0 flex flex-col">
+<!-- TopNavBar (Desktop specific elements pushed right) -->
+<header class="hidden md:flex justify-between items-center w-full px-margin-desktop h-16 bg-surface-container-lowest border-b border-outline-variant sticky top-0 z-30">
+<div class="flex-1"></div>
+<div class="flex items-center gap-md">
+<button class="font-label-md text-label-md text-primary bg-secondary-container/50 px-md py-xs rounded-lg hover:bg-secondary-container transition-colors">
+                    Post Opportunity
+                </button>
+<div class="flex items-center gap-sm text-secondary">
+<button class="hover:text-primary transition-colors"><span class="material-symbols-outlined" data-icon="notifications">notifications</span></button>
+<button class="hover:text-primary transition-colors"><span class="material-symbols-outlined" data-icon="mail">mail</span></button>
+</div>
+<div class="h-8 w-8 rounded-full bg-secondary-container overflow-hidden border border-outline-variant">
+<img alt="Academic Profile" class="w-full h-full object-cover" data-alt="A small, professional headshot photo of an academic researcher with glasses, smiling softly against a neutral gray background, lit with soft, even studio lighting. The image should convey intelligence and approachability in a modern corporate style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiClwYfopesZC9Irl-E3OZA4GmLqWMCbEvJWyW1Mne-NwTnMqvq601dXmYHxvjQonJEaTMm4kAzdM6BAB8MAPIgmBYL8wg90uky2ZXQh6aWjre_-SaEkGijOhGFq9aqCvdHIJc9jgmL_5IcjT_Xzqk5nFykPU6BHZ-LVx22JvvnWmzOw67-4pL62oBTuEr46aLg4D-Xj6WGkjla9UgW1lQdio8tCWyeh_6jEuiu-IJiZ-IBBIzveHf"/>
+</div>
+</div>
+</header>
+<!-- Content Canvas -->
+<div class="flex-1 p-margin-mobile md:p-margin-desktop max-w-[1280px] w-full mx-auto">
+<div class="mb-lg">
+<h1 class="font-display text-display text-on-surface mb-xs">Workshops &amp; Lectures</h1>
+<p class="font-body-lg text-body-lg text-secondary">Manage and schedule academic events, guest lectures, and student workshops.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Left Column: Calendar View (approx 65%) -->
+<div class="lg:col-span-8 flex flex-col gap-md">
+<div class="bg-surface-container-lowest rounded-xl border border-[#dbeafe] p-md shadow-sm h-full">
+<div class="flex justify-between items-center mb-md">
+<h2 class="font-headline-md text-headline-md text-on-surface">October 2023</h2>
+<div class="flex items-center gap-xs">
+<button class="p-xs text-secondary hover:text-primary transition-colors rounded-full hover:bg-surface-container-low"><span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span></button>
+<button class="p-xs text-secondary hover:text-primary transition-colors rounded-full hover:bg-surface-container-low"><span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span></button>
+</div>
+</div>
+<!-- Calendar Grid -->
+<div class="grid grid-cols-7 gap-xs text-center mb-sm">
+<div class="font-label-sm text-label-sm text-secondary py-xs">SUN</div>
+<div class="font-label-sm text-label-sm text-secondary py-xs">MON</div>
+<div class="font-label-sm text-label-sm text-secondary py-xs">TUE</div>
+<div class="font-label-sm text-label-sm text-secondary py-xs">WED</div>
+<div class="font-label-sm text-label-sm text-secondary py-xs">THU</div>
+<div class="font-label-sm text-label-sm text-secondary py-xs">FRI</div>
+<div class="font-label-sm text-label-sm text-secondary py-xs">SAT</div>
+</div>
+<!-- Calendar Days (Simulated) -->
+<div class="grid grid-cols-7 gap-xs text-center font-body-md text-body-md">
+<div class="calendar-day p-sm rounded-lg text-outline">1</div>
+<div class="calendar-day p-sm rounded-lg text-outline">2</div>
+<div class="calendar-day p-sm rounded-lg text-outline">3</div>
+<div class="calendar-day p-sm rounded-lg text-outline">4</div>
+<div class="calendar-day p-sm rounded-lg text-outline">5</div>
+<div class="calendar-day p-sm rounded-lg text-outline">6</div>
+<div class="calendar-day p-sm rounded-lg text-outline">7</div>
+<div class="calendar-day p-sm rounded-lg">8</div>
+<div class="calendar-day p-sm rounded-lg">9</div>
+<div class="calendar-day p-sm rounded-lg has-event relative group">
+                                10
+                                <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 hidden group-hover:block bg-inverse-surface text-inverse-on-surface text-label-sm px-2 py-1 rounded whitespace-nowrap z-10">AI Ethics Panel</div>
+</div>
+<div class="calendar-day p-sm rounded-lg">11</div>
+<div class="calendar-day p-sm rounded-lg">12</div>
+<div class="calendar-day p-sm rounded-lg">13</div>
+<div class="calendar-day p-sm rounded-lg">14</div>
+<div class="calendar-day p-sm rounded-lg">15</div>
+<div class="calendar-day p-sm rounded-lg active shadow-sm">16</div>
+<div class="calendar-day p-sm rounded-lg">17</div>
+<div class="calendar-day p-sm rounded-lg">18</div>
+<div class="calendar-day p-sm rounded-lg has-event relative group">
+                                19
+                                <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 hidden group-hover:block bg-inverse-surface text-inverse-on-surface text-label-sm px-2 py-1 rounded whitespace-nowrap z-10">Quantum Computing 101</div>
+</div>
+<div class="calendar-day p-sm rounded-lg">20</div>
+<div class="calendar-day p-sm rounded-lg">21</div>
+<div class="calendar-day p-sm rounded-lg">22</div>
+<div class="calendar-day p-sm rounded-lg">23</div>
+<div class="calendar-day p-sm rounded-lg">24</div>
+<div class="calendar-day p-sm rounded-lg">25</div>
+<div class="calendar-day p-sm rounded-lg">26</div>
+<div class="calendar-day p-sm rounded-lg">27</div>
+<div class="calendar-day p-sm rounded-lg has-event relative group">
+                                28
+                                <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 hidden group-hover:block bg-inverse-surface text-inverse-on-surface text-label-sm px-2 py-1 rounded whitespace-nowrap z-10">Grant Writing Workshop</div>
+</div>
+<div class="calendar-day p-sm rounded-lg">29</div>
+<div class="calendar-day p-sm rounded-lg">30</div>
+<div class="calendar-day p-sm rounded-lg">31</div>
+<div class="calendar-day p-sm rounded-lg text-outline">1</div>
+<div class="calendar-day p-sm rounded-lg text-outline">2</div>
+<div class="calendar-day p-sm rounded-lg text-outline">3</div>
+<div class="calendar-day p-sm rounded-lg text-outline">4</div>
+</div>
+</div>
+<!-- Decorative Graphic for Academic Feel -->
+<div class="rounded-xl overflow-hidden h-32 relative bg-secondary-container/30 border border-[#dbeafe] flex items-center justify-center p-md">
+<div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(#2563eb 1px, transparent 1px); background-size: 16px 16px;"></div>
+<div class="relative z-10 flex items-center gap-md">
+<span class="material-symbols-outlined text-[48px] text-primary" data-icon="lightbulb">lightbulb</span>
+<div>
+<h3 class="font-label-md text-label-md text-primary mb-xs">Innovation Highlight</h3>
+<p class="font-body-md text-body-md text-secondary">Discover how interdisciplinary workshops are increasing cross-departmental research grants by 40%.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Upcoming Events (approx 35%) -->
+<div class="lg:col-span-4 flex flex-col gap-md">
+<button class="w-full bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-label-md text-label-md py-sm rounded-lg flex items-center justify-center gap-xs transition-colors shadow-sm">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+                        Schedule New Session
+                    </button>
+<div class="glass-card rounded-xl p-md flex-1">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-md pb-xs border-b border-outline-variant">Upcoming Events</h3>
+<div class="space-y-md">
+<!-- Event Card 1 -->
+<div class="group relative p-md rounded-lg border border-transparent hover:border-[#dbeafe] hover:bg-surface-container-low transition-all cursor-pointer">
+<div class="absolute left-0 top-md bottom-md w-[4px] bg-[#2563eb] rounded-r-full hidden group-hover:block"></div>
+<div class="flex justify-between items-start mb-xs">
+<span class="inline-block px-2 py-1 rounded bg-[#f1f5f9] text-[#475569] font-label-sm text-label-sm uppercase tracking-wider">Guest Lecture</span>
+<span class="font-label-sm text-label-sm text-secondary flex items-center gap-xs"><span class="material-symbols-outlined text-[16px]" data-icon="schedule">schedule</span> 10:00 AM</span>
+</div>
+<h4 class="font-label-md text-label-md text-on-surface mb-xs group-hover:text-primary transition-colors">AI Ethics in Modern Research</h4>
+<p class="font-body-md text-body-md text-secondary flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]" data-icon="person">person</span>
+                                    Dr. Elena Rostova
+                                </p>
+</div>
+<!-- Event Card 2 -->
+<div class="group relative p-md rounded-lg border border-transparent hover:border-[#dbeafe] hover:bg-surface-container-low transition-all cursor-pointer">
+<div class="absolute left-0 top-md bottom-md w-[4px] bg-[#2563eb] rounded-r-full hidden group-hover:block"></div>
+<div class="flex justify-between items-start mb-xs">
+<span class="inline-block px-2 py-1 rounded bg-[#f1f5f9] text-[#475569] font-label-sm text-label-sm uppercase tracking-wider">Workshop</span>
+<span class="font-label-sm text-label-sm text-secondary flex items-center gap-xs"><span class="material-symbols-outlined text-[16px]" data-icon="schedule">schedule</span> 2:00 PM</span>
+</div>
+<h4 class="font-label-md text-label-md text-on-surface mb-xs group-hover:text-primary transition-colors">Quantum Computing 101</h4>
+<p class="font-body-md text-body-md text-secondary flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]" data-icon="person">person</span>
+                                    Prof. James Chen
+                                </p>
+</div>
+<!-- Event Card 3 -->
+<div class="group relative p-md rounded-lg border border-transparent hover:border-[#dbeafe] hover:bg-surface-container-low transition-all cursor-pointer">
+<div class="absolute left-0 top-md bottom-md w-[4px] bg-[#2563eb] rounded-r-full hidden group-hover:block"></div>
+<div class="flex justify-between items-start mb-xs">
+<span class="inline-block px-2 py-1 rounded bg-[#f1f5f9] text-[#475569] font-label-sm text-label-sm uppercase tracking-wider">Workshop</span>
+<span class="font-label-sm text-label-sm text-secondary flex items-center gap-xs"><span class="material-symbols-outlined text-[16px]" data-icon="schedule">schedule</span> 9:00 AM</span>
+</div>
+<h4 class="font-label-md text-label-md text-on-surface mb-xs group-hover:text-primary transition-colors">Grant Writing for Sciences</h4>
+<p class="font-body-md text-body-md text-secondary flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]" data-icon="person">person</span>
+                                    Dr. Sarah Jenkins
+                                </p>
+</div>
+</div>
+<div class="mt-md pt-md border-t border-outline-variant text-center">
+<button class="text-primary font-label-md text-label-md hover:underline">View All Events</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

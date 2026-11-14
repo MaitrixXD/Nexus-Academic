@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nexus Academic - Admin Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-background": "#191c1e",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-secondary-container": "#576676",
+                        "on-surface-variant": "#434655",
+                        "error-container": "#ffdad6",
+                        "background": "#f7f9fb",
+                        "secondary-container": "#d5e4f8",
+                        "on-tertiary-container": "#eff0ff",
+                        "surface-dim": "#d8dadc",
+                        "on-primary": "#ffffff",
+                        "tertiary-container": "#4865d4",
+                        "outline-variant": "#c3c6d7",
+                        "tertiary-fixed-dim": "#b8c4ff",
+                        "surface": "#f7f9fb",
+                        "tertiary": "#2c4bb9",
+                        "tertiary-fixed": "#dde1ff",
+                        "on-error": "#ffffff",
+                        "secondary": "#516070",
+                        "surface-container-high": "#e6e8ea",
+                        "surface-variant": "#e0e3e5",
+                        "inverse-surface": "#2d3133",
+                        "primary": "#004ac6",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed-dim": "#b9c8db",
+                        "on-primary-fixed": "#00174b",
+                        "on-tertiary-fixed-variant": "#173bab",
+                        "surface-container-low": "#f2f4f6",
+                        "error": "#ba1a1a",
+                        "surface-bright": "#f7f9fb",
+                        "outline": "#737686",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "primary-fixed": "#dbe1ff",
+                        "on-secondary": "#ffffff",
+                        "surface-tint": "#0053db",
+                        "surface-container": "#eceef0",
+                        "on-secondary-fixed-variant": "#3a4858",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-secondary-fixed": "#0e1d2b",
+                        "primary-container": "#2563eb",
+                        "on-tertiary-fixed": "#001453",
+                        "inverse-primary": "#b4c5ff",
+                        "on-primary-container": "#eeefff",
+                        "on-surface": "#191c1e",
+                        "secondary-fixed": "#d5e4f8",
+                        "primary-fixed-dim": "#b4c5ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "64px",
+                        "lg": "48px",
+                        "base": "8px",
+                        "md": "24px",
+                        "xl": "80px",
+                        "xs": "4px",
+                        "gutter": "24px",
+                        "sm": "12px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display": ["Inter"],
+                        "headline-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["24px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "label-sm": ["12px", { "lineHeight": "1.0", "fontWeight": "500" }],
+                        "label-md": ["14px", { "lineHeight": "1.0", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "display": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .bg-chart-gradient { background: linear-gradient(180deg, rgba(37,99,235,0.2) 0%, rgba(37,99,235,0) 100%); }
+    </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="../nexus-shared.js"></script>
+</head>
+<body data-active-tab="Dashboard" class="bg-surface text-on-surface font-body-md h-screen flex overflow-hidden">
+<!-- SideNavBar -->
+<nav class="hidden md:flex flex-col h-screen w-64 bg-surface-container-low border-r border-outline-variant py-md px-sm flex-shrink-0 z-20">
+<div class="mb-lg px-sm">
+<h1 class="font-headline-sm text-headline-sm font-black text-primary flex items-center gap-base">
+<span class="material-symbols-outlined text-3xl">school</span> Nexus Admin
+            </h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-xs">Central Portal</p>
+</div>
+<ul class="flex flex-col gap-base flex-1">
+<!-- Active: Overview -->
+<li>
+<a class="flex items-center gap-sm px-sm py-sm text-primary font-bold bg-secondary-container rounded-lg transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md text-label-md">Overview</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-sm px-sm py-sm text-on-secondary-fixed-variant hover:bg-surface-variant transition-all duration-200 ease-in-out rounded-lg" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="font-label-md text-label-md">Student Insights</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-sm px-sm py-sm text-on-secondary-fixed-variant hover:bg-surface-variant transition-all duration-200 ease-in-out rounded-lg" href="#">
+<span class="material-symbols-outlined">factory</span>
+<span class="font-label-md text-label-md">Industry Pulse</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-sm px-sm py-sm text-on-secondary-fixed-variant hover:bg-surface-variant transition-all duration-200 ease-in-out rounded-lg" href="#">
+<span class="material-symbols-outlined">psychology</span>
+<span class="font-label-md text-label-md">Skill Analysis</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-sm px-sm py-sm text-on-secondary-fixed-variant hover:bg-surface-variant transition-all duration-200 ease-in-out rounded-lg" href="#">
+<span class="material-symbols-outlined">leaderboard</span>
+<span class="font-label-md text-label-md">Placement Hub</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-sm px-sm py-sm text-on-secondary-fixed-variant hover:bg-surface-variant transition-all duration-200 ease-in-out rounded-lg" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</li>
+</ul>
+<div class="mt-auto flex flex-col gap-sm">
+<button class="w-full bg-primary-container text-on-primary py-sm rounded-lg font-label-md text-label-md hover:opacity-90 transition-opacity">Export Report</button>
+<div class="border-t border-outline-variant pt-sm mt-sm">
+<a class="flex items-center gap-sm px-sm py-xs text-on-secondary-fixed-variant hover:bg-surface-variant transition-all duration-200 ease-in-out rounded-lg" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-label-md text-label-md">Help Center</span>
+</a>
+<a class="flex items-center gap-sm px-sm py-xs text-on-secondary-fixed-variant hover:bg-surface-variant transition-all duration-200 ease-in-out rounded-lg" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-md text-label-md">Logout</span>
+</a>
+</div>
+</div>
+</nav>
+<!-- Main Content Wrapper -->
+<div class="flex-1 flex flex-col h-screen overflow-hidden">
+<!-- TopNavBar -->
+<header class="sticky top-0 z-10 w-full bg-surface border-b border-outline-variant shadow-sm px-margin-desktop py-sm flex justify-between items-center">
+<div class="flex items-center gap-md md:hidden">
+<span class="font-headline-md text-headline-md font-bold text-primary">Nexus Academic</span>
+</div>
+<nav class="hidden md:flex gap-lg flex-1">
+<a class="font-label-md text-label-md text-primary border-b-2 border-primary pb-1 cursor-pointer active:opacity-70 transition-colors" href="#">Dashboard</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary cursor-pointer active:opacity-70 transition-colors" href="#">Analytics</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary cursor-pointer active:opacity-70 transition-colors" href="#">Partners</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary cursor-pointer active:opacity-70 transition-colors" href="#">Departments</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary cursor-pointer active:opacity-70 transition-colors" href="#">Reports</a>
+</nav>
+<div class="flex items-center gap-md">
+<div class="relative bg-surface-container rounded-full p-xs md:flex hidden items-center border border-outline-variant focus-within:border-primary-container focus-within:ring-2 focus-within:ring-secondary-container">
+<span class="material-symbols-outlined text-outline ml-xs">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-md py-1 px-2 w-48" placeholder="Search..." type="text"/>
+</div>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<img alt="Administrator Profile" class="w-10 h-10 rounded-full border border-outline-variant object-cover" data-alt="A small, professional portrait photograph of an academic administrator in a light gray suit against a neutral white background, well-lit and high resolution." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgLmUgtME773ToiCW8XS7ROfbiFFot9rZ4yksYoQb_kh62kqzAjGcxEKROqOngqCzRCKtY4H4vGx0RbaL4yf7EHbtAcIMcFIYAHgjg8SK12MhsROGhyA9ewyPezZhNkKm7SK7JRM_rLSCyyheayjDsw2KTxFHIkybAMbHmDddrql6YaeckUyhklYKV8-KSI-IIAn2XrpSr1ZMQSyEjnixeqHpeEEfmzI6ESO0qc_-t3jeaHxWadL3B"/>
+</div>
+</header>
+<!-- Main Scrollable Canvas -->
+<main class="flex-1 overflow-y-auto bg-surface py-lg px-margin-mobile md:px-margin-desktop">
+<div class="max-w-[1280px] mx-auto flex flex-col gap-xl">
+<!-- KPIs Section -->
+<section>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-md text-on-surface">Institution Overview</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- KPI Card 1 -->
+<div class="bg-secondary-container rounded-xl p-md border border-outline-variant shadow-sm flex flex-col justify-between hover:border-primary-container transition-colors">
+<div class="flex justify-between items-start mb-sm">
+<span class="font-label-md text-label-md text-on-secondary-container">Placement %</span>
+<span class="material-symbols-outlined text-primary-container">trending_up</span>
+</div>
+<div class="flex items-baseline gap-xs">
+<span class="font-display text-display text-on-surface">82%</span>
+<span class="font-label-sm text-label-sm text-green-700 flex items-center"><span class="material-symbols-outlined text-sm">arrow_upward</span> 4%</span>
+</div>
+</div>
+<!-- KPI Card 2 -->
+<div class="bg-secondary-container rounded-xl p-md border border-outline-variant shadow-sm flex flex-col justify-between hover:border-primary-container transition-colors">
+<div class="flex justify-between items-start mb-sm">
+<span class="font-label-md text-label-md text-on-secondary-container">Active Students</span>
+<span class="material-symbols-outlined text-primary-container">groups</span>
+</div>
+<div class="flex items-baseline gap-xs">
+<span class="font-display text-display text-on-surface">12,450</span>
+</div>
+</div>
+<!-- KPI Card 3 -->
+<div class="bg-secondary-container rounded-xl p-md border border-outline-variant shadow-sm flex flex-col justify-between hover:border-primary-container transition-colors">
+<div class="flex justify-between items-start mb-sm">
+<span class="font-label-md text-label-md text-on-secondary-container">Partner Industries</span>
+<span class="material-symbols-outlined text-primary-container">handshake</span>
+</div>
+<div class="flex items-baseline gap-xs">
+<span class="font-display text-display text-on-surface">156</span>
+</div>
+</div>
+<!-- KPI Card 4 -->
+<div class="bg-secondary-container rounded-xl p-md border border-outline-variant shadow-sm flex flex-col justify-between hover:border-primary-container transition-colors">
+<div class="flex justify-between items-start mb-sm">
+<span class="font-label-md text-label-md text-on-secondary-container">Skill Gap Index</span>
+<span class="material-symbols-outlined text-primary-container">insights</span>
+</div>
+<div class="flex items-baseline gap-xs">
+<span class="font-display text-display text-on-surface">14.2</span>
+<span class="font-label-sm text-label-sm text-green-700 flex items-center"><span class="material-symbols-outlined text-sm">arrow_downward</span> 1.5</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Content Grid -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<!-- Chart Area -->
+<div class="lg:col-span-2 bg-surface-container-lowest rounded-xl border border-outline-variant shadow-sm p-lg">
+<div class="flex justify-between items-center mb-lg">
+<h3 class="font-headline-md text-headline-md text-on-surface">Placement Trends over Time</h3>
+</div>
+<div class="w-full h-[300px] relative">
+    <canvas id="placementTrendsChart" class="w-full h-full"></canvas>
+</div>
+</div>
+<!-- Table Area -->
+<div class="lg:col-span-1 bg-surface-container-lowest rounded-xl border border-outline-variant shadow-sm overflow-hidden flex flex-col">
+<div class="p-md border-b border-outline-variant bg-surface-container-low">
+<h3 class="font-headline-md text-headline-md text-on-surface">Department Performance</h3>
+</div>
+<div class="flex-1 overflow-x-auto">
+<table class="w-full text-left font-body-sm">
+<thead>
+<tr class="border-b border-outline-variant bg-surface">
+<th class="p-sm font-label-md text-label-md text-on-surface-variant font-semibold">Department</th>
+<th class="p-sm font-label-md text-label-md text-on-surface-variant font-semibold text-right">Students</th>
+<th class="p-sm font-label-md text-label-md text-on-surface-variant font-semibold text-right">Avg Skill</th>
+</tr>
+</thead>
+<tbody>
+    <tr><td colspan="3" class="p-sm text-center text-on-surface-variant">Loading departments...</td></tr>
+</tbody>
+</table>
+</div>
+<div class="p-sm border-t border-outline-variant bg-surface text-center">
+<button onclick="window.location.href='../approval_verification_nexus_academic/code.html'" class="font-label-md text-label-md text-primary hover:underline">Verify Pending Credentials</button>
+</div>
+</div>
+</section>
+</div>
+<!-- Footer -->
+<footer class="mt-xl border-t border-outline-variant py-md flex justify-between items-center bg-background px-margin-desktop w-full max-w-[1280px] mx-auto">
+<span class="font-label-sm text-label-sm text-secondary">© 2024 Nexus Academic Collaboration Portal</span>
+<div class="flex gap-md">
+<a class="font-label-sm text-label-sm text-secondary hover:underline opacity-80 hover:opacity-100" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-secondary hover:underline opacity-80 hover:opacity-100" href="#">Terms of Service</a>
+<a class="font-label-sm text-label-sm text-secondary hover:underline opacity-80 hover:opacity-100" href="#">Contact Support</a>
+</div>
+</footer>
+</main>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+    const user = getLoggedUser();
+    if (!user || user.role !== 'INSTITUTION_ADMIN') {
+        alert('Please log in as an Institution Admin first.');
+        window.location.href = '../login_sign_up_nexus_academic/code.html';
+        return;
+    }
+
+    try {
+        const res = await nexusFetch('/analytics/institution/dashboard');
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.message || 'Failed to load admin dashboard');
+
+        // Bind KPIs
+        const kpiContainers = document.querySelectorAll('main section.grid p.font-display');
+        if (kpiContainers.length >= 4) {
+            kpiContainers[0].textContent = `${data.placementPercentage || 0}%`;
+            kpiContainers[1].textContent = (data.activeStudents || 0).toLocaleString();
+            kpiContainers[2].textContent = data.partnerIndustries || 0;
+            kpiContainers[3].textContent = data.skillGapIndex || 0;
+        }
+
+        // Bind Department table
+        const tbody = document.querySelector('table tbody');
+        if (tbody && data.departmentStats) {
+            tbody.innerHTML = '';
+            if (data.departmentStats.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="3" class="p-sm text-center text-on-surface-variant">No department data.</td></tr>';
+            } else {
+                data.departmentStats.forEach(dept => {
+                    const studentsCount = Number(dept.students);
+                    const avgScore = Math.round(Number(dept.avgSkillScore));
+                    tbody.innerHTML += `
+                        <tr class="border-b border-outline-variant hover:bg-surface-variant transition-colors">
+                            <td class="p-sm text-on-surface">${dept.department || 'General'}</td>
+                            <td class="p-sm text-right text-on-surface-variant">${studentsCount.toLocaleString()}</td>
+                            <td class="p-sm text-right text-primary-container font-semibold">${avgScore}%</td>
+                        </tr>
+                    `;
+                });
+            }
+        }
+
+        // Render Placement Trends Chart
+        const chartCtx = document.getElementById('placementTrendsChart').getContext('2d');
+        Chart.defaults.font.family = 'Inter';
+        Chart.defaults.color = '#737686';
+
+        new Chart(chartCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+                datasets: [{
+                    label: 'Placements Completed',
+                    data: [85, 120, 190, 240],
+                    backgroundColor: '#2563EB',
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        grid: { color: '#e0e3e5' },
+                        ticks: { stepSize: 50 }
+                    },
+                    x: {
+                        grid: { display: false }
+                    }
+                }
+            }
+        });
+
+    } catch (e) {
+        console.error(e);
+    }
+});
+</script>
+</body></html>

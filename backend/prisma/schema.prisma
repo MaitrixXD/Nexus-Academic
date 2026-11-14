@@ -1,0 +1,498 @@
+// ──────────────────────────────────────────────────────────────────────────────
+// Nexus Academic — Prisma Schema
+// Primary DB: PostgreSQL (managed via embedded-postgres for local dev)
+// ──────────────────────────────────────────────────────────────────────────────
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ─── ENUMS ────────────────────────────────────────────────────────────────────
+
+enum Role {
+  STUDENT
+  INDUSTRY
+  ACADEMICIAN
+  INSTITUTION_ADMIN
+}
+
+enum ApplicationStatus {
+  APPLIED
+  SHORTLISTED
+  INTERVIEW
+  SELECTED
+  REJECTED
+}
+
+enum PostingStatus {
+  ACTIVE
+  CLOSED
+  DRAFT
+}
+
+enum EnrollmentStatus {
+  ENROLLED
+  IN_PROGRESS
+  COMPLETED
+}
+
+enum VerificationStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+enum NotificationType {
+  APPLICATION_STATUS
+  NEW_MATCH
+  NEW_MESSAGE
+  NEW_POSTING
+  GENERAL
+}
+
+// ─── CORE USER ────────────────────────────────────────────────────────────────
+
+model User {
+  id                String    @id @default(uuid())
+  email             String    @unique
+  passwordHash      String
+  role              Role
+  isVerified        Boolean   @default(false)
+  isActive          Boolean   @default(true)
+  otpHash           String?
+  otpExpiry         DateTime?
+  refreshToken      String?
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+
+  studentProfile      StudentProfile?
+  industryProfile     IndustryProfile?
+  academicianProfile  AcademicianProfile?
+  institutionProfile  InstitutionProfile?
+  notifications       Notification[]
+  sentMessages        Message[]           @relation("SentMessages")
+  conversations       ConversationParticipant[]
+
+  @@map("users")
+}
+
+// ─── PROFILES ─────────────────────────────────────────────────────────────────
+
+model StudentProfile {
+  id              String   @id @default(uuid())
+  userId          String   @unique
+  firstName       String
+  lastName        String
+  phone           String?
+  avatarUrl       String?
+  institution     String?
+  department      String?
+  year            Int?
+  cgpa            Float?
+  bio             String?
+  linkedinUrl     String?
+  githubUrl       String?
+  resumeUrl       String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  user            User              @relation(fields: [userId], references: [id], onDelete: Cascade)
+  skillProfile    SkillProfile?
+  applications    Application[]
+  enrollments     Enrollment[]
+  certificates    Certificate[]
+
+  @@map("student_profiles")
+}
+
+model IndustryProfile {
+  id              String   @id @default(uuid())
+  userId          String   @unique
+  companyName     String
+  industry        String?
+  website         String?
+  logoUrl         String?
+  bannerUrl       String?
+  description     String?
+  location        String?
+  size            String?
+  foundedYear     Int?
+  contactEmail    String?
+  contactPhone    String?
+  isVerified      Boolean  @default(false)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  user            User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  jobPostings     JobPosting[]
+  learningPrograms LearningProgram[]
+  fdps            FDP[]
+  researchCollaborations ResearchCollaboration[]
+  workshops       Workshop[]
+
+  @@map("industry_profiles")
+}
+
+model AcademicianProfile {
+  id              String   @id @default(uuid())
+  userId          String   @unique
+  firstName       String
+  lastName        String
+  phone           String?
+  avatarUrl       String?
+  institution     String?
+  department      String?
+  designation     String?
+  specialization  String?
+  bio             String?
+  linkedinUrl     String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("academician_profiles")
+}
+
+model InstitutionProfile {
+  id              String   @id @default(uuid())
+  userId          String   @unique
+  institutionName String
+  address         String?
+  website         String?
+  logoUrl         String?
+  contactEmail    String?
+  contactPhone    String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("institution_profiles")
+}
+
+// ─── SKILL ASSESSMENT & MAPPING ───────────────────────────────────────────────
+
+model SkillCategory {
+  id          String   @id @default(uuid())
+  name        String   @unique
+  description String?
+  type        String   @default("technical") // technical | soft
+  createdAt   DateTime @default(now())
+
+  questions   AssessmentQuestion[]
+  skillScores SkillScore[]
+  benchmarks  IndustryBenchmark[]
+
+  @@map("skill_categories")
+}
+
+model AssessmentTemplate {
+  id          String   @id @default(uuid())
+  title       String
+  description String?
+  isActive    Boolean  @default(true)
+  timeLimit   Int?     // minutes
+  createdAt   DateTime @default(now())
+
+  questions   AssessmentQuestion[]
+  responses   AssessmentResponse[]
+
+  @@map("assessment_templates")
+}
+
+model AssessmentQuestion {
+  id           String   @id @default(uuid())
+  templateId   String
+  categoryId   String
+  questionText String
+  optionA      String
+  optionB      String
+  optionC      String
+  optionD      String
+  correctAnswer String  // A | B | C | D
+  weight       Float    @default(1.0)
+  order        Int      @default(0)
+  createdAt    DateTime @default(now())
+
+  template     AssessmentTemplate @relation(fields: [templateId], references: [id], onDelete: Cascade)
+  category     SkillCategory      @relation(fields: [categoryId], references: [id])
+
+  @@map("assessment_questions")
+}
+
+model AssessmentResponse {
+  id           String   @id @default(uuid())
+  studentId    String
+  templateId   String
+  answers      Json     // { questionId: selectedOption }
+  completedAt  DateTime @default(now())
+
+  template     AssessmentTemplate @relation(fields: [templateId], references: [id])
+
+  @@map("assessment_responses")
+}
+
+model SkillProfile {
+  id           String   @id @default(uuid())
+  studentId    String   @unique
+  overallScore Float    @default(0)
+  lastUpdated  DateTime @default(now())
+
+  student      StudentProfile @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  skillScores  SkillScore[]
+
+  @@map("skill_profiles")
+}
+
+model SkillScore {
+  id             String   @id @default(uuid())
+  skillProfileId String
+  categoryId     String
+  score          Float    @default(0) // 0-100
+  updatedAt      DateTime @default(now())
+
+  skillProfile   SkillProfile  @relation(fields: [skillProfileId], references: [id], onDelete: Cascade)
+  category       SkillCategory @relation(fields: [categoryId], references: [id])
+
+  @@unique([skillProfileId, categoryId])
+  @@map("skill_scores")
+}
+
+model IndustryBenchmark {
+  id          String   @id @default(uuid())
+  jobRole     String
+  categoryId  String
+  minScore    Float    // minimum score required (0-100)
+  createdAt   DateTime @default(now())
+
+  category    SkillCategory @relation(fields: [categoryId], references: [id])
+
+  @@unique([jobRole, categoryId])
+  @@map("industry_benchmarks")
+}
+
+// ─── INTERNSHIP & PLACEMENT ───────────────────────────────────────────────────
+
+model JobPosting {
+  id               String        @id @default(uuid())
+  industryId       String
+  title            String
+  description      String
+  requiredSkills   String[]      // array of skill names
+  jobType          String        @default("internship") // internship | fulltime | parttime
+  location         String?
+  isRemote         Boolean       @default(false)
+  stipend          Float?
+  salary           Float?
+  duration         String?       // e.g. "12 weeks"
+  eligibility      String?
+  deadline         DateTime?
+  status           PostingStatus @default(ACTIVE)
+  createdAt        DateTime      @default(now())
+  updatedAt        DateTime      @updatedAt
+
+  industry         IndustryProfile @relation(fields: [industryId], references: [id], onDelete: Cascade)
+  applications     Application[]
+
+  @@map("job_postings")
+}
+
+model Application {
+  id           String            @id @default(uuid())
+  studentId    String
+  postingId    String
+  status       ApplicationStatus @default(APPLIED)
+  coverLetter  String?
+  matchScore   Float?            // computed skill-fit percentage
+  appliedAt    DateTime          @default(now())
+  updatedAt    DateTime          @updatedAt
+
+  student      StudentProfile  @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  posting      JobPosting      @relation(fields: [postingId], references: [id], onDelete: Cascade)
+
+  @@unique([studentId, postingId])
+  @@map("applications")
+}
+
+// ─── LEARNING & CERTIFICATION ─────────────────────────────────────────────────
+
+model LearningProgram {
+  id              String   @id @default(uuid())
+  industryId      String
+  title           String
+  description     String?
+  skillsCovered   String[]
+  duration        String?
+  hasCertificate  Boolean  @default(true)
+  thumbnailUrl    String?
+  isActive        Boolean  @default(true)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  industry        IndustryProfile @relation(fields: [industryId], references: [id], onDelete: Cascade)
+  enrollments     Enrollment[]
+
+  @@map("learning_programs")
+}
+
+model Enrollment {
+  id          String           @id @default(uuid())
+  studentId   String
+  programId   String
+  status      EnrollmentStatus @default(ENROLLED)
+  enrolledAt  DateTime         @default(now())
+  completedAt DateTime?
+
+  student     StudentProfile  @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  program     LearningProgram @relation(fields: [programId], references: [id], onDelete: Cascade)
+  certificate Certificate?
+
+  @@unique([studentId, programId])
+  @@map("enrollments")
+}
+
+model Certificate {
+  id              String             @id @default(uuid())
+  studentId       String
+  enrollmentId    String?            @unique
+  title           String
+  issuer          String
+  issuedAt        DateTime           @default(now())
+  credentialUrl   String?
+  fileUrl         String?
+  verificationStatus VerificationStatus @default(APPROVED)
+
+  student         StudentProfile @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  enrollment      Enrollment?    @relation(fields: [enrollmentId], references: [id])
+
+  @@map("certificates")
+}
+
+// ─── ACADEMICIAN COLLABORATION ────────────────────────────────────────────────
+
+model FDP {
+  id              String   @id @default(uuid())
+  industryId      String
+  title           String
+  description     String?
+  duration        String?
+  startDate       DateTime?
+  endDate         DateTime?
+  location        String?
+  mode            String   @default("offline") // online | offline | hybrid
+  isActive        Boolean  @default(true)
+  createdAt       DateTime @default(now())
+
+  industry        IndustryProfile @relation(fields: [industryId], references: [id], onDelete: Cascade)
+
+  @@map("fdps")
+}
+
+model ResearchCollaboration {
+  id              String   @id @default(uuid())
+  industryId      String
+  title           String
+  description     String?
+  requiredExpertise String[]
+  deadline        DateTime?
+  isOpen          Boolean  @default(true)
+  createdAt       DateTime @default(now())
+
+  industry        IndustryProfile @relation(fields: [industryId], references: [id], onDelete: Cascade)
+
+  @@map("research_collaborations")
+}
+
+model Workshop {
+  id          String   @id @default(uuid())
+  industryId  String?
+  title       String
+  description String?
+  speaker     String?
+  date        DateTime?
+  duration    String?
+  mode        String   @default("offline")
+  location    String?
+  createdAt   DateTime @default(now())
+
+  industry    IndustryProfile? @relation(fields: [industryId], references: [id])
+
+  @@map("workshops")
+}
+
+// ─── NOTIFICATIONS & MESSAGING ────────────────────────────────────────────────
+
+model Notification {
+  id        String           @id @default(uuid())
+  userId    String
+  type      NotificationType @default(GENERAL)
+  title     String
+  body      String
+  isRead    Boolean          @default(false)
+  metadata  Json?            // extra data: { applicationId, postingId, etc. }
+  createdAt DateTime         @default(now())
+
+  user      User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("notifications")
+}
+
+model Conversation {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  participants ConversationParticipant[]
+  messages     Message[]
+
+  @@map("conversations")
+}
+
+model ConversationParticipant {
+  id             String @id @default(uuid())
+  conversationId String
+  userId         String
+
+  conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  user           User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([conversationId, userId])
+  @@map("conversation_participants")
+}
+
+model Message {
+  id             String   @id @default(uuid())
+  conversationId String
+  senderId       String
+  content        String
+  isRead         Boolean  @default(false)
+  sentAt         DateTime @default(now())
+
+  conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  sender         User         @relation("SentMessages", fields: [senderId], references: [id], onDelete: Cascade)
+
+  @@map("messages")
+}
+
+// ─── DOCUMENT MANAGEMENT ──────────────────────────────────────────────────────
+
+model UploadedFile {
+  id          String             @id @default(uuid())
+  uploaderId  String
+  fileName    String
+  originalName String
+  mimeType    String
+  size        Int
+  url         String
+  fileType    String             @default("general") // resume | certificate | report
+  status      VerificationStatus @default(PENDING)
+  uploadedAt  DateTime           @default(now())
+
+  @@map("uploaded_files")
+}

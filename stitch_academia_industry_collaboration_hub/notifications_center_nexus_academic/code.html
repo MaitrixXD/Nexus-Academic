@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Notification Center - CollabPortal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#f7f9fb",
+                        "on-primary-container": "#eeefff",
+                        "outline-variant": "#c3c6d7",
+                        "tertiary-container": "#4865d4",
+                        "tertiary": "#2c4bb9",
+                        "outline": "#737686",
+                        "surface": "#f7f9fb",
+                        "secondary-container": "#d5e4f8",
+                        "on-tertiary-fixed-variant": "#173bab",
+                        "surface-container-high": "#e6e8ea",
+                        "on-error": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-surface": "#191c1e",
+                        "on-background": "#191c1e",
+                        "on-secondary-fixed-variant": "#3a4858",
+                        "error-container": "#ffdad6",
+                        "on-surface-variant": "#434655",
+                        "surface-container": "#eceef0",
+                        "on-tertiary-fixed": "#001453",
+                        "surface-container-highest": "#e0e3e5",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#d8dadc",
+                        "secondary-fixed-dim": "#b9c8db",
+                        "tertiary-fixed": "#dde1ff",
+                        "on-secondary-fixed": "#0e1d2b",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-container": "#eff0ff",
+                        "inverse-on-surface": "#eff1f3",
+                        "surface-bright": "#f7f9fb",
+                        "surface-container-low": "#f2f4f6",
+                        "on-tertiary": "#ffffff",
+                        "surface-tint": "#0053db",
+                        "secondary": "#516070",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "inverse-surface": "#2d3133",
+                        "primary-container": "#2563eb",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-primary": "#b4c5ff",
+                        "surface-variant": "#e0e3e5",
+                        "secondary-fixed": "#d5e4f8",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "primary-fixed": "#dbe1ff",
+                        "on-secondary-container": "#576676",
+                        "primary": "#004ac6",
+                        "tertiary-fixed-dim": "#b8c4ff",
+                        "on-primary-fixed": "#00174b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "margin-desktop": "64px",
+                        "md": "24px",
+                        "margin-mobile": "16px",
+                        "sm": "12px",
+                        "base": "8px",
+                        "gutter": "24px",
+                        "xl": "80px",
+                        "lg": "48px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "display": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "display": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "label-md": ["14px", { "lineHeight": "1.0", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "1.0", "fontWeight": "500" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+  <script src="../nexus-shared.js"></script>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col">
+<!-- TopNavBar (From Shared Components) -->
+<nav class="bg-surface-container-lowest dark:bg-inverse-surface border-b border-outline-variant dark:border-outline fixed top-0 left-0 w-full z-50 flex justify-between items-center h-16 px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto">
+<div class="flex items-center gap-md">
+<span class="text-headline-md font-headline-md font-extrabold text-primary dark:text-inverse-primary">CollabPortal</span>
+</div>
+<div class="hidden md:flex items-center gap-md">
+<a class="text-on-surface-variant dark:text-surface-variant font-label-md hover:text-primary dark:hover:text-inverse-primary transition-colors" href="#">Find Projects</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-md hover:text-primary dark:hover:text-inverse-primary transition-colors" href="#">For Industry</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-md hover:text-primary dark:hover:text-inverse-primary transition-colors" href="#">For Academia</a>
+</div>
+<div class="flex items-center gap-sm">
+<button class="text-primary font-label-md bg-transparent border-0 px-4 py-2 hover:bg-secondary-container rounded-lg transition-colors">Login</button>
+<button class="bg-primary-container text-on-primary rounded-lg px-4 py-2 font-label-md hover:bg-primary transition-colors">Join</button>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-grow pt-[100px] pb-xl px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto w-full">
+<!-- Header -->
+<div class="mb-lg flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+<div>
+<h1 class="text-display font-display text-on-background mb-2">Notification Center</h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant">Stay updated with your latest academic and industry collaborations.</p>
+</div>
+<button id="mark-all-btn" class="bg-transparent border border-primary text-primary px-4 py-2 rounded-lg font-label-md hover:bg-secondary-container transition-colors">
+    Mark All as Read
+</button>
+</div>
+<!-- Filter Tabs -->
+<div class="flex gap-4 mb-md border-b border-outline-variant pb-2 overflow-x-auto" id="filter-tabs">
+<button class="filter-tab text-primary dark:text-inverse-primary border-b-2 border-primary dark:border-inverse-primary pb-1 font-label-md px-2 whitespace-nowrap" data-type="ALL">All</button>
+<button class="filter-tab text-on-surface-variant dark:text-surface-variant font-label-md hover:text-primary transition-colors px-2 whitespace-nowrap" data-type="APPLICATION">Applications</button>
+<button class="filter-tab text-on-surface-variant dark:text-surface-variant font-label-md hover:text-primary transition-colors px-2 whitespace-nowrap" data-type="MESSAGE">Messages</button>
+<button class="filter-tab text-on-surface-variant dark:text-surface-variant font-label-md hover:text-primary transition-colors px-2 whitespace-nowrap" data-type="LEARNING">Learning</button>
+</div>
+<!-- Notification List -->
+<div class="flex flex-col gap-sm" id="notification-list">
+    <p class="text-body-md text-on-surface-variant text-center py-8">Loading notifications...</p>
+</div>
+<!-- Empty State -->
+<div class="hidden flex-col items-center justify-center py-xl text-center" id="empty-state">
+<h3 class="text-headline-lg font-headline-lg text-on-background mb-2">All Caught Up!</h3>
+<p class="text-body-lg font-body-lg text-on-surface-variant max-w-md">You have no new notifications at the moment. Take a break or explore new projects.</p>
+</div>
+</main>
+<!-- Footer (From Shared Components) -->
+<footer class="bg-surface-container-low dark:bg-inverse-surface border-t border-outline-variant dark:border-outline mt-auto">
+<div class="w-full py-lg px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row justify-between items-start gap-gutter max-w-[1280px] mx-auto">
+<div class="mb-6 md:mb-0">
+<span class="text-headline-md font-headline-md font-extrabold text-primary dark:text-inverse-primary block mb-2">CollabPortal</span>
+<p class="text-body-md font-body-md text-on-surface-variant">© 2024 Academia-Industry Collaboration Portal. All rights reserved.</p>
+</div>
+<div class="flex flex-col gap-2">
+<a class="text-on-secondary-container dark:text-surface-variant font-label-sm hover:text-primary dark:hover:text-inverse-primary transition-colors" href="#">Find Projects</a>
+<a class="text-on-secondary-container dark:text-surface-variant font-label-sm hover:text-primary dark:hover:text-inverse-primary transition-colors" href="#">For Industry</a>
+<a class="text-on-secondary-container dark:text-surface-variant font-label-sm hover:text-primary dark:hover:text-inverse-primary transition-colors" href="#">For Academia</a>
+</div>
+<div class="flex flex-col gap-2">
+<a class="text-on-secondary-container dark:text-surface-variant font-label-sm hover:text-primary dark:hover:text-inverse-primary transition-colors" href="#">Contact</a>
+<a class="text-on-secondary-container dark:text-surface-variant font-label-sm hover:text-primary dark:hover:text-inverse-primary transition-colors" href="#">Privacy Policy</a>
+<a class="text-on-secondary-container dark:text-surface-variant font-label-sm hover:text-primary dark:hover:text-inverse-primary transition-colors" href="#">Terms of Service</a>
+</div>
+</div>
+</footer>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+    const user = getLoggedUser();
+    if (!user) {
+        alert('Please log in first.');
+        window.location.href = '../login_sign_up_nexus_academic/code.html';
+        return;
+    }
+
+    const list = document.getElementById('notification-list');
+    const emptyState = document.getElementById('empty-state');
+    const markAllBtn = document.getElementById('mark-all-btn');
+    const tabs = document.querySelectorAll('#filter-tabs .filter-tab');
+
+    let notifications = [];
+    let currentFilter = 'ALL';
+
+    async function loadNotifications() {
+        try {
+            const res = await nexusFetch('/notifications');
+            notifications = await res.json();
+            if (!res.ok) throw new Error(notifications.message || 'Failed to load notifications');
+
+            renderNotifications();
+        } catch (e) {
+            console.error(e);
+            list.innerHTML = `<p class="text-body-md text-error text-center py-8">Failed to load notifications: ${e.message}</p>`;
+        }
+    }
+
+    function renderNotifications() {
+        list.innerHTML = '';
+        
+        const filtered = notifications.filter(n => {
+            if (currentFilter === 'ALL') return true;
+            return n.type === currentFilter;
+        });
+
+        if (filtered.length === 0) {
+            list.classList.add('hidden');
+            emptyState.classList.remove('hidden');
+            emptyState.classList.add('flex');
+            return;
+        }
+
+        list.classList.remove('hidden');
+        emptyState.classList.add('hidden');
+        emptyState.classList.remove('flex');
+
+        filtered.forEach(n => {
+            const isUnread = !n.isRead;
+            const containerClass = isUnread 
+                ? 'bg-secondary-container/30 border border-secondary-container' 
+                : 'bg-surface-container-lowest border border-outline-variant shadow-sm';
+            
+            const dotTag = isUnread 
+                ? '<div class="w-2 h-2 bg-primary rounded-full mt-2 shrink-0"></div>' 
+                : '';
+
+            let icon = 'notifications';
+            if (n.type === 'MESSAGE') icon = 'chat_bubble';
+            else if (n.type === 'APPLICATION') icon = 'check_circle';
+            else if (n.type === 'LEARNING') icon = 'school';
+
+            const dateLabel = new Date(n.createdAt).toLocaleDateString(undefined, {
+                month: 'short',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+
+            list.innerHTML += `
+                <div onclick="markAsRead('${n.id}', ${isUnread})" class="${containerClass} rounded-xl p-md flex gap-md items-start hover:border-primary transition-colors cursor-pointer group">
+                    <div class="bg-primary-container text-on-primary w-10 h-10 rounded-full flex items-center justify-center shrink-0">
+                        <span class="material-symbols-outlined">${icon}</span>
+                    </div>
+                    <div class="flex-grow">
+                        <div class="flex justify-between items-center mb-1">
+                            <h3 class="text-headline-md font-headline-md text-on-background group-hover:text-primary transition-colors text-lg">${n.title}</h3>
+                            <span class="text-label-sm font-label-sm text-on-surface-variant">${dateLabel}</span>
+                        </div>
+                        <p class="text-body-md font-body-md text-on-surface-variant">${n.message}</p>
+                    </div>
+                    ${dotTag}
+                </div>
+            `;
+        });
+    }
+
+    window.markAsRead = async (id, isUnread) => {
+        if (!isUnread) return; // already read
+        try {
+            const res = await nexusFetch(`/notifications/${id}/read`, { method: 'PATCH' });
+            if (res.ok) {
+                loadNotifications();
+            }
+        } catch (e) {
+            console.error(e);
+        }
+    };
+
+    markAllBtn.addEventListener('click', async () => {
+        try {
+            const res = await nexusFetch('/notifications/mark-all-read', { method: 'PATCH' });
+            if (res.ok) {
+                loadNotifications();
+            }
+        } catch (e) {
+            console.error(e);
+        }
+    });
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            // Remove active classes
+            tabs.forEach(t => {
+                t.className = 'filter-tab text-on-surface-variant dark:text-surface-variant font-label-md hover:text-primary transition-colors px-2 whitespace-nowrap';
+            });
+            // Set active class
+            tab.className = 'filter-tab text-primary dark:text-inverse-primary border-b-2 border-primary dark:border-inverse-primary pb-1 font-label-md px-2 whitespace-nowrap';
+
+            currentFilter = tab.getAttribute('data-type');
+            renderNotifications();
+        });
+    });
+
+    loadNotifications();
+});
+</script>
+</body></html>

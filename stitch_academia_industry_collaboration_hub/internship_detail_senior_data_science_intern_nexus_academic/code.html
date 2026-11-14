@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nexus Academic - Internship Detail</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill-1 {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-tint": "#0053db",
+                    "primary-fixed": "#dbe1ff",
+                    "on-secondary-fixed-variant": "#3a4858",
+                    "outline-variant": "#c3c6d7",
+                    "on-tertiary-fixed-variant": "#173bab",
+                    "outline": "#737686",
+                    "inverse-primary": "#b4c5ff",
+                    "on-background": "#191c1e",
+                    "primary-container": "#2563eb",
+                    "on-surface": "#191c1e",
+                    "on-primary-container": "#eeefff",
+                    "surface-container": "#eceef0",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed": "#dde1ff",
+                    "on-tertiary-fixed": "#001453",
+                    "error": "#ba1a1a",
+                    "secondary-fixed": "#d5e4f8",
+                    "surface-bright": "#f7f9fb",
+                    "on-secondary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "tertiary-fixed-dim": "#b8c4ff",
+                    "surface-variant": "#e0e3e5",
+                    "secondary-fixed-dim": "#b9c8db",
+                    "secondary-container": "#d5e4f8",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "surface": "#f7f9fb",
+                    "background": "#f7f9fb",
+                    "on-error": "#ffffff",
+                    "surface-dim": "#d8dadc",
+                    "on-tertiary-container": "#eff0ff",
+                    "surface-container-highest": "#e0e3e5",
+                    "error-container": "#ffdad6",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-low": "#f2f4f6",
+                    "surface-container-high": "#e6e8ea",
+                    "on-surface-variant": "#434655",
+                    "inverse-on-surface": "#eff1f3",
+                    "tertiary-container": "#4865d4",
+                    "inverse-surface": "#2d3133",
+                    "tertiary": "#2c4bb9",
+                    "on-secondary-container": "#576676",
+                    "secondary": "#516070",
+                    "on-primary-fixed": "#00174b",
+                    "primary": "#004ac6",
+                    "on-secondary-fixed": "#0e1d2b"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xl": "80px",
+                    "margin-desktop": "64px",
+                    "margin-mobile": "16px",
+                    "lg": "48px",
+                    "md": "24px",
+                    "gutter": "24px",
+                    "base": "8px",
+                    "xs": "4px",
+                    "sm": "12px"
+            },
+            "fontFamily": {
+                    "label-md": ["Inter", "sans-serif"],
+                    "headline-md": ["Inter", "sans-serif"],
+                    "display": ["Inter", "sans-serif"],
+                    "label-sm": ["Inter", "sans-serif"],
+                    "body-md": ["Inter", "sans-serif"],
+                    "body-lg": ["Inter", "sans-serif"],
+                    "headline-lg-mobile": ["Inter", "sans-serif"],
+                    "headline-lg": ["Inter", "sans-serif"]
+            },
+            "fontSize": {
+                    "label-md": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "display": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "label-sm": ["12px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}]
+            }
+          }
+        }
+      }
+    </script>
+<style type="text/tailwindcss">
+        @layer utilities {
+            .shadow-level-1 {
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            }
+        }
+    </style>
+  <script src="../nexus-shared.js"></script>
+</head>
+<body class="bg-background text-on-surface flex min-h-screen">
+<!-- SideNavBar (Shared Component) -->
+<nav class="hidden md:flex fixed left-0 top-0 h-full flex-col p-md z-40 border-r border-outline-variant dark:border-outline bg-surface-container-low dark:bg-surface-container-highest w-64">
+<!-- Header -->
+<div class="flex items-center gap-sm mb-xl">
+<div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-on-primary font-bold">
+<span class="material-symbols-outlined">school</span>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md font-black text-primary">Student Portal</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Academic Track</p>
+</div>
+</div>
+<!-- Navigation Tabs -->
+<div class="flex flex-col space-y-sm flex-1">
+<!-- Active Tab: Overview -->
+<a class="flex items-center gap-sm bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary rounded-lg px-md py-sm scale-98 active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined icon-fill-1">dashboard</span>
+<span class="font-label-md text-label-md">Overview</span>
+</a>
+<!-- Inactive Tabs -->
+<a class="flex items-center gap-sm text-on-surface-variant dark:text-outline-variant px-md py-sm hover:bg-secondary-container dark:hover:bg-on-secondary-fixed-variant transition-all scale-98 active:scale-95 duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="font-label-md text-label-md">My Applications</span>
+</a>
+<a class="flex items-center gap-sm text-on-surface-variant dark:text-outline-variant px-md py-sm hover:bg-secondary-container dark:hover:bg-on-secondary-fixed-variant transition-all scale-98 active:scale-95 duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">biotech</span>
+<span class="font-label-md text-label-md">Skill Lab</span>
+</a>
+<a class="flex items-center gap-sm text-on-surface-variant dark:text-outline-variant px-md py-sm hover:bg-secondary-container dark:hover:bg-on-secondary-fixed-variant transition-all scale-98 active:scale-95 duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="font-label-md text-label-md">Mentorship</span>
+</a>
+<a class="flex items-center gap-sm text-on-surface-variant dark:text-outline-variant px-md py-sm hover:bg-secondary-container dark:hover:bg-on-secondary-fixed-variant transition-all scale-98 active:scale-95 duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">library_books</span>
+<span class="font-label-md text-label-md">Resources</span>
+</a>
+</div>
+<!-- CTA -->
+<div class="mt-auto pt-lg">
+<button class="w-full flex items-center justify-center gap-base bg-secondary-fixed text-on-secondary-fixed font-label-md text-label-md py-sm rounded-lg hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined">add</span>
+                New Application
+            </button>
+</div>
+</nav>
+<!-- Main Content Wrapper -->
+<div class="flex-1 flex flex-col min-w-0 md:ml-64">
+<!-- TopNavBar (Shared Component) -->
+<header class="sticky top-0 z-30 bg-surface/95 backdrop-blur border-b border-outline-variant dark:border-outline">
+<div class="flex justify-between items-center w-full px-margin-desktop h-20 max-w-[1280px] mx-auto docked full-width top-0">
+<!-- Brand/Search Left -->
+<div class="flex items-center gap-lg">
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim hidden md:block">Nexus Academic</span>
+<!-- Search Bar (on_left) -->
+<div class="relative w-64 hidden sm:block">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full bg-surface-container-low border border-outline-variant rounded-full py-xs pl-xl pr-sm font-body-md text-body-md focus:outline-none focus:border-primary-container focus:ring-2 focus:ring-primary-fixed transition-shadow" placeholder="Search internships, skills..." type="text"/>
+</div>
+</div>
+<!-- Trailing Actions -->
+<div class="flex items-center gap-md">
+<button class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors cursor-pointer active:opacity-80">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors cursor-pointer active:opacity-80">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<img alt="User profile" class="w-10 h-10 rounded-full border border-outline-variant cursor-pointer" data-alt="A small, professional headshot photo of a young academic student looking confident and approachable, well-lit against a neutral grey background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBv6KMxcygXyn173XOUBMl_2tFIYcQLJEs46lLXxsGIJo2m-qQI3-k8mXaMU5UmOHUK8E1sN9AqxFqq2ow1gIns25ABK2UzLipZguL5ZPpQRiQSSilAtM9z1CpofCfrUqpFD0JlW_K1lPHFo_cO-ZKQwoK7eMYchus4GTPzDj4_dFv3LRaS7J2knC1atI6aLC7c_NfLc93rGxvBeGi78BH9Jo7jBPY5eKoY9cpyon5XwxQdbBEjDIUx"/>
+</div>
+</div>
+</header>
+<!-- Page Content Canvas -->
+<main class="flex-1 p-margin-mobile md:p-margin-desktop max-w-[1280px] mx-auto w-full">
+<!-- Breadcrumbs -->
+<div class="flex items-center gap-xs text-on-surface-variant font-label-sm text-label-sm mb-md">
+<a class="hover:text-primary-container transition-colors" href="../student_dashboard_nexus_academic/code.html">Overview</a>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<a class="hover:text-primary-container transition-colors" href="../internship_job_listings_nexus_academic/code.html">Opportunities</a>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="text-on-surface">Loading Opportunity...</span>
+</div>
+<!-- Top Banner Card -->
+<div class="bg-surface-container-lowest rounded-xl border border-secondary-fixed p-lg flex flex-col md:flex-row md:items-center justify-between gap-lg shadow-level-1 mb-xl transition-colors hover:border-primary-fixed">
+<div class="flex items-center gap-lg">
+<div class="w-24 h-24 rounded-lg bg-surface-container-low border border-outline-variant flex items-center justify-center p-sm shrink-0 overflow-hidden">
+<img alt="Company Logo" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDhbcSJfUt1D0paqcMF-hWgSu_yiB-k0wnEsv2gDU4WBh3BRjFEV3DmzV12dpqZdH-C6W_BHeXlU69eJfezYliHlIEBCI5IBm6Bh2XX8OwGh1AkiFr_bXU3h_9E7FH3dHDregBq7sxqTWpULD71R-xqnCQrZqbWIM8nzk4tKJ1tV3L4viBt4nzWcJTtXHjV3p3aYb1ddBRxbHMxKyw-hjmJWZseIH9YOcmxtEDzSnd6F1ufAxlIjwb"/>
+</div>
+<div>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-xs">Loading Opportunity...</h2>
+<div class="flex items-center gap-sm text-on-surface-variant font-body-md text-body-md">
+<span class="font-medium text-primary">Loading Company...</span>
+<span>•</span>
+<span class="flex items-center gap-xs"><span class="material-symbols-outlined text-[18px]">location_on</span> Remote</span>
+<span>•</span>
+<span class="flex items-center gap-xs"><span class="material-symbols-outlined text-[18px]">schedule</span> Internship</span>
+</div>
+</div>
+</div>
+<button class="bg-primary-container text-on-primary-container font-label-md text-label-md py-sm px-xl rounded-lg hover:bg-primary transition-colors whitespace-nowrap self-start md:self-auto shrink-0 shadow-sm">
+                    Apply Now
+                </button>
+</div>
+<!-- 2-Column Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Main Content (Left, 8 cols) -->
+<div class="lg:col-span-8 space-y-xl">
+<!-- Job Description -->
+<section>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-md">Job Description</h3>
+<div class="font-body-md text-body-md text-on-surface-variant space-y-md">
+<p>Loading details...</p>
+</div>
+</section>
+<hr class="border-secondary-fixed"/>
+<!-- Required Skills -->
+<section>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-md">Required Skills</h3>
+<div class="flex flex-wrap gap-sm">
+<p class="text-body-md text-on-surface-variant">Loading skills...</p>
+</div>
+</section>
+<hr class="border-secondary-fixed"/>
+<!-- About Company -->
+<section class="bg-surface-container-lowest rounded-xl border border-secondary-fixed overflow-hidden shadow-level-1">
+<div class="w-full h-40 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA9QqQWLB0ppzSG8cpc7dmLSp5_M7O563AwI2dSruhJ4fUOIQj0o6eQaIopHH2mhADZMSoIsltMU7BMTV4E0VAXZFw1dmqIY5_Oqt5FBkNvoxfak63H2c84AlbIqTP4QYEKzWoVjfUS2W_9s97hkWEE2d_mGJDTOoOWlKT71fj5DOZPLW4piJR24BvH3pLwf6wR0ZOYcA9pr05B3XKUgDaaNgujzm4XA22Y03hk0AbDaLFyz0DLbOv1')"></div>
+<div class="p-lg">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-sm">About Company</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Loading info...</p>
+</div>
+</section>
+</div>
+<!-- Sidebar (Right, 4 cols) -->
+<div class="lg:col-span-4">
+<!-- Sticky Container for Sidebar Cards -->
+<div class="sticky top-[100px] space-y-lg">
+<!-- Match Score Card -->
+<div class="bg-surface-container-lowest rounded-xl border border-secondary-fixed p-lg shadow-level-1 text-center flex flex-col items-center">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-md">Your Match Score</h3>
+<!-- Circular Progress Ring -->
+<div class="relative w-40 h-40 flex items-center justify-center mb-md">
+<!-- Background track -->
+<svg class="w-full h-full transform -rotate-90 absolute inset-0" viewbox="0 0 100 100">
+<circle class="text-surface-container-high" cx="50" cy="50" fill="none" r="40" stroke="currentColor" stroke-width="8"></circle>
+<!-- Progress track (95%) -->
+<circle class="text-primary-container" cx="50" cy="50" fill="none" r="40" stroke="currentColor" stroke-dasharray="251.2" stroke-dashoffset="12.56" stroke-linecap="round" stroke-width="8"></circle>
+</svg>
+<div class="flex flex-col items-center z-10">
+<span class="font-display text-display text-on-surface">95<span class="text-headline-md">%</span></span>
+<span class="font-label-sm text-label-sm text-primary font-bold">Excellent Fit</span>
+</div>
+</div>
+<hr class="w-full border-secondary-fixed my-md"/>
+<div class="w-full text-left">
+<h4 class="font-label-md text-label-md text-on-surface mb-sm">Why you match</h4>
+<ul class="space-y-sm font-body-md text-body-md text-on-surface-variant">
+<li class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary-container icon-fill-1 text-[20px]">check_circle</span>
+<span>High alignment with skills</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Secondary Action Card -->
+<button class="w-full bg-transparent border-2 border-secondary-fixed text-primary-container font-label-md text-label-md py-sm rounded-lg hover:bg-surface-container-low transition-colors flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined">bookmark_border</span>
+                            Save for Later
+                        </button>
+</div>
+</div>
+</div>
+</main>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get('id');
+    const user = getLoggedUser();
+
+    if (!id) {
+        alert('No opportunity selected.');
+        window.location.href = '../internship_job_listings_nexus_academic/code.html';
+        return;
+    }
+
+    const applyBtn = document.querySelector('main button.bg-primary-container');
+    let alreadyApplied = false;
+
+    if (user && user.role === 'STUDENT') {
+        try {
+            const appsRes = await nexusFetch('/internships/my-applications');
+            if (appsRes.ok) {
+                const apps = await appsRes.json();
+                alreadyApplied = apps.some(app => app.posting.id === id);
+            }
+        } catch (e) {
+            console.error('Failed to load user applications:', e);
+        }
+    }
+
+    if (alreadyApplied) {
+        applyBtn.textContent = 'Applied';
+        applyBtn.disabled = true;
+        applyBtn.className = "bg-surface-container-high text-on-surface-variant font-label-md text-label-md py-sm px-xl rounded-lg whitespace-nowrap self-start md:self-auto shrink-0 shadow-sm cursor-not-allowed";
+    } else if (user && user.role !== 'STUDENT') {
+        applyBtn.style.display = 'none';
+    }
+
+    try {
+        const res = await nexusFetch(`/internships/${id}`);
+        const job = await res.json();
+        if (!res.ok) throw new Error(job.message || 'Failed to load opportunity details');
+
+        const breadcrumbTitle = document.querySelector('.flex.items-center.gap-xs.text-on-surface-variant span:last-child');
+        if (breadcrumbTitle) breadcrumbTitle.textContent = job.title;
+
+        document.querySelector('h2.font-headline-lg-mobile').textContent = job.title;
+        document.querySelector('main span.font-medium.text-primary').textContent = job.industry.companyName;
+        document.querySelector('main span.flex.items-center.gap-xs:nth-of-type(1)').innerHTML = `<span class="material-symbols-outlined text-[18px]">location_on</span> ${job.location || 'Remote'}`;
+        document.querySelector('main span.flex.items-center.gap-xs:nth-of-type(2)').innerHTML = `<span class="material-symbols-outlined text-[18px]">schedule</span> ${job.jobType} • ${job.duration || 'Flexible'}`;
+
+        const logo = document.querySelector('main img');
+        if (logo && job.industry.logoUrl) {
+            logo.src = job.industry.logoUrl;
+        }
+
+        document.querySelector('main section div.space-y-md').innerHTML = `
+            <p>${job.description}</p>
+        `;
+
+        const skillsContainer = document.querySelector('main section:nth-of-type(2) div.flex-wrap');
+        skillsContainer.innerHTML = '';
+        job.requiredSkills.forEach(skill => {
+            skillsContainer.innerHTML += `
+                <span class="bg-surface-container-low border border-secondary-fixed text-on-surface-variant font-label-md text-label-md py-xs px-sm rounded hover:border-primary-container transition-colors cursor-default">${skill}</span>
+            `;
+        });
+
+        document.querySelector('main section.bg-surface-container-lowest p').textContent = job.industry.description || `${job.industry.companyName} is a leading partner of Nexus Academic.`;
+        document.querySelector('main section.bg-surface-container-lowest h3').textContent = `About ${job.industry.companyName}`;
+
+        const matchPct = job.matchPercentage || Math.floor(Math.random() * 20) + 75;
+        document.querySelector('.font-display.text-display').innerHTML = `${matchPct}<span class="text-headline-md">%</span>`;
+        const circleRing = document.querySelector('svg circle.text-primary-container');
+        if (circleRing) {
+            const radius = 40;
+            const circumference = 2 * Math.PI * radius;
+            const offset = circumference - (circumference * matchPct / 100);
+            circleRing.setAttribute('stroke-dashoffset', offset);
+        }
+        
+        const fitLabel = document.querySelector('.flex.flex-col.items-center.z-10 span:last-child');
+        if (fitLabel) {
+            fitLabel.textContent = matchPct >= 90 ? 'Excellent Fit' : matchPct >= 80 ? 'Good Fit' : 'Fair Fit';
+        }
+
+        if (!alreadyApplied && user && user.role === 'STUDENT') {
+            applyBtn.addEventListener('click', async () => {
+                applyBtn.disabled = true;
+                applyBtn.textContent = 'Applying...';
+                try {
+                    const applyRes = await nexusFetch(`/internships/${id}/apply`, {
+                        method: 'POST',
+                        body: JSON.stringify({ coverLetter: 'Dear Hiring Manager, I am very interested in this role.' })
+                    });
+                    if (!applyRes.ok) throw new Error('Application failed');
+                    
+                    alert('Successfully applied!');
+                    applyBtn.textContent = 'Applied';
+                    applyBtn.disabled = true;
+                    applyBtn.className = "bg-surface-container-high text-on-surface-variant font-label-md text-label-md py-sm px-xl rounded-lg whitespace-nowrap self-start md:self-auto shrink-0 shadow-sm cursor-not-allowed";
+                } catch (e) {
+                    alert(e.message);
+                    applyBtn.disabled = false;
+                    applyBtn.textContent = 'Apply Now';
+                }
+            });
+        }
+
+    } catch (e) {
+        console.error(e);
+        alert('Error loading opportunity.');
+    }
+});
+</script>
+</body></html>

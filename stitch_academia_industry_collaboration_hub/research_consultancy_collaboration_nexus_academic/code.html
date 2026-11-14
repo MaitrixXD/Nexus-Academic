@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Research &amp; Consultancy Board</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#434655",
+                        "on-primary-fixed": "#00174b",
+                        "on-error-container": "#93000a",
+                        "inverse-primary": "#b4c5ff",
+                        "surface-container-low": "#f2f4f6",
+                        "inverse-surface": "#2d3133",
+                        "on-secondary-fixed-variant": "#3a4858",
+                        "on-secondary-container": "#576676",
+                        "background": "#f7f9fb",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "error": "#ba1a1a",
+                        "primary-container": "#2563eb",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "tertiary-fixed": "#dde1ff",
+                        "surface-tint": "#0053db",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#2c4bb9",
+                        "secondary-fixed-dim": "#b9c8db",
+                        "secondary-fixed": "#d5e4f8",
+                        "surface-container": "#eceef0",
+                        "tertiary-container": "#4865d4",
+                        "on-surface": "#191c1e",
+                        "surface-bright": "#f7f9fb",
+                        "outline-variant": "#c3c6d7",
+                        "secondary-container": "#d5e4f8",
+                        "primary-fixed": "#dbe1ff",
+                        "outline": "#737686",
+                        "on-tertiary": "#ffffff",
+                        "on-background": "#191c1e",
+                        "on-error": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "primary": "#004ac6",
+                        "on-tertiary-fixed": "#001453",
+                        "on-tertiary-fixed-variant": "#173bab",
+                        "secondary": "#516070",
+                        "on-secondary-fixed": "#0e1d2b",
+                        "error-container": "#ffdad6",
+                        "inverse-on-surface": "#eff1f3",
+                        "surface-container-high": "#e6e8ea",
+                        "tertiary-fixed-dim": "#b8c4ff",
+                        "surface-container-highest": "#e0e3e5",
+                        "surface": "#f7f9fb",
+                        "on-tertiary-container": "#eff0ff",
+                        "surface-dim": "#d8dadc",
+                        "on-primary": "#ffffff",
+                        "on-primary-container": "#eeefff",
+                        "surface-variant": "#e0e3e5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "base": "8px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px",
+                        "xl": "80px",
+                        "sm": "12px",
+                        "margin-desktop": "64px",
+                        "lg": "48px",
+                        "md": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "display": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["24px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "1.0", "fontWeight": "500" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "1.0", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "display": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
+        }
+        /* Custom shadows and borders matching the design system */
+        .card-elevation {
+            border: 1px solid #DBEAFE;
+            box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.05);
+            transition: all 0.2s ease-in-out;
+        }
+        .card-elevation:hover {
+            border-color: #2563eb;
+        }
+        .chip {
+            background-color: #F1F5F9;
+            color: #475569;
+        }
+        .btn-primary {
+            background-color: #2563EB;
+            color: white;
+            border-radius: 8px;
+        }
+        .btn-secondary {
+            background-color: #DBEAFE;
+            color: #2563EB;
+            border-radius: 8px;
+        }
+        .btn-ghost {
+            background-color: transparent;
+            color: #2563EB;
+            border-radius: 8px;
+        }
+        .input-field {
+            background-color: white;
+            border: 1px solid #CBD5E1;
+            border-radius: 8px;
+            transition: all 0.2s ease-in-out;
+        }
+        .input-field:focus {
+            border-color: #2563EB;
+            box-shadow: 0 0 0 2px #DBEAFE;
+            outline: none;
+        }
+    </style>
+  <script src="../nexus-shared.js"></script>
+</head>
+<body data-active-tab="Research & Consultancy" class="bg-surface text-on-surface font-body-md min-h-screen flex">
+<!-- SideNavBar (Mobile hidden, Desktop visible) -->
+<nav class="hidden md:flex flex-col gap-base p-md border-r border-outline-variant bg-surface-container-low h-screen w-64 fixed left-0 top-0 overflow-y-auto">
+<div class="mb-lg">
+<h1 class="font-headline-md text-headline-md text-primary">Faculty Portal</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-xs">Academic Collaboration</p>
+</div>
+<a class="flex items-center gap-sm p-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+<span class="font-label-md text-label-md">Discover</span>
+</a>
+<a class="flex items-center gap-sm p-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="assignment_turned_in">assignment_turned_in</span>
+<span class="font-label-md text-label-md">My Applications</span>
+</a>
+<a class="flex items-center gap-sm p-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="verified">verified</span>
+<span class="font-label-md text-label-md">Certifications</span>
+</a>
+<a class="flex items-center gap-sm p-sm rounded-lg bg-secondary-container text-primary font-bold transition-all cursor-pointer active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined fill" data-icon="handshake">handshake</span>
+<span class="font-label-md text-label-md">Consultancies</span>
+</a>
+<a class="flex items-center gap-sm p-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+<div class="mt-auto pt-lg">
+<button class="w-full btn-primary py-sm font-label-md text-label-md flex justify-center items-center gap-sm">
+<span class="material-symbols-outlined text-[18px]">add</span> Post Opportunity
+            </button>
+</div>
+</nav>
+<!-- Main Content Area -->
+<div class="flex-1 md:ml-64 flex flex-col min-h-screen">
+<!-- TopNavBar (Full width on Mobile, Adjusted on Desktop) -->
+<header class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-20 bg-surface border-b border-outline-variant sticky top-0 z-10">
+<div class="flex items-center gap-md">
+<span class="md:hidden font-headline-md text-headline-md text-primary">Nexus Academic</span>
+<!-- Desktop Navigation Links -->
+<div class="hidden md:flex gap-md">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors cursor-pointer" href="#">Dashboard</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors cursor-pointer" href="#">Programs</a>
+<a class="font-label-md text-label-md text-primary border-b-2 border-primary pb-1 cursor-pointer" href="#">Partners</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors cursor-pointer" href="#">Resources</a>
+</div>
+</div>
+<div class="flex items-center gap-sm md:gap-md">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span>
+<input class="input-field pl-xl pr-sm py-2 font-body-md text-body-md w-64" placeholder="Search opportunities..." type="text"/>
+</div>
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors hidden sm:block">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+<img alt="Faculty Profile" class="w-10 h-10 rounded-full object-cover ml-sm border border-outline-variant" data-alt="A professional headshot of an academic faculty member in a modern office setting. The lighting is bright and clear, conveying a sense of scholarly authority and modern corporate integration. The color palette features neutral tones with subtle blue accents, aligning with the Nexus Academic brand. High-resolution, clean aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLGGDoxhkrDw-CM5PWv7pCTz3-z7HwOhxo-O5scc0YQKgbQPihsPJt-H4V0uZgcE84FwrTyZAZZjHZd8LW6UwLwTNiDOg90xaMx_HLF2V67Z5u0F1JCGLiYMA0t0NAH2uQMeVMW6bZ1kasnVXYRCrI1EInyGq-OmGFYt6qC1HH5TLK57IC7CcuBoioRNw2hcJUfSr8AedS6j1_UlXwwCo_Nev8x3VJem2d7MLvwk8OzJxtVncxagAf"/>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 bg-surface-container-lowest w-full max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop py-lg pb-xl relative">
+<!-- Page Header -->
+<div class="mb-xl">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">Research &amp; Consultancy Board</h2>
+<p class="font-body-lg text-body-lg text-secondary mt-2 max-w-3xl">Find and initiate high-impact collaborations between academia and industry.</p>
+</div>
+<!-- Filters & Search Mobile -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-md mb-lg">
+<div class="flex gap-sm overflow-x-auto w-full md:w-auto pb-2 md:pb-0 hide-scrollbar">
+<button class="px-md py-2 rounded-full bg-primary-container text-white font-label-md text-label-md whitespace-nowrap">All Opportunities</button>
+<button class="px-md py-2 rounded-full border border-outline-variant text-on-surface-variant hover:bg-surface-container-low font-label-md text-label-md whitespace-nowrap transition-colors">Research Projects</button>
+<button class="px-md py-2 rounded-full border border-outline-variant text-on-surface-variant hover:bg-surface-container-low font-label-md text-label-md whitespace-nowrap transition-colors">Consultancies</button>
+</div>
+<div class="relative w-full md:w-auto sm:hidden">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span>
+<input class="input-field pl-xl pr-sm py-2 font-body-md text-body-md w-full" placeholder="Search specific expertise..." type="text"/>
+</div>
+</div>
+<!-- Opportunities Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest rounded-[16px] p-[32px] card-elevation flex flex-col h-full group">
+<div class="flex justify-between items-start mb-md">
+<div class="flex items-center gap-sm">
+<img class="w-12 h-12 rounded-lg border border-outline-variant object-cover" data-alt="A minimalist logo for a company named 'Logistics Global'. The design features sleek, modern geometric shapes in shades of deep blue and slate gray, representing efficiency and global connectivity. Clean lines, white background, corporate aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCX1QAfocuwvjMGYXHKbUFp2xqMm9A1CZVY2q4wOC1LPr9CbWWz-SOJDReSNwin9kr3O25Qs1KgJHynYkjcuj_1v31DcOUNzvx_ShaDJkJm7DQ0RwwkjoLZntcPYJXm0MFUaYqAfL16QtmjQGXWI9XXvV536-sS5I6IYYP2IGemBx5aFsQ7ZuAGQx2-TVaZ1iap1zHX225K0aCwxsvJRk7t5cwXcEsDcX3uxSbFzFBYVaevt9NHp_kt"/>
+<div>
+<p class="font-label-sm text-label-sm text-secondary">Consultancy</p>
+<p class="font-label-md text-label-md text-on-surface">Logistics Global</p>
+</div>
+</div>
+<button class="text-on-surface-variant hover:text-primary"><span class="material-symbols-outlined">bookmark_border</span></button>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-sm line-clamp-2">AI-Driven Logistics Optimization</h3>
+<p class="font-body-md text-body-md text-secondary mb-md line-clamp-3 flex-1">Seeking expertise to develop predictive machine learning models to optimize global supply chain routes, reducing fuel consumption and delivery times.</p>
+<div class="flex flex-wrap gap-xs mb-lg">
+<span class="chip px-2 py-1 rounded-[4px] font-label-sm text-label-sm">Machine Learning</span>
+<span class="chip px-2 py-1 rounded-[4px] font-label-sm text-label-sm">Optimization</span>
+<span class="chip px-2 py-1 rounded-[4px] font-label-sm text-label-sm">Supply Chain</span>
+</div>
+<div class="flex justify-between items-center mt-auto pt-md border-t border-outline-variant">
+<span class="font-label-sm text-label-sm text-secondary flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">schedule</span> Deadline: Oct 15</span>
+<button class="btn-primary px-md py-2 font-label-md text-label-md group-hover:bg-primary transition-colors">Collaborate</button>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest rounded-[16px] p-[32px] card-elevation flex flex-col h-full group">
+<div class="flex justify-between items-start mb-md">
+<div class="flex items-center gap-sm">
+<img class="w-12 h-12 rounded-lg border border-outline-variant object-cover" data-alt="A clean, modern logo for 'CleanEnergy Corp' featuring an abstract representation of a leaf and a sunburst. The colors are vibrant green and deep blue, set against a pristine white background. The style is flat, corporate, and minimalist." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiJEFogK2fRy7VwTyhJPui4KyfcG9_4D-JN_NyKER36GyDGqXE7MaJfE8APxL4VznzOX0Y5eDbKZDoXH7KVGuH4xrCCV-o20nyyoojzvEjAy5QTimapYkL_IlydMJ9OhQTB3lL5snf4Rg2w470UkkUrxcukDx9e0TF17HJCBfrHpJwDYcpROKyOq04VyC42gGksIIjX4JOCbJoVKgmQttTzMIvB7ImdvJL9F592SfYcdgc24Hesquc"/>
+<div>
+<p class="font-label-sm text-label-sm text-secondary">Research Project</p>
+<p class="font-label-md text-label-md text-on-surface">CleanEnergy Corp</p>
+</div>
+</div>
+<button class="text-on-surface-variant hover:text-primary"><span class="material-symbols-outlined">bookmark_border</span></button>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-sm line-clamp-2">Renewable Energy Grid Integration</h3>
+<p class="font-body-md text-body-md text-secondary mb-md line-clamp-3 flex-1">Collaborative research on stabilizing decentralized power grids when incorporating high loads of variable solar and wind energy sources.</p>
+<div class="flex flex-wrap gap-xs mb-lg">
+<span class="chip px-2 py-1 rounded-[4px] font-label-sm text-label-sm">Power Systems</span>
+<span class="chip px-2 py-1 rounded-[4px] font-label-sm text-label-sm">Sustainability</span>
+<span class="chip px-2 py-1 rounded-[4px] font-label-sm text-label-sm">Grid Tech</span>
+</div>
+<div class="flex justify-between items-center mt-auto pt-md border-t border-outline-variant">
+<span class="font-label-sm text-label-sm text-secondary flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">schedule</span> Deadline: Nov 02</span>
+<button class="btn-primary px-md py-2 font-label-md text-label-md group-hover:bg-primary transition-colors">Collaborate</button>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest rounded-[16px] p-[32px] card-elevation flex flex-col h-full group">
+<div class="flex justify-between items-start mb-md">
+<div class="flex items-center gap-sm">
+<div class="w-12 h-12 rounded-lg border border-outline-variant bg-surface-container-low flex items-center justify-center text-primary font-headline-md">M</div>
+<div>
+<p class="font-label-sm text-label-sm text-secondary">Consultancy</p>
+<p class="font-label-md text-label-md text-on-surface">MedTech Innovations</p>
+</div>
+</div>
+<button class="text-on-surface-variant hover:text-primary"><span class="material-symbols-outlined">bookmark_border</span></button>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-sm line-clamp-2">Biocompatible Materials Analysis</h3>
+<p class="font-body-md text-body-md text-secondary mb-md line-clamp-3 flex-1">Looking for materials science experts to analyze and test new hydrogel composites for use in minimally invasive surgical implants.</p>
+<div class="flex flex-wrap gap-xs mb-lg">
+<span class="chip px-2 py-1 rounded-[4px] font-label-sm text-label-sm">Materials Science</span>
+<span class="chip px-2 py-1 rounded-[4px] font-label-sm text-label-sm">Bio-Engineering</span>
+</div>
+<div class="flex justify-between items-center mt-auto pt-md border-t border-outline-variant">
+<span class="font-label-sm text-label-sm text-secondary flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">schedule</span> Deadline: Sep 30</span>
+<button class="btn-primary px-md py-2 font-label-md text-label-md group-hover:bg-primary transition-colors">Collaborate</button>
+</div>
+</div>
+</div>
+<div class="mt-xl flex justify-center">
+<button class="btn-secondary px-lg py-sm font-label-md text-label-md hover:bg-primary hover:text-white transition-colors">Load More Opportunities</button>
+</div>
+</main>
+<!-- Floating Action Button (FAB) -->
+<button aria-label="Post New Opportunity" class="fixed bottom-margin-mobile right-margin-mobile md:bottom-margin-desktop md:right-margin-desktop w-14 h-14 bg-primary-container text-white rounded-full flex items-center justify-center shadow-lg hover:bg-primary hover:scale-105 transition-all z-50">
+<span class="material-symbols-outlined text-[28px]">add</span>
+</button>
+<!-- Footer -->
+<footer class="flex flex-col md:flex-row justify-between items-center py-lg px-margin-mobile md:px-margin-desktop w-full border-t border-outline-variant bg-surface-container-lowest mt-auto z-10">
+<span class="text-label-md font-label-md text-primary mb-sm md:mb-0">Nexus Academic Portal</span>
+<p class="font-body-md text-body-md text-on-surface-variant text-center md:text-left mb-sm md:mb-0">© 2024 Nexus Academic Portal. Bridging Academia and Industry.</p>
+<div class="flex gap-md">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors cursor-pointer" href="#">Privacy Policy</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors cursor-pointer" href="#">Terms of Service</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors cursor-pointer" href="#">Contact Support</a>
+</div>
+</footer>
+</div>
+</body></html>

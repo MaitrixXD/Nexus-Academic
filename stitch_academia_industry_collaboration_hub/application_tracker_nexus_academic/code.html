@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nexus Academic - Application Tracker</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#f2f4f6",
+                        "on-error-container": "#93000a",
+                        "tertiary-container": "#4865d4",
+                        "outline": "#737686",
+                        "tertiary-fixed": "#dde1ff",
+                        "tertiary": "#2c4bb9",
+                        "on-surface-variant": "#434655",
+                        "outline-variant": "#c3c6d7",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed-variant": "#173bab",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "on-background": "#191c1e",
+                        "surface-variant": "#e0e3e5",
+                        "secondary": "#516070",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed": "#001453",
+                        "surface": "#f7f9fb",
+                        "surface-container-highest": "#e0e3e5",
+                        "primary": "#004ac6",
+                        "inverse-surface": "#2d3133",
+                        "on-secondary-container": "#576676",
+                        "on-secondary-fixed": "#0e1d2b",
+                        "surface-bright": "#f7f9fb",
+                        "on-primary-container": "#eeefff",
+                        "primary-container": "#2563eb",
+                        "on-surface": "#191c1e",
+                        "on-secondary": "#ffffff",
+                        "inverse-on-surface": "#eff1f3",
+                        "primary-fixed": "#dbe1ff",
+                        "surface-dim": "#d8dadc",
+                        "on-primary": "#ffffff",
+                        "inverse-primary": "#b4c5ff",
+                        "secondary-fixed": "#d5e4f8",
+                        "on-tertiary-container": "#eff0ff",
+                        "background": "#f7f9fb",
+                        "on-secondary-fixed-variant": "#3a4858",
+                        "on-primary-fixed": "#00174b",
+                        "error-container": "#ffdad6",
+                        "surface-tint": "#0053db",
+                        "surface-container": "#eceef0",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "secondary-container": "#d5e4f8",
+                        "surface-container-high": "#e6e8ea",
+                        "secondary-fixed-dim": "#b9c8db",
+                        "tertiary-fixed-dim": "#b8c4ff",
+                        "on-tertiary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "margin-desktop": "64px",
+                        "md": "24px",
+                        "sm": "12px",
+                        "xl": "80px",
+                        "base": "8px",
+                        "gutter": "24px",
+                        "xs": "4px",
+                        "lg": "48px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Inter"],
+                        "display": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["24px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "display": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "1.0", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "1.0", "fontWeight": "500" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+  <script src="../nexus-shared.js"></script>
+</head>
+<body data-active-tab="My Applications" class="bg-background text-on-background font-body-md min-h-screen flex">
+<!-- SideNavBar -->
+<nav class="bg-surface-container-lowest dark:bg-on-background border-r border-outline-variant dark:border-outline docked fixed left-0 top-0 h-screen w-64 flex flex-col h-full py-md gap-sm z-20 hidden md:flex">
+<!-- Header -->
+<div class="px-md pb-md mb-sm flex flex-col items-center">
+<div class="w-16 h-16 rounded-full bg-primary-fixed mb-sm flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[32px]">school</span>
+</div>
+<h1 class="font-headline-md text-headline-md text-primary dark:text-primary-fixed">Nexus Academic</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-xs">Student Portal</p>
+</div>
+<!-- Main Navigation -->
+<div class="flex-1 overflow-y-auto px-sm flex flex-col gap-xs">
+<a class="flex items-center gap-sm px-md py-sm rounded-lg text-on-surface-variant dark:text-on-secondary-fixed-variant hover:bg-surface-container dark:hover:bg-secondary-container/20 hover:text-primary transition-all scale-95 active:scale-90 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+                Overview
+            </a>
+<a class="flex items-center gap-sm px-md py-sm rounded-lg text-primary font-bold border-r-4 border-primary bg-primary-container/10 font-label-md text-label-md transition-all scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">description</span>
+                My Applications
+            </a>
+<a class="flex items-center gap-sm px-md py-sm rounded-lg text-on-surface-variant dark:text-on-secondary-fixed-variant hover:bg-surface-container dark:hover:bg-secondary-container/20 hover:text-primary transition-all scale-95 active:scale-90 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">psychology</span>
+                Skill Lab
+            </a>
+<a class="flex items-center gap-sm px-md py-sm rounded-lg text-on-surface-variant dark:text-on-secondary-fixed-variant hover:bg-surface-container dark:hover:bg-secondary-container/20 hover:text-primary transition-all scale-95 active:scale-90 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">work</span>
+                Internships
+            </a>
+<a class="flex items-center gap-sm px-md py-sm rounded-lg text-on-surface-variant dark:text-on-secondary-fixed-variant hover:bg-surface-container dark:hover:bg-secondary-container/20 hover:text-primary transition-all scale-95 active:scale-90 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">chat</span>
+                Messages
+            </a>
+</div>
+<!-- CTA & Footer -->
+<div class="px-md mt-auto pt-sm flex flex-col gap-sm">
+<button class="bg-primary-container text-on-primary-container font-label-md text-label-md rounded-lg py-sm px-md w-full hover:opacity-90 transition-opacity">Get Certified</button>
+<div class="flex flex-col gap-xs mt-sm border-t border-outline-variant pt-sm">
+<a class="flex items-center gap-sm px-md py-sm rounded-lg text-on-surface-variant dark:text-on-secondary-fixed-variant hover:bg-surface-container hover:text-primary transition-all scale-95 active:scale-90 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">settings</span>
+                    Settings
+                </a>
+<a class="flex items-center gap-sm px-md py-sm rounded-lg text-on-surface-variant dark:text-on-secondary-fixed-variant hover:bg-surface-container hover:text-primary transition-all scale-95 active:scale-90 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">logout</span>
+                    Logout
+                </a>
+</div>
+</div>
+</nav>
+<!-- Main Content Area -->
+<div class="flex-1 flex flex-col md:ml-64 w-full min-h-screen">
+<!-- TopNavBar -->
+<header class="bg-surface-container-lowest dark:bg-on-background border-b border-outline-variant dark:border-outline docked full-width top-0 z-10 sticky">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-16 max-w-[1280px] mx-auto">
+<div class="flex items-center gap-md">
+<!-- Mobile Menu Button -->
+<button class="md:hidden text-on-surface-variant hover:text-primary transition-colors cursor-pointer active:opacity-70">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<!-- Brand (Mobile only, hidden on desktop if SideNav is present) -->
+<span class="font-headline-md text-headline-md text-primary dark:text-primary-fixed md:hidden">Nexus Academic</span>
+<!-- Search Bar -->
+<div class="hidden md:flex relative w-64">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full pl-xl pr-sm py-xs bg-surface text-on-surface border border-outline-variant rounded-full focus:outline-none focus:border-primary-container focus:ring-2 focus:ring-primary-fixed font-body-md text-body-md h-10" placeholder="Search..." type="text"/>
+</div>
+</div>
+<!-- Navigation Links (Desktop) -->
+<nav class="hidden md:flex gap-lg h-full items-center">
+<a class="h-full flex items-center text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary dark:hover:text-primary-fixed transition-colors cursor-pointer active:opacity-70 font-label-md text-label-md relative top-0.5" href="#">Directory</a>
+<a class="h-full flex items-center text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary dark:hover:text-primary-fixed transition-colors cursor-pointer active:opacity-70 font-label-md text-label-md relative top-0.5" href="#">Resources</a>
+<a class="h-full flex items-center text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary dark:hover:text-primary-fixed transition-colors cursor-pointer active:opacity-70 font-label-md text-label-md relative top-0.5" href="#">Support</a>
+</nav>
+<!-- Actions & Profile -->
+<div class="flex items-center gap-md">
+<button class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer active:opacity-70 hidden md:block">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer active:opacity-70 hidden md:block">
+<span class="material-symbols-outlined">help</span>
+</button>
+<div class="w-10 h-10 rounded-full bg-surface-variant overflow-hidden cursor-pointer active:opacity-70 border border-outline-variant">
+<img alt="Student Profile Avatar" class="w-full h-full object-cover" data-alt="A professional headshot of a diverse college student smiling subtly against a neutral light grey background. Modern academic aesthetic, well-lit, soft lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLqMo2HXEdKBH5x0PTEqQa-gUUccIGr90FpC8KOZ1z4UnGIQ35rp80hUH7NnQNWva5-ytc1ZBp_E6AQQZAJ0r4DLswN9YWOs4gq6EaNq3aV8yfCmTf4-UL0MkEl_LWSVBU9z5PZ9gXEs7GGvQOo-ucvTwq9gdHz4FMCMq6tTFAlFWP3STIwznsYxWBUdeQMN_vs_j3qW6fQ19ri6YO2mf-AygmBbGzNa_UPhPhgoInZJXetSQeVTO-"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Page Content -->
+<main class="flex-1 px-margin-mobile md:px-margin-desktop py-md md:py-lg max-w-[1280px] w-full mx-auto overflow-x-hidden">
+<div class="mb-lg flex justify-between items-end">
+<div>
+<h2 class="font-display text-display text-on-background mb-xs">Application Tracker</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Manage and monitor your academic and industry opportunities.</p>
+</div>
+<button class="bg-primary-container text-on-primary-container font-label-md text-label-md px-md py-sm rounded-lg hover:opacity-90 transition-opacity hidden md:flex items-center gap-xs">
+<span class="material-symbols-outlined">add</span>
+                    New Application
+                </button>
+</div>
+<!-- Kanban Board -->
+<div class="flex flex-col md:flex-row gap-gutter overflow-x-auto pb-md snap-x" id="kanban-board">
+    <!-- Applied Column -->
+    <div class="flex-none w-full md:w-[300px] flex flex-col bg-surface-container-lowest rounded-xl border border-primary-fixed snap-start">
+        <div class="bg-primary-fixed px-md py-sm rounded-t-xl border-b border-primary-fixed-dim flex justify-between items-center">
+            <h3 class="font-headline-md text-body-lg text-on-primary-container font-semibold">Applied</h3>
+            <span id="count-applied" class="bg-surface-container-lowest text-primary font-label-sm text-label-sm px-xs py-1 rounded-full border border-primary-fixed-dim">0</span>
+        </div>
+        <div class="p-sm flex flex-col gap-sm min-h-[400px]" id="col-applied">
+            <p class="text-body-md text-on-surface-variant p-md text-center">Loading...</p>
+        </div>
+    </div>
+
+    <!-- Shortlisted Column -->
+    <div class="flex-none w-full md:w-[300px] flex flex-col bg-surface-container-lowest rounded-xl border border-primary-fixed snap-start">
+        <div class="bg-primary-fixed px-md py-sm rounded-t-xl border-b border-primary-fixed-dim flex justify-between items-center">
+            <h3 class="font-headline-md text-body-lg text-on-primary-container font-semibold">Shortlisted</h3>
+            <span id="count-shortlisted" class="bg-surface-container-lowest text-primary font-label-sm text-label-sm px-xs py-1 rounded-full border border-primary-fixed-dim">0</span>
+        </div>
+        <div class="p-sm flex flex-col gap-sm min-h-[400px]" id="col-shortlisted">
+            <p class="text-body-md text-on-surface-variant p-md text-center">Loading...</p>
+        </div>
+    </div>
+
+    <!-- Interview Column -->
+    <div class="flex-none w-full md:w-[300px] flex flex-col bg-surface-container-lowest rounded-xl border border-primary-fixed snap-start">
+        <div class="bg-primary-fixed px-md py-sm rounded-t-xl border-b border-primary-fixed-dim flex justify-between items-center">
+            <h3 class="font-headline-md text-body-lg text-on-primary-container font-semibold">Interview</h3>
+            <span id="count-interview" class="bg-surface-container-lowest text-primary font-label-sm text-label-sm px-xs py-1 rounded-full border border-primary-fixed-dim">0</span>
+        </div>
+        <div class="p-sm flex flex-col gap-sm min-h-[400px]" id="col-interview">
+            <p class="text-body-md text-on-surface-variant p-md text-center">Loading...</p>
+        </div>
+    </div>
+
+    <!-- Completed Column -->
+    <div class="flex-none w-full md:w-[300px] flex flex-col bg-surface-container-lowest rounded-xl border border-primary-fixed snap-start">
+        <div class="bg-primary-fixed px-md py-sm rounded-t-xl border-b border-primary-fixed-dim flex justify-between items-center">
+            <h3 class="font-headline-md text-body-lg text-on-primary-container font-semibold">Completed</h3>
+            <span id="count-completed" class="bg-surface-container-lowest text-primary font-label-sm text-label-sm px-xs py-1 rounded-full border border-primary-fixed-dim">0</span>
+        </div>
+        <div class="p-sm flex flex-col gap-sm min-h-[400px]" id="col-completed">
+            <p class="text-body-md text-on-surface-variant p-md text-center">Loading...</p>
+        </div>
+    </div>
+</div>
+</main>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+    const user = getLoggedUser();
+    if (!user) {
+        alert('Please log in first.');
+        window.location.href = '../login_sign_up_nexus_academic/code.html';
+        return;
+    }
+
+    const colApplied = document.getElementById('col-applied');
+    const colShortlisted = document.getElementById('col-shortlisted');
+    const colInterview = document.getElementById('col-interview');
+    const colCompleted = document.getElementById('col-completed');
+
+    try {
+        const res = await nexusFetch('/internships/my-applications');
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.message || 'Failed to load applications');
+
+        colApplied.innerHTML = '';
+        colShortlisted.innerHTML = '';
+        colInterview.innerHTML = '';
+        colCompleted.innerHTML = '';
+
+        let counts = { APPLIED: 0, SHORTLISTED: 0, INTERVIEW: 0, COMPLETED: 0 };
+
+        if (data.length === 0) {
+            const noAppsHTML = '<div class="text-center py-8 text-on-surface-variant font-label-sm">No applications in this stage</div>';
+            colApplied.innerHTML = noAppsHTML;
+            colShortlisted.innerHTML = noAppsHTML;
+            colInterview.innerHTML = noAppsHTML;
+            colCompleted.innerHTML = noAppsHTML;
+        } else {
+            data.forEach(app => {
+                const job = app.posting;
+                const matchPct = app.matchScore || 85;
+                const appliedDate = new Date(app.appliedAt).toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
+                
+                const cardHTML = `
+                    <div onclick="window.location.href='../internship_detail_senior_data_science_intern_nexus_academic/code.html?id=${job.id}'" class="bg-surface-container-lowest p-md rounded-[16px] border border-primary-fixed shadow-[0_4px_10px_rgba(0,0,0,0.02)] hover:border-primary-container transition-colors cursor-pointer relative">
+                        <div class="flex items-center gap-sm mb-md">
+                            <div class="w-12 h-12 rounded-lg bg-surface flex items-center justify-center border border-outline-variant overflow-hidden">
+                                <img class="w-full h-full object-cover" src="${job.industry.logoUrl || 'https://lh3.googleusercontent.com/aida-public/AB6AXuB2Sf5XdFUzKZ5HRRIhKUyGYPlOtx7to5wcatMtI3pPxZ-K5nlIdiEoWPoVlHYfY-9Ed5KfbVUrY6lGff2yH_pyQvV_rjP9VMKG7KhISTC5FKWuCuFUsZh5zll7b6ZV2TQOqsFfs6fmouw9TuJIRmzJ7nD1ZI8-35fmP68jOT7IMSQ-GdkxVOycMtevcsKamYYAXrpvZidcXxN4mdD5UqPKXAdJbMSECQ4O3AyRv678d4mcBpqHhxLQ'}"/>
+                            </div>
+                            <div>
+                                <h4 class="font-label-md text-label-md text-on-background">${job.title}</h4>
+                                <p class="font-label-sm text-label-sm text-on-surface-variant mt-1">${job.industry.companyName}</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between mb-sm">
+                            <span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">calendar_month</span> Applied ${appliedDate}</span>
+                        </div>
+                        <div class="w-full bg-surface-container-high rounded-full h-1.5 mb-1 overflow-hidden">
+                            <div class="bg-primary-container h-1.5 rounded-full" style="width: ${app.status === 'APPLIED' ? '25%' : app.status === 'SHORTLISTED' ? '50%' : app.status === 'INTERVIEW' ? '75%' : '100%'}"></div>
+                        </div>
+                        <p class="font-label-sm text-label-sm text-right text-on-surface-variant">${app.status === 'APPLIED' ? 'Stage 1/4' : app.status === 'SHORTLISTED' ? 'Stage 2/4' : app.status === 'INTERVIEW' ? 'Stage 3/4' : 'Completed'}</p>
+                    </div>
+                `;
+
+                if (app.status === 'APPLIED') {
+                    colApplied.innerHTML += cardHTML;
+                    counts.APPLIED++;
+                } else if (app.status === 'SHORTLISTED') {
+                    colShortlisted.innerHTML += cardHTML;
+                    counts.SHORTLISTED++;
+                } else if (app.status === 'INTERVIEW') {
+                    colInterview.innerHTML += cardHTML;
+                    counts.INTERVIEW++;
+                } else if (app.status === 'SELECTED' || app.status === 'REJECTED') {
+                    colCompleted.innerHTML += cardHTML;
+                    counts.COMPLETED++;
+                }
+            });
+
+            // Insert placeholder for empty columns
+            const emptyHTML = '<div class="text-center py-8 text-on-surface-variant font-label-sm">No applications in this stage</div>';
+            if (counts.APPLIED === 0) colApplied.innerHTML = emptyHTML;
+            if (counts.SHORTLISTED === 0) colShortlisted.innerHTML = emptyHTML;
+            if (counts.INTERVIEW === 0) colInterview.innerHTML = emptyHTML;
+            if (counts.COMPLETED === 0) colCompleted.innerHTML = emptyHTML;
+        }
+
+        // Update counter badges
+        document.getElementById('count-applied').textContent = counts.APPLIED;
+        document.getElementById('count-shortlisted').textContent = counts.SHORTLISTED;
+        document.getElementById('count-interview').textContent = counts.INTERVIEW;
+        document.getElementById('count-completed').textContent = counts.COMPLETED;
+
+    } catch (e) {
+        console.error(e);
+        const errHTML = '<p class="text-body-md text-error p-md text-center">Failed to load tracker.</p>';
+        colApplied.innerHTML = errHTML;
+        colShortlisted.innerHTML = errHTML;
+        colInterview.innerHTML = errHTML;
+        colCompleted.innerHTML = errHTML;
+    }
+});
+</script>
+</body></html>

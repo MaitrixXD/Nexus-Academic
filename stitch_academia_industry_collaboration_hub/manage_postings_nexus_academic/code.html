@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nexus Academic - Manage Postings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-bright": "#f7f9fb",
+                      "on-primary-fixed": "#00174b",
+                      "error": "#ba1a1a",
+                      "error-container": "#ffdad6",
+                      "surface-variant": "#e0e3e5",
+                      "inverse-primary": "#b4c5ff",
+                      "surface": "#f7f9fb",
+                      "background": "#f7f9fb",
+                      "secondary-container": "#d5e4f8",
+                      "secondary-fixed": "#d5e4f8",
+                      "tertiary-fixed-dim": "#b8c4ff",
+                      "on-error-container": "#93000a",
+                      "tertiary-container": "#4865d4",
+                      "surface-container-highest": "#e0e3e5",
+                      "outline-variant": "#c3c6d7",
+                      "surface-dim": "#d8dadc",
+                      "inverse-on-surface": "#eff1f3",
+                      "on-primary-fixed-variant": "#003ea8",
+                      "on-surface": "#191c1e",
+                      "surface-tint": "#0053db",
+                      "secondary-fixed-dim": "#b9c8db",
+                      "on-error": "#ffffff",
+                      "on-tertiary-fixed": "#001453",
+                      "surface-container": "#eceef0",
+                      "on-tertiary-container": "#eff0ff",
+                      "surface-container-low": "#f2f4f6",
+                      "on-secondary": "#ffffff",
+                      "primary": "#004ac6",
+                      "outline": "#737686",
+                      "tertiary": "#2c4bb9",
+                      "on-tertiary-fixed-variant": "#173bab",
+                      "primary-fixed": "#dbe1ff",
+                      "surface-container-high": "#e6e8ea",
+                      "primary-fixed-dim": "#b4c5ff",
+                      "tertiary-fixed": "#dde1ff",
+                      "inverse-surface": "#2d3133",
+                      "on-secondary-fixed-variant": "#3a4858",
+                      "on-background": "#191c1e",
+                      "on-surface-variant": "#434655",
+                      "on-tertiary": "#ffffff",
+                      "primary-container": "#2563eb",
+                      "on-secondary-container": "#576676",
+                      "on-secondary-fixed": "#0e1d2b",
+                      "on-primary-container": "#eeefff",
+                      "surface-container-lowest": "#ffffff",
+                      "secondary": "#516070",
+                      "on-primary": "#ffffff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "xl": "80px",
+                      "margin-desktop": "64px",
+                      "base": "8px",
+                      "gutter": "24px",
+                      "md": "24px",
+                      "xs": "4px",
+                      "sm": "12px",
+                      "lg": "48px",
+                      "margin-mobile": "16px"
+              },
+              "fontFamily": {
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "label-sm": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "headline-lg-mobile": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "display": [
+                              "Inter"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "1.0",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.0",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+      </style>
+  <script src="../nexus-shared.js"></script>
+</head>
+<body data-active-tab="Manage Postings" class="bg-surface-lowest text-on-surface font-body-md min-h-screen flex">
+<!-- SideNavBar (Hidden on Mobile, Visible on Desktop) -->
+<nav class="hidden md:flex h-screen w-64 fixed left-0 top-0 z-40 border-r border-outline-variant bg-surface-lowest flex-col py-lg justify-between">
+<div class="px-md flex flex-col gap-lg">
+<!-- Brand -->
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded bg-primary-container text-on-primary flex items-center justify-center font-bold">N</div>
+<div>
+<h1 class="font-headline-md text-headline-md font-extrabold text-primary">Nexus Academic</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Recruiter Portal</p>
+</div>
+</div>
+<!-- CTA -->
+<button class="bg-primary-container text-on-primary hover:opacity-90 transition-opacity rounded-lg py-sm px-md font-label-md text-label-md flex items-center justify-center gap-2 w-full">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add</span>
+                Create Posting
+            </button>
+<!-- Navigation Links -->
+<ul class="flex flex-col gap-xs">
+<li>
+<a class="flex items-center gap-sm px-md py-sm rounded-lg font-label-md text-label-md text-secondary hover:bg-surface-container-low transition-all" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+                        Dashboard
+                    </a>
+</li>
+<li>
+<a class="flex items-center gap-sm px-md py-sm rounded-lg font-label-md text-label-md text-primary font-bold border-r-4 border-primary bg-secondary-container scale-[0.98] transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">work</span>
+                        My Postings
+                    </a>
+</li>
+<li>
+<a class="flex items-center gap-sm px-md py-sm rounded-lg font-label-md text-label-md text-secondary hover:bg-surface-container-low transition-all" href="#">
+<span class="material-symbols-outlined">group</span>
+                        Candidates
+                    </a>
+</li>
+<li>
+<a class="flex items-center gap-sm px-md py-sm rounded-lg font-label-md text-label-md text-secondary hover:bg-surface-container-low transition-all" href="#">
+<span class="material-symbols-outlined">person_search</span>
+                        Talent Pool
+                    </a>
+</li>
+<li>
+<a class="flex items-center gap-sm px-md py-sm rounded-lg font-label-md text-label-md text-secondary hover:bg-surface-container-low transition-all" href="#">
+<span class="material-symbols-outlined">analytics</span>
+                        Analytics
+                    </a>
+</li>
+</ul>
+</div>
+<!-- Footer Links -->
+<div class="px-md flex flex-col gap-xs">
+<a class="flex items-center gap-sm px-md py-sm rounded-lg font-label-md text-label-md text-secondary hover:bg-surface-container-low transition-all" href="#">
+<span class="material-symbols-outlined">help</span>
+                Help Center
+            </a>
+<a class="flex items-center gap-sm px-md py-sm rounded-lg font-label-md text-label-md text-secondary hover:bg-surface-container-low transition-all" href="#">
+<span class="material-symbols-outlined">logout</span>
+                Log Out
+            </a>
+</div>
+</nav>
+<!-- TopNavBar (Visible on Mobile, Hidden on Desktop) -->
+<header class="md:hidden flex justify-between items-center px-margin-mobile w-full h-16 sticky top-0 z-50 bg-surface-lowest border-b border-outline-variant">
+<div class="font-headline-md text-headline-md font-bold text-primary">Nexus Academic</div>
+<div class="flex items-center gap-sm">
+<button class="text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined">notifications</span></button>
+<button class="text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined">settings</span></button>
+<img alt="Recruiter Profile" class="w-8 h-8 rounded-full object-cover border border-outline-variant" data-alt="A small circular avatar image showing a professional headshot of a recruiter on a minimalist background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmHD0uNjoEgJQAJgvx2ykG2w69vg2Tc68j9xWG6KT5w7EQrWjtWcVTmKXaZnPszEZbn2V87_kBELboHUVhhPYIE1yMqLdmBJauKtgZV4-gDjQhUxa6k_-_zyALpzTadaup4VGf9ahoikCgZNw4S7jhKtA_cfTVDxHy1ZQfGPXIiIDTW89f4PL19WHwE0BssbdqWsdOMER88x-9qaZRt0Z2xEvPoxq8AoJk_amZYedIV00gav71eIBf"/>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-64 bg-surface-lowest">
+<!-- Header Section -->
+<div class="px-margin-mobile md:px-margin-desktop py-lg border-b border-outline-variant">
+<div class="max-w-[1280px] mx-auto flex flex-col md:flex-row md:items-center justify-between gap-md">
+<div>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">Manage Postings</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">View and manage your active and closed academic recruitment postings.</p>
+</div>
+<button class="bg-primary-container text-on-primary hover:opacity-90 transition-opacity rounded-lg py-sm px-md font-label-md text-label-md flex items-center justify-center gap-2 shrink-0 self-start md:self-auto">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add</span>
+                    New Posting
+                </button>
+</div>
+</div>
+<!-- Controls & Data Section -->
+<div class="px-margin-mobile md:px-margin-desktop py-lg">
+<div class="max-w-[1280px] mx-auto flex flex-col gap-lg">
+<!-- Filters & Search -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-md">
+<!-- Status Tabs -->
+<div class="flex gap-md border-b border-outline-variant w-full md:w-auto">
+<button class="font-label-md text-label-md text-primary border-b-2 border-primary pb-sm px-2">All Postings</button>
+<button class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors pb-sm px-2">Active</button>
+<button class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors pb-sm px-2">Closed</button>
+</div>
+<!-- Search Bar -->
+<div class="relative w-full md:w-80">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full pl-10 pr-4 py-2 rounded-lg border border-outline-variant bg-surface-lowest focus:border-primary-container focus:ring-2 focus:ring-secondary-container transition-all outline-none font-body-md text-body-md" placeholder="Search postings..." type="text"/>
+</div>
+</div>
+<!-- Data Table (Card) -->
+<div class="bg-surface-lowest rounded-xl border border-[#DBEAFE] shadow-[0_10px_30px_-15px_rgba(0,0,0,0.05)] overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-[#EFF6FF] border-b border-[#DBEAFE]">
+<th class="p-md font-label-md text-label-md text-on-surface font-bold">Posting Title</th>
+<th class="p-md font-label-md text-label-md text-on-surface font-bold">Applicants</th>
+<th class="p-md font-label-md text-label-md text-on-surface font-bold">Status</th>
+<th class="p-md font-label-md text-label-md text-on-surface font-bold">Posted Date</th>
+<th class="p-md font-label-md text-label-md text-on-surface font-bold text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="font-body-md text-body-md divide-y divide-outline-variant/30">
+<tr><td colspan="5" class="p-md text-center text-on-surface-variant">Loading postings...</td></tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination Footer -->
+<div class="p-md border-t border-outline-variant/30 flex items-center justify-between text-sm text-on-surface-variant bg-surface-lowest">
+<span>Showing 0 of 0 entries</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+    const user = getLoggedUser();
+    if (!user || user.role !== 'INDUSTRY') {
+        alert('Please log in as an Industry Partner first.');
+        window.location.href = '../login_sign_up_nexus_academic/code.html';
+        return;
+    }
+
+    const postJobBtns = document.querySelectorAll('button');
+    postJobBtns.forEach(btn => {
+        if (btn.textContent.includes('Posting')) {
+            btn.addEventListener('click', () => {
+                window.location.href = '../post_internship_job_nexus_academic/code.html';
+            });
+        }
+    });
+
+    const tbody = document.querySelector('table tbody');
+    let postings = [];
+    let activeFilter = 'All Postings';
+
+    async function loadPostings() {
+        tbody.innerHTML = '<tr><td colspan="5" class="p-md text-center text-on-surface-variant">Loading postings...</td></tr>';
+        try {
+            const res = await nexusFetch('/industry/my-postings');
+            postings = await res.json();
+            if (!res.ok) throw new Error(postings.message || 'Failed to load postings');
+            renderPostings();
+        } catch (e) {
+            console.error(e);
+            tbody.innerHTML = '<tr><td colspan="5" class="p-md text-center text-error">Failed to load postings details.</td></tr>';
+        }
+    }
+
+    function renderPostings() {
+        tbody.innerHTML = '';
+        const searchInput = document.querySelector('input[placeholder="Search postings..."]');
+        const searchVal = searchInput ? searchInput.value.toLowerCase() : '';
+
+        const filtered = postings.filter(p => {
+            if (activeFilter === 'Active' && p.status !== 'ACTIVE') return false;
+            if (activeFilter === 'Closed' && p.status !== 'CLOSED') return false;
+            
+            if (searchVal) {
+                const titleMatch = p.title.toLowerCase().includes(searchVal);
+                const descMatch = (p.description || '').toLowerCase().includes(searchVal);
+                return titleMatch || descMatch;
+            }
+            return true;
+        });
+
+        const paginationLabel = document.querySelector('main .p-md.border-t.border-outline-variant\\/30 span');
+        if (paginationLabel) {
+            paginationLabel.textContent = `Showing ${filtered.length} of ${postings.length} entries`;
+        }
+
+        if (filtered.length === 0) {
+            tbody.innerHTML = '<tr><td colspan="5" class="p-md text-center text-on-surface-variant">No postings found matching current criteria.</td></tr>';
+            return;
+        }
+
+        filtered.forEach(p => {
+            const statusClass = p.status === 'ACTIVE' 
+                ? 'bg-[#DBEAFE] text-[#2563EB]' 
+                : 'bg-surface-container text-on-surface-variant';
+            
+            const actionBtn = p.status === 'ACTIVE'
+                ? `<button onclick="closePosting('${p.id}', event)" class="p-2 hover:bg-surface-container hover:text-primary rounded-lg transition-colors" title="Close / Pause"><span class="material-symbols-outlined text-sm">pause</span></button>`
+                : `<span class="text-on-surface-variant font-label-sm text-xs px-2">Closed</span>`;
+
+            tbody.innerHTML += `
+                <tr onclick="window.location.href='../candidate_matching_shortlisting_nexus_academic/code.html?postingId=${p.id}'" class="hover:bg-surface-bright transition-colors group cursor-pointer">
+                    <td class="p-md">
+                        <div class="font-semibold text-on-surface group-hover:text-primary transition-colors">${p.title}</div>
+                        <div class="text-sm text-on-surface-variant mt-1">${p.location || 'Remote'}</div>
+                    </td>
+                    <td class="p-md text-on-surface-variant">${p._count?.applications || 0} applicants</td>
+                    <td class="p-md">
+                        <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${statusClass}">${p.status}</span>
+                    </td>
+                    <td class="p-md text-on-surface-variant">${new Date(p.createdAt).toLocaleDateString()}</td>
+                    <td class="p-md text-right" onclick="event.stopPropagation()">
+                        <div class="flex items-center justify-end gap-2 text-outline">
+                            <button onclick="window.location.href='../candidate_matching_shortlisting_nexus_academic/code.html?postingId=${p.id}'" class="p-2 hover:bg-surface-container hover:text-primary rounded-lg transition-colors" title="View Applicants"><span class="material-symbols-outlined text-sm">group</span></button>
+                            ${actionBtn}
+                        </div>
+                    </td>
+                </tr>
+            `;
+        });
+    }
+
+    window.closePosting = async (id, event) => {
+        event.stopPropagation();
+        if (!confirm('Are you sure you want to close this posting? This will stop new applications.')) return;
+        
+        try {
+            const res = await nexusFetch(`/internships/${id}`, { method: 'DELETE' });
+            const data = await res.json();
+            if (!res.ok) throw new Error(data.message || 'Failed to close posting');
+            
+            alert('Posting successfully closed!');
+            loadPostings();
+        } catch (e) {
+            alert(e.message);
+        }
+    };
+
+    const tabs = document.querySelectorAll('main .flex.gap-md button');
+    tabs.forEach(tab => {
+        tab.addEventListener('click', (e) => {
+            e.preventDefault();
+            tabs.forEach(t => {
+                t.className = "font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors pb-sm px-2";
+            });
+            tab.className = "font-label-md text-label-md text-primary border-b-2 border-primary pb-sm px-2";
+            activeFilter = tab.textContent.trim();
+            renderPostings();
+        });
+    });
+
+    const searchInput = document.querySelector('input[placeholder="Search postings..."]');
+    if (searchInput) {
+        searchInput.addEventListener('input', () => renderPostings());
+    }
+
+    loadPostings();
+});
+</script>
+</body></html>

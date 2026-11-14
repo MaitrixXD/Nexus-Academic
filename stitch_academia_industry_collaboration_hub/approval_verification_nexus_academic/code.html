@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nexus Academic - Approval Queue</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed-variant": "#3a4858",
+                        "surface-variant": "#e0e3e5",
+                        "surface-container-low": "#f2f4f6",
+                        "on-background": "#191c1e",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "secondary-container": "#d5e4f8",
+                        "surface": "#f7f9fb",
+                        "secondary-fixed": "#d5e4f8",
+                        "surface-bright": "#f7f9fb",
+                        "on-tertiary-container": "#eff0ff",
+                        "surface-tint": "#0053db",
+                        "on-error-container": "#93000a",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#001453",
+                        "on-primary-fixed": "#00174b",
+                        "secondary": "#516070",
+                        "tertiary-fixed": "#dde1ff",
+                        "secondary-fixed-dim": "#b9c8db",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed": "#dbe1ff",
+                        "on-surface-variant": "#434655",
+                        "primary-container": "#2563eb",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#d8dadc",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-error": "#ffffff",
+                        "surface-container": "#eceef0",
+                        "inverse-on-surface": "#eff1f3",
+                        "surface-container-high": "#e6e8ea",
+                        "on-tertiary-fixed-variant": "#173bab",
+                        "tertiary": "#2c4bb9",
+                        "inverse-surface": "#2d3133",
+                        "outline": "#737686",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "tertiary-container": "#4865d4",
+                        "on-surface": "#191c1e",
+                        "primary": "#004ac6",
+                        "on-primary-container": "#eeefff",
+                        "on-secondary-container": "#576676",
+                        "on-primary": "#ffffff",
+                        "inverse-primary": "#b4c5ff",
+                        "background": "#f7f9fb",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed": "#0e1d2b",
+                        "tertiary-fixed-dim": "#b8c4ff",
+                        "outline-variant": "#c3c6d7"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "md": "24px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px",
+                        "xs": "4px",
+                        "sm": "12px",
+                        "base": "8px",
+                        "lg": "48px",
+                        "xl": "80px",
+                        "margin-desktop": "64px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "display": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "1.0", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "1.0", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "display": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+  <script src="../nexus-shared.js"></script>
+</head>
+<body data-active-tab="Verification Queue" class="bg-background text-on-background font-body-md text-body-md h-screen flex overflow-hidden">
+<!-- SideNavBar -->
+<aside class="hidden md:flex bg-surface dark:bg-surface-dim docked h-screen left-0 w-64 border-r border-outline-variant flex-col py-6 px-4 gap-4 z-20">
+<div class="flex items-center gap-4 mb-6 px-2">
+<img alt="Nexus Admin" class="w-10 h-10 rounded-full object-cover" data-alt="A small, stylized circular avatar illustration representing a system administrator in a clean, professional corporate style with blue and gray tones, set against a white background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAa8unJTrRNGDzC9X1wW3k3Yz6vLJCG5L5M_WjtsIe-6KgRMj5Ug7QwRDep1GnOn6qkroBwp8XQChsXKCipBym7EWGSoZRKRkcuqxW6r1bUIFak9kW8yyhWz4WE44Q4RVAI9bTknmgSH-uVPMSIf-5uHpg8y4hx3aUYb6gDMpxlKymaTJp3ZIdRKo4W4nT92QTb0Dq7aXY6p4R7ZZkIaoRBuBr8yhQXvpSsc0_cRhZaXi3k0Y4yavBb"/>
+<div>
+<h2 class="font-headline-md text-[18px] text-primary dark:text-primary-fixed-dim">Admin Portal</h2>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Nexus Academic Oversight</p>
+</div>
+</div>
+<nav class="flex-1 flex flex-col gap-2">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary-container/10 text-primary dark:text-primary-fixed font-bold border-r-4 border-primary cursor-pointer active:scale-95 transition-all" href="#">
+<span class="material-symbols-outlined">fact_check</span>
+                Approval Queue
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-secondary dark:text-secondary-fixed-dim hover:bg-secondary-container dark:hover:bg-secondary-fixed-variant transition-all cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined">verified_user</span>
+                Partner Verification
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-secondary dark:text-secondary-fixed-dim hover:bg-secondary-container dark:hover:bg-secondary-fixed-variant transition-all cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined">card_membership</span>
+                Certificate Management
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-secondary dark:text-secondary-fixed-dim hover:bg-secondary-container dark:hover:bg-secondary-fixed-variant transition-all cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined">group_work</span>
+                User Audit
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-secondary dark:text-secondary-fixed-dim hover:bg-secondary-container dark:hover:bg-secondary-fixed-variant transition-all cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined">terminal</span>
+                System Logs
+            </a>
+</nav>
+<div class="mt-auto flex flex-col gap-2 pt-4 border-t border-surface-container-low dark:border-surface-container">
+<button class="w-full bg-primary-container text-on-primary-container font-label-md text-label-md py-3 rounded-lg hover:opacity-90 transition-opacity mb-4">
+                Export Reports
+            </button>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-secondary dark:text-secondary-fixed-dim hover:bg-secondary-container dark:hover:bg-secondary-fixed-variant transition-all cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined">settings</span>
+                Settings
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-secondary dark:text-secondary-fixed-dim hover:bg-secondary-container dark:hover:bg-secondary-fixed-variant transition-all cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined">contact_support</span>
+                Support
+            </a>
+</div>
+</aside>
+<div class="flex-1 flex flex-col min-w-0 overflow-hidden">
+<!-- TopNavBar -->
+<header class="bg-surface-container-lowest dark:bg-surface-dim docked full-width top-0 border-b border-outline-variant dark:border-outline flat no shadows z-10 hidden md:block">
+<div class="flex justify-between items-center w-full px-6 h-16 max-w-[1280px] mx-auto">
+<div class="flex items-center gap-8">
+<span class="font-display text-headline-md text-primary dark:text-primary-fixed-dim">Nexus Academic</span>
+<nav class="flex items-center gap-6 hidden lg:flex">
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors cursor-pointer active:opacity-80 py-4" href="#">Dashboard</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors cursor-pointer active:opacity-80 py-4" href="#">Reports</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors cursor-pointer active:opacity-80 py-4" href="#">Settings</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface rounded-full border border-outline-variant focus:border-primary focus:ring-2 focus:ring-secondary-container outline-none font-body-md text-sm w-64" placeholder="Search..." type="text"/>
+</div>
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors cursor-pointer active:opacity-80">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors cursor-pointer active:opacity-80">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+<img alt="Administrator Avatar" class="w-8 h-8 rounded-full ml-2 object-cover" data-alt="A small, stylized circular avatar illustration representing an administrator in a clean, professional corporate style with blue and gray tones, set against a white background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAH0LtqWFirBNFQsjCRgjAkx-SyouN8XBp3SCyoS-DJ6KrjONbh9ujhNz-QEkFYstgG58C-SvK-Fat2X4hVAYjJ_t9FX-rn10JzH93B-KJKsRdRh_6aTQGz5p8DROa2PwBvahzJJ6P8zBfRAhGNhf9oaaXZ2NR5WVErrRrcoy9keDkG9qbiBSX6MDNxWeDOUF8Bbrh8cjzLqt5lDno0PEe0YE_lVlQfqsR_MQY854RJDYhdUA2ahVjW"/>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 overflow-y-auto bg-surface-bright">
+<div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop py-8 md:py-12">
+<!-- Header -->
+<div class="mb-8">
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-background mb-2">Approval &amp; Verification Queue</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Review and manage pending document and partner verification requests.</p>
+</div>
+<!-- Tabs -->
+<div class="flex border-b border-outline-variant mb-8 overflow-x-auto no-scrollbar">
+<button class="px-6 py-3 font-label-md text-label-md text-primary border-b-2 border-primary bg-secondary-container/30 whitespace-nowrap">
+                        Pending
+                    </button>
+<button class="px-6 py-3 font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap">
+                        Approved
+                    </button>
+<button class="px-6 py-3 font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap">
+                        Rejected
+                    </button>
+</div>
+<!-- Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6" id="verification-grid">
+    <p class="text-body-md text-on-surface-variant text-center col-span-3 py-8">Loading pending verification requests...</p>
+</div>
+</div>
+</main>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+    const user = getLoggedUser();
+    if (!user || user.role !== 'INSTITUTION_ADMIN') {
+        alert('Please log in as an Institution Admin first.');
+        window.location.href = '../login_sign_up_nexus_academic/code.html';
+        return;
+    }
+
+    const grid = document.getElementById('verification-grid');
+
+    async function loadVerifications() {
+        grid.innerHTML = '<p class="text-body-md text-on-surface-variant text-center col-span-3 py-8">Loading pending verification requests...</p>';
+        try {
+            const res = await nexusFetch('/admin/verifications');
+            const data = await res.json();
+            if (!res.ok) throw new Error(data.message || 'Failed to load verifications');
+
+            renderVerifications(data);
+        } catch (e) {
+            console.error(e);
+            grid.innerHTML = `<p class="text-body-md text-error text-center col-span-3 py-8">Error loading verifications: ${e.message}</p>`;
+        }
+    }
+
+    function renderVerifications(data) {
+        grid.innerHTML = '';
+        const industries = data.pendingIndustries || [];
+        const certificates = data.pendingCertificates || [];
+
+        if (industries.length === 0 && certificates.length === 0) {
+            grid.innerHTML = '<p class="text-body-md text-on-surface-variant text-center col-span-3 py-8 bg-surface-container-lowest p-6 rounded-lg border border-outline-variant">No pending verification requests at this time.</p>';
+            return;
+        }
+
+        // Render Industries
+        industries.forEach(ind => {
+            const dateLabel = new Date(ind.user.createdAt).toLocaleDateString();
+            const logo = ind.logoUrl || '';
+            const logoTag = logo 
+                ? `<img src="${logo}" class="w-full h-full object-cover rounded-lg" />`
+                : `<span class="material-symbols-outlined text-tertiary text-3xl">corporate_fare</span>`;
+
+            grid.innerHTML += `
+                <div class="bg-surface-container-lowest border border-secondary-container rounded-lg p-6 shadow-[0_10px_20px_rgba(0,0,0,0.02)] hover:border-primary transition-colors flex flex-col group">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-lg bg-surface flex items-center justify-center border border-outline-variant overflow-hidden">
+                                ${logoTag}
+                            </div>
+                            <div>
+                                <h3 class="font-headline-md text-[16px] text-on-background">${ind.companyName}</h3>
+                                <p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Registered: ${dateLabel}</p>
+                            </div>
+                        </div>
+                        <span class="px-2 py-1 rounded bg-secondary-container/50 text-primary font-label-sm text-[10px] uppercase tracking-wider">Partner</span>
+                    </div>
+                    <div class="mb-6 flex-1">
+                        <h4 class="font-body-md font-semibold text-on-background mb-1">New Industry Partner Request</h4>
+                        <p class="font-body-md text-sm text-on-surface-variant line-clamp-2">${ind.description || 'Application to join the Nexus academic exchange network.'}</p>
+                        <p class="font-label-sm text-label-sm text-secondary mt-1">Email: ${ind.user.email}</p>
+                    </div>
+                    <div class="flex gap-3 mt-auto">
+                        <button onclick="verifyPartner('${ind.id}', true)" class="flex-1 bg-primary-container text-on-primary font-label-md text-label-md py-2.5 rounded-lg hover:opacity-90 transition-opacity">
+                            Approve
+                        </button>
+                        <button onclick="verifyPartner('${ind.id}', false)" class="flex-1 border border-error text-error font-label-md text-label-md py-2.5 rounded-lg hover:bg-error-container/20 transition-colors">
+                            Reject
+                        </button>
+                    </div>
+                </div>
+            `;
+        });
+
+        // Render Certificates
+        certificates.forEach(cert => {
+            const dateLabel = new Date(cert.createdAt || Date.now()).toLocaleDateString();
+            
+            grid.innerHTML += `
+                <div class="bg-surface-container-lowest border border-secondary-container rounded-lg p-6 shadow-[0_10px_20px_rgba(0,0,0,0.02)] hover:border-primary transition-colors flex flex-col group">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-lg bg-surface flex items-center justify-center border border-outline-variant">
+                                <span class="material-symbols-outlined text-primary text-3xl">workspace_premium</span>
+                            </div>
+                            <div>
+                                <h3 class="font-headline-md text-[16px] text-on-background">${cert.student.firstName} ${cert.student.lastName}</h3>
+                                <p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Submitted: ${dateLabel}</p>
+                            </div>
+                        </div>
+                        <span class="px-2 py-1 rounded bg-secondary-container/50 text-primary font-label-sm text-[10px] uppercase tracking-wider">Document</span>
+                    </div>
+                    <div class="mb-6 flex-1">
+                        <h4 class="font-body-md font-semibold text-on-background mb-1">${cert.title}</h4>
+                        <p class="font-body-md text-sm text-on-surface-variant line-clamp-2">Verification request for learning program certificate issued by ${cert.issuer || 'Nexus Academic'}.</p>
+                    </div>
+                    <div class="flex gap-3 mt-auto">
+                        <button onclick="verifyCertificate('${cert.id}', 'APPROVED')" class="flex-1 bg-primary-container text-on-primary font-label-md text-label-md py-2.5 rounded-lg hover:opacity-90 transition-opacity">
+                            Approve
+                        </button>
+                        <button onclick="verifyCertificate('${cert.id}', 'REJECTED')" class="flex-1 border border-error text-error font-label-md text-label-md py-2.5 rounded-lg hover:bg-error-container/20 transition-colors">
+                            Reject
+                        </button>
+                    </div>
+                </div>
+            `;
+        });
+    }
+
+    // Expose verifyPartner globally
+    window.verifyPartner = async (id, approved) => {
+        if (!confirm(`Are you sure you want to ${approved ? 'approve' : 'reject'} this industry partner profile?`)) return;
+        try {
+            const res = await nexusFetch(`/admin/verifications/industry/${id}`, {
+                method: 'PATCH',
+                body: JSON.stringify({ approved })
+            });
+            const data = await res.json();
+            if (!res.ok) throw new Error(data.message || 'Failed to verify industry partner');
+            alert('Industry partner profile verified successfully!');
+            loadVerifications();
+        } catch (e) {
+            alert(e.message);
+        }
+    };
+
+    // Expose verifyCertificate globally
+    window.verifyCertificate = async (id, status) => {
+        if (!confirm(`Are you sure you want to ${status.toLowerCase()} this student certificate?`)) return;
+        try {
+            const res = await nexusFetch(`/admin/verifications/certificate/${id}`, {
+                method: 'PATCH',
+                body: JSON.stringify({ status })
+            });
+            const data = await res.json();
+            if (!res.ok) throw new Error(data.message || 'Failed to verify certificate');
+            alert('Certificate verification updated successfully!');
+            loadVerifications();
+        } catch (e) {
+            alert(e.message);
+        }
+    };
+
+    loadVerifications();
+});
+</script>
+</body></html>

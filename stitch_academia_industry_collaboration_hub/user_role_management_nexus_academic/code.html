@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nexus Academic - User &amp; Role Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-container": "#eeefff",
+                        "on-surface-variant": "#434655",
+                        "primary": "#004ac6",
+                        "on-tertiary-container": "#eff0ff",
+                        "on-surface": "#191c1e",
+                        "on-tertiary-fixed-variant": "#173bab",
+                        "secondary-fixed-dim": "#b9c8db",
+                        "on-error-container": "#93000a",
+                        "on-background": "#191c1e",
+                        "background": "#f7f9fb",
+                        "inverse-surface": "#2d3133",
+                        "surface-container-high": "#e6e8ea",
+                        "on-primary-fixed": "#00174b",
+                        "on-secondary-fixed-variant": "#3a4858",
+                        "secondary-fixed": "#d5e4f8",
+                        "surface-variant": "#e0e3e5",
+                        "tertiary-container": "#4865d4",
+                        "error": "#ba1a1a",
+                        "inverse-primary": "#b4c5ff",
+                        "surface-container-low": "#f2f4f6",
+                        "tertiary-fixed-dim": "#b8c4ff",
+                        "tertiary": "#2c4bb9",
+                        "on-secondary-container": "#576676",
+                        "outline-variant": "#c3c6d7",
+                        "secondary-container": "#d5e4f8",
+                        "tertiary-fixed": "#dde1ff",
+                        "primary-fixed": "#dbe1ff",
+                        "surface-tint": "#0053db",
+                        "on-error": "#ffffff",
+                        "surface-container": "#eceef0",
+                        "on-tertiary-fixed": "#001453",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-highest": "#e0e3e5",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-secondary": "#ffffff",
+                        "primary-container": "#2563eb",
+                        "surface": "#f7f9fb",
+                        "on-secondary-fixed": "#0e1d2b",
+                        "outline": "#737686",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-dim": "#d8dadc",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "surface-bright": "#f7f9fb",
+                        "secondary": "#516070"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "48px",
+                        "base": "8px",
+                        "margin-desktop": "64px",
+                        "xl": "80px",
+                        "sm": "12px",
+                        "xs": "4px",
+                        "md": "24px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "display": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "display": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "label-sm": ["12px", { "lineHeight": "1.0", "fontWeight": "500" }],
+                        "label-md": ["14px", { "lineHeight": "1.0", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+  <script src="../nexus-shared.js"></script>
+</head>
+<body data-active-tab="User Management" class="bg-background text-on-surface font-body-md h-screen overflow-hidden flex">
+<!-- SideNavBar (from JSON) -->
+<nav class="h-screen w-64 fixed left-0 top-0 border-r border-outline-variant bg-surface flex flex-col py-md px-base z-40 hidden md:flex">
+<div class="mb-lg px-4 flex items-center gap-3">
+<img alt="Institution Logo" class="w-10 h-10 rounded-lg object-cover" data-alt="A minimalist line-art logo of a stylized Greek temple or university building in primary blue on a crisp white background. The aesthetic is clean, scholarly, and modern, fitting an academic institution's identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIIf3Iq51lDJTkkzbwI0vSIk8StRF7_q3uHLEgQnGCyv78Jg8Zy2UosU_MRXwDq3vZxn6wWHbavMBNYRrx1pFLoPAh3nS6udXbsVGS1jJBe67Vrwl_muEBn62ZzCbXki9A8RuodQNjYGWei3LhbCczTLxQK8DaIOYtk9H9UxYSyv4Y6Q7duQwEkRONp9ZnmAIHn_f45yfXp8yx3l0DUlfGWj_TYTbf_S7CRdqFfN2GSJwYPYn3Qkz2"/>
+<div>
+<h1 class="font-headline-md text-headline-md text-primary">Admin Portal</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Institutional Oversight</p>
+</div>
+</div>
+<button class="bg-primary-container text-on-primary-container font-label-md text-label-md rounded-lg py-3 px-4 mb-lg flex justify-center items-center hover:opacity-90 transition-opacity">
+            Invite New Admin
+        </button>
+<ul class="flex-1 flex flex-col gap-2">
+<li>
+<a class="flex items-center gap-3 px-4 py-3 cursor-pointer bg-secondary-container text-on-secondary-container font-bold rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">group</span>
+<span class="font-label-md text-label-md">User Management</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 cursor-pointer text-on-surface-variant hover:bg-surface-container-low rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">analytics</span>
+<span class="font-label-md text-label-md">Analytics</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 cursor-pointer text-on-surface-variant hover:bg-surface-container-low rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">history_edu</span>
+<span class="font-label-md text-label-md">Audit Trails</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 cursor-pointer text-on-surface-variant hover:bg-surface-container-low rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</li>
+</ul>
+<div class="mt-auto flex flex-col gap-2 pt-4 border-t border-outline-variant">
+<a class="flex items-center gap-3 px-4 py-3 cursor-pointer text-on-surface-variant hover:bg-surface-container-low rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">contact_support</span>
+<span class="font-label-md text-label-md">Support</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 cursor-pointer text-on-surface-variant hover:bg-surface-container-low rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu_book</span>
+<span class="font-label-md text-label-md">Documentation</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Wrapper -->
+<div class="flex-1 md:ml-64 flex flex-col h-screen overflow-hidden">
+<!-- TopNavBar (from JSON) -->
+<header class="w-full sticky top-0 z-50 bg-surface-container-lowest border-b border-outline-variant flex justify-between items-center px-margin-desktop h-16 max-w-[1280px] mx-auto hidden md:flex">
+<div class="flex items-center gap-lg">
+<span class="font-headline-md text-headline-md text-primary font-bold tracking-tight">AcademiaLink Admin</span>
+<nav class="flex gap-md h-full items-end">
+<!-- TopNav tabs suppressed due to SideNav being primary, but maintaining minimal presence as requested -->
+<a class="font-label-md text-label-md text-primary border-b-2 border-primary pb-1 hover:text-primary transition-colors cursor-pointer active:opacity-80" href="#">Dashboard</a>
+<a class="font-label-md text-label-md text-on-surface-variant pb-[6px] hover:text-primary transition-colors cursor-pointer active:opacity-80" href="#">Reports</a>
+<a class="font-label-md text-label-md text-on-surface-variant pb-[6px] hover:text-primary transition-colors cursor-pointer active:opacity-80" href="#">Logs</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative flex items-center bg-surface-container-low rounded-full px-4 py-1.5 border border-outline-variant focus-within:border-primary-container transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant text-sm mr-2" style="font-size: 18px;">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-md font-body-md w-48 text-sm outline-none placeholder:text-outline p-0" placeholder="Search..." type="text"/>
+</div>
+<div class="flex gap-2 text-on-surface-variant">
+<button class="hover:text-primary transition-colors p-1"><span class="material-symbols-outlined">notifications</span></button>
+<button class="hover:text-primary transition-colors p-1"><span class="material-symbols-outlined">help</span></button>
+</div>
+<img alt="Administrator Profile" class="w-8 h-8 rounded-full border border-outline-variant ml-2 object-cover" data-alt="A professional headshot of an administrator, clean corporate style, bright lighting, conveying competence and authority in an academic setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVISCbsfv4UiHEYWVakgN-S30K1Qu3fXh5y7jF18RfOdmDkZfiYQag36czYhsWX8KwJ2hEUyMfgE0PhHrb822xz7ROd0OGjfUup7nFGvxd0LVlO-KshOngAdTCaqQknGdAJPYNRPOVl2O3Ql5qWxIT0ssk5y2a4G1wJ6TLeSgTyQbxjyMXNL4ueByG_MZw4mbe3ZJYFQYHV-VUac240W41kB_tsJQ2sehT2FsehSJ1g3TqhmVzPpnT"/>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 overflow-y-auto p-margin-mobile md:p-margin-desktop max-w-[1280px] mx-auto w-full">
+<div class="flex justify-between items-end mb-8">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">User &amp; Role Management</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Manage access, roles, and status for all portal users.</p>
+</div>
+<div class="flex gap-4">
+<div class="relative flex items-center bg-surface-container-lowest rounded-lg px-4 py-2 border border-outline-variant focus-within:border-primary-container focus-within:ring-2 focus-within:ring-secondary-container transition-all">
+<span class="material-symbols-outlined text-on-surface-variant mr-2">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-md font-body-md w-64 outline-none placeholder:text-outline p-0" placeholder="Search users..." type="text"/>
+</div>
+<button class="flex items-center gap-2 px-4 py-2 bg-surface-container-lowest border border-outline-variant rounded-lg font-label-md text-label-md hover:border-primary-container transition-colors text-on-surface">
+<span class="material-symbols-outlined">filter_list</span>
+                        Filter
+                    </button>
+</div>
+</div>
+<!-- Bento-style Data Container -->
+<div class="bg-surface-container-lowest rounded-xl border border-secondary-fixed shadow-[0_4px_24px_rgba(37,99,235,0.03)] overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-secondary-fixed text-primary-fixed border-b border-secondary-fixed-dim">
+<th class="py-4 px-6 font-label-md text-label-md font-semibold w-1/4">Name</th>
+<th class="py-4 px-6 font-label-md text-label-md font-semibold">Role</th>
+<th class="py-4 px-6 font-label-md text-label-md font-semibold">Institution/Company</th>
+<th class="py-4 px-6 font-label-md text-label-md font-semibold">Status</th>
+<th class="py-4 px-6 font-label-md text-label-md font-semibold text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/30 font-body-md text-body-md">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group">
+<td class="py-4 px-6">
+<div class="flex items-center gap-3">
+<img alt="Avatar" class="w-10 h-10 rounded-full object-cover border border-outline-variant" data-alt="A portrait of a female academic faculty member, intelligent expression, wearing glasses, soft professional studio lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAys3GsbQ8JsBZooCW4kJ20J0wIgC6cC1DvLwH1VvXWSmOXpU1BeVS3XGX-jRNdd-epoN8RSAj3WZPP82MmZwsgE_4MBwAqvKqPX-D9BB8PLcVyX_gRrN3SnfTemTcMNTy5t-b4-Ip6qb0jvesC-RmUZLsRwaen71NjP9V4Z3XkadKO4IcnOMi2JmGWypWH1vK0yB2eT_87bkMX0TEjW2mODxgJkOCzXDmvGQUrDMa0L5UOwGgfgoS1"/>
+<div>
+<p class="font-medium text-on-surface">Dr. Sarah Jenkins</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">s.jenkins@nexus.edu</p>
+</div>
+</div>
+</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-primary-fixed text-on-primary-fixed-variant">
+                                    Faculty
+                                </span>
+</td>
+<td class="py-4 px-6 text-on-surface-variant">Nexus Institute</td>
+<td class="py-4 px-6">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-green-500"></div>
+<span class="text-on-surface">Active</span>
+</div>
+</td>
+<td class="py-4 px-6 text-right">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="text-primary-container hover:text-primary transition-colors font-label-sm text-label-sm font-semibold">Edit</button>
+<span class="text-outline-variant">|</span>
+<button class="text-outline hover:text-on-surface transition-colors font-label-sm text-label-sm">Suspend</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group">
+<td class="py-4 px-6">
+<div class="flex items-center gap-3">
+<img alt="Avatar" class="w-10 h-10 rounded-full object-cover border border-outline-variant" data-alt="A portrait of a male university student, casual but neat attire, bright optimistic lighting, looking forward." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDs3NinMojtc5akomh8hi1G03vRXQUybve0WEb2rMs8ujcyuNkhVL8PIW77dP6WqvdzG6CIsE273lDeZcVZzlEzjYEhqqSsNiNfOEnMGU8sbwXnAW7mRI3ZTONGmL-WkfRXZsrtop8R19QP-xmWj0ntM-klaRO5y_HmxT8X6niFSu09Fw6KX2P3eOYx0OpbX4RPevWHFRI5zh6u85_cTQjj43Jkn18cKOG3OrwEYnyrl8E76VrATq2I"/>
+<div>
+<p class="font-medium text-on-surface">Alex Mercer</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">a.mercer@nexus.edu</p>
+</div>
+</div>
+</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-secondary-fixed text-on-secondary-fixed-variant">
+                                    Student
+                                </span>
+</td>
+<td class="py-4 px-6 text-on-surface-variant">Nexus Institute</td>
+<td class="py-4 px-6">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-amber-500"></div>
+<span class="text-on-surface">Pending</span>
+</div>
+</td>
+<td class="py-4 px-6 text-right">
+<div class="flex justify-end gap-2">
+<button class="bg-primary-container text-on-primary-container px-3 py-1.5 rounded text-xs font-medium hover:opacity-90 transition-opacity">Approve</button>
+<button class="border border-outline px-3 py-1.5 rounded text-xs font-medium hover:border-on-surface transition-colors">Reject</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group">
+<td class="py-4 px-6">
+<div class="flex items-center gap-3">
+<img alt="Avatar" class="w-10 h-10 rounded-full object-cover border border-outline-variant" data-alt="A portrait of a corporate executive in industry, wearing a smart suit, confident expression, clean white background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbRkfbpdGO7v3xsHd2pJmQVIxAEWjaw1uICZN4nfHLG2uQjVINF09J5IT-9-UZdQ25Lh_Bpaa1_Zbk73HsWRNS1yidbSUlB_M3NBFBoIcS-89k7ndS3HU4ylxsGSx8vboKTWA7VYsoFtdtS-nHMZgVqTg5LfTXRCgtPcj9M2YWZRGFpgR0TNEUQ8nJx2Zmv_TE6PKluOIAd0xA8u9BPgbyz1VKgnSPd-c2pdOqyNa7qJaXDYr_SD0C"/>
+<div>
+<p class="font-medium text-on-surface">Mark Reade</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">m.reade@techinnovators.com</p>
+</div>
+</div>
+</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-tertiary-fixed text-on-tertiary-fixed-variant">
+                                    Industry
+                                </span>
+</td>
+<td class="py-4 px-6 text-on-surface-variant">Tech Innovators Inc.</td>
+<td class="py-4 px-6">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-green-500"></div>
+<span class="text-on-surface">Active</span>
+</div>
+</td>
+<td class="py-4 px-6 text-right">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="text-primary-container hover:text-primary transition-colors font-label-sm text-label-sm font-semibold">Edit</button>
+<span class="text-outline-variant">|</span>
+<button class="text-outline hover:text-on-surface transition-colors font-label-sm text-label-sm">Suspend</button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group">
+<td class="py-4 px-6">
+<div class="flex items-center gap-3">
+<img alt="Avatar" class="w-10 h-10 rounded-full object-cover border border-outline-variant" data-alt="A portrait of an Asian male system administrator, focused and professional, soft blue-tinted lighting reflecting screens." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnJfn3BWtTLxSEdVxu5sCHnKLE6nO80v-8LOD8sTnluWJd552ksNoooYbO2d3rQNekzI05cPwaDqGN-snQwc8sD2ctiWxDd3a70maCy2NfOzP1DuuCTjD_b9hYVsiqQXLy6a2w104_MiFUnH6eG_Im_PtrCuiwIF7E-TB-KgVM-HWdOeaPLfMAAJwSVGJdfzR4yEA2ukLu9Ro_aTGY6cW14X4QdQHxO6Oh7gWqP9OHI_lNQXsJswmw"/>
+<div>
+<p class="font-medium text-on-surface">James Chen</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">j.chen@admin.nexus</p>
+</div>
+</div>
+</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-primary text-on-primary">
+                                    Administrator
+                                </span>
+</td>
+<td class="py-4 px-6 text-on-surface-variant">Nexus Admin</td>
+<td class="py-4 px-6">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-green-500"></div>
+<span class="text-on-surface">Active</span>
+</div>
+</td>
+<td class="py-4 px-6 text-right">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="text-primary-container hover:text-primary transition-colors font-label-sm text-label-sm font-semibold">Edit</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- Pagination minimal footer -->
+<div class="p-4 border-t border-outline-variant/30 flex justify-between items-center text-sm text-on-surface-variant">
+<span>Showing 1 to 4 of 48 users</span>
+<div class="flex gap-2">
+<button class="p-1 border border-outline-variant rounded hover:bg-surface-container-low transition-colors disabled:opacity-50"><span class="material-symbols-outlined text-sm">chevron_left</span></button>
+<button class="p-1 border border-outline-variant rounded hover:bg-surface-container-low transition-colors"><span class="material-symbols-outlined text-sm">chevron_right</span></button>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

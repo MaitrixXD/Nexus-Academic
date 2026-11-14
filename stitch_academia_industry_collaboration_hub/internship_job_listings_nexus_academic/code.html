@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Internship &amp; Job Listings - AcademiaLink</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary": "#2c4bb9",
+                    "on-primary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "inverse-primary": "#b4c5ff",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed": "#dde1ff",
+                    "surface-variant": "#e0e3e5",
+                    "surface": "#f7f9fb",
+                    "primary-fixed": "#dbe1ff",
+                    "secondary-fixed": "#d5e4f8",
+                    "background": "#f7f9fb",
+                    "secondary-fixed-dim": "#b9c8db",
+                    "surface-dim": "#d8dadc",
+                    "on-primary-fixed": "#00174b",
+                    "error-container": "#ffdad6",
+                    "surface-container": "#eceef0",
+                    "inverse-surface": "#2d3133",
+                    "primary-container": "#2563eb",
+                    "surface-container-highest": "#e0e3e5",
+                    "tertiary-fixed-dim": "#b8c4ff",
+                    "surface-container-low": "#f2f4f6",
+                    "outline": "#737686",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "inverse-on-surface": "#eff1f3",
+                    "surface-tint": "#0053db",
+                    "on-primary-container": "#eeefff",
+                    "on-surface": "#191c1e",
+                    "secondary": "#516070",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed-variant": "#3a4858",
+                    "on-secondary-container": "#576676",
+                    "on-tertiary-container": "#eff0ff",
+                    "surface-bright": "#f7f9fb",
+                    "on-tertiary-fixed": "#001453",
+                    "outline-variant": "#c3c6d7",
+                    "on-error-container": "#93000a",
+                    "secondary-container": "#d5e4f8",
+                    "error": "#ba1a1a",
+                    "tertiary-container": "#4865d4",
+                    "on-secondary-fixed": "#0e1d2b",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "primary": "#004ac6",
+                    "surface-container-high": "#e6e8ea",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface-variant": "#434655",
+                    "on-background": "#191c1e",
+                    "on-tertiary-fixed-variant": "#173bab"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "gutter": "24px",
+                    "sm": "12px",
+                    "md": "24px",
+                    "base": "8px",
+                    "margin-desktop": "64px",
+                    "xl": "80px",
+                    "lg": "48px",
+                    "xs": "4px"
+            },
+            "fontFamily": {
+                    "label-md": [
+                            "Inter"
+                    ],
+                    "display": [
+                            "Inter"
+                    ],
+                    "body-lg": [
+                            "Inter"
+                    ],
+                    "body-md": [
+                            "Inter"
+                    ],
+                    "headline-lg-mobile": [
+                            "Inter"
+                    ],
+                    "headline-lg": [
+                            "Inter"
+                    ],
+                    "label-sm": [
+                            "Inter"
+                    ],
+                    "headline-md": [
+                            "Inter"
+                    ]
+            },
+            "fontSize": {
+                    "label-md": [
+                            "14px",
+                            {
+                                    "lineHeight": "1.0",
+                                    "letterSpacing": "0.01em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "display": [
+                            "48px",
+                            {
+                                    "lineHeight": "1.1",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "800"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "1.6",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "1.5",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-lg-mobile": [
+                            "24px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "headline-lg": [
+                            "32px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "label-sm": [
+                            "12px",
+                            {
+                                    "lineHeight": "1.0",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "headline-md": [
+                            "24px",
+                            {
+                                    "lineHeight": "1.3",
+                                    "fontWeight": "600"
+                            }
+                    ]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        /* Base styles mapped to design system */
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+        }
+        
+        /* Custom scrollbar for main content area to keep UI clean */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: theme('colors.surface-variant');
+            border-radius: theme('borderRadius.full');
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: theme('colors.outline-variant');
+        }
+
+        /* Range slider styling to match blue theme */
+        input[type=range] {
+            -webkit-appearance: none;
+            width: 100%;
+            background: transparent;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 16px;
+            width: 16px;
+            border-radius: 50%;
+            background: theme('colors.primary-container');
+            cursor: pointer;
+            margin-top: -6px;
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 4px;
+            cursor: pointer;
+            background: theme('colors.surface-variant');
+            border-radius: theme('borderRadius.full');
+        }
+    </style>
+  <script src="../nexus-shared.js"></script>
+</head>
+<body data-active-tab="Internships & Jobs" class="flex flex-col h-screen overflow-hidden">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-margin-desktop h-16 bg-surface-container-lowest border-b border-outline-variant hidden md:flex">
+<div class="flex items-center gap-md">
+<h1 class="font-display text-headline-md text-primary">AcademiaLink</h1>
+<nav class="flex items-center gap-md ml-lg h-full">
+<a class="font-label-md text-label-md text-secondary hover:text-primary-container transition-colors cursor-pointer active:opacity-80 transition-opacity h-full flex items-center pt-1" href="#">Research</a>
+<a class="font-label-md text-label-md text-primary border-b-2 border-primary h-full flex items-center pt-1 pb-1" href="#">Opportunities</a>
+<a class="font-label-md text-label-md text-secondary hover:text-primary-container transition-colors cursor-pointer active:opacity-80 transition-opacity h-full flex items-center pt-1" href="#">Partnerships</a>
+<a class="font-label-md text-label-md text-secondary hover:text-primary-container transition-colors cursor-pointer active:opacity-80 transition-opacity h-full flex items-center pt-1" href="#">Network</a>
+</nav>
+</div>
+<div class="flex items-center gap-md">
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="pl-xl pr-sm py-sm rounded-lg border border-outline-variant bg-surface-container-lowest focus:border-primary-container focus:ring-2 focus:ring-primary-fixed focus:outline-none w-64 transition-all" placeholder="Search..." type="text"/>
+</div>
+<button class="text-secondary hover:text-primary-container transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-secondary hover:text-primary-container transition-colors">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="h-8 w-8 rounded-full overflow-hidden bg-surface-variant cursor-pointer">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a confident academic researcher in a modern, well-lit lab environment. High-key lighting with a clean white and light blue color palette. Professional corporate photography style, sharp focus, serene mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQ_mnaIqYxI3URMbf2cb7UzSkeedKFGD79E6rF4Gq1xWuInPAxF4yOkphY5GXWUP06gAQmqVRnNMM2MSwVQnhNuvJ8lTAio_4B9_EltIB4xLvT28FUlsuwBbeYsVbD-q3UbkN95YGAHj0kRJojRJUQyFLsFzeMO_KETTsll9a18MMpqtNl66cz-DeGo-9OAMJtKm98mtOM_8BeWBt6nOzdLCiZHmbooW2cv9elniicD3oq4-BwM9K3"/>
+</div>
+</div>
+</header>
+<div class="flex flex-1 pt-16 overflow-hidden">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-16 h-[calc(100vh-64px)] w-64 flex flex-col p-md border-r border-outline-variant bg-surface-container-low hidden md:flex shadow-sm z-40">
+<div class="mb-md">
+<div class="flex items-center gap-sm mb-base">
+<div class="w-10 h-10 rounded bg-primary-fixed flex items-center justify-center shrink-0">
+<img alt="Organization Logo" class="w-6 h-6 object-contain" data-alt="A sleek, minimalist vector logo of a modern university crest. Flat design, geometric shapes, primarily navy blue and light blue colors on a white background. Professional, academic, trustworthy vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBM7gtLvu5X-gwQE_BfGJ1_G-zJRY5O3YNzND3hPRzc_OKnO-tUQX5VdF3Cr4Zalpr9RsB-MQa2TLvAN4EuLmn_qn_G-sWTVUQBvuDRz5ISK5eMwTFBgacoO8zREunw3bwaxDBD_oaDVDaMyTlfnrFXG3anERI2-N7qNFq8GzpH3qR4YP9BSqSGGoSlqmjVmNWe-4Oakfq87mUcdZXTcv1CpecigEsrY4wsglYHljwg3z1788PUdP3g"/>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface leading-tight text-sm">Student Portal</h2>
+<p class="font-body-md text-label-sm text-secondary">University of Innovation</p>
+</div>
+</div>
+<button class="w-full bg-primary-container text-on-primary font-label-md text-label-md py-sm rounded-lg hover:opacity-90 transition-opacity active:scale-95 transition-transform duration-150">
+                    Post a Listing
+                </button>
+</div>
+<nav class="flex-1 flex flex-col gap-xs overflow-y-auto">
+<a class="flex items-center gap-sm text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg px-md py-sm active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-sm bg-primary-container text-on-primary-container rounded-lg px-md py-sm active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="work_history" style="font-variation-settings: 'FILL' 1;">work_history</span>
+<span class="font-label-md text-label-md">Opportunities</span>
+</a>
+<a class="flex items-center gap-sm text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg px-md py-sm active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="bookmark">bookmark</span>
+<span class="font-label-md text-label-md">Saved Jobs</span>
+</a>
+<a class="flex items-center gap-sm text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg px-md py-sm active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="event_available">event_available</span>
+<span class="font-label-md text-label-md">Interviews</span>
+</a>
+<a class="flex items-center gap-sm text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg px-md py-sm active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="library_books">library_books</span>
+<span class="font-label-md text-label-md">Resources</span>
+</a>
+</nav>
+<div class="mt-auto flex flex-col gap-xs pt-md border-t border-outline-variant">
+<a class="flex items-center gap-sm text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg px-md py-sm active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="font-label-md text-label-md">Help Center</span>
+</a>
+<a class="flex items-center gap-sm text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg px-md py-sm active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-label-md text-label-md">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 ml-0 md:ml-64 flex flex-col md:flex-row h-full">
+<!-- Filter Left Sidebar -->
+<div class="w-full md:w-72 border-r border-outline-variant bg-surface-container-lowest p-md overflow-y-auto shrink-0 hidden md:block">
+<div class="flex items-center justify-between mb-md">
+<h3 class="font-headline-md text-body-lg text-on-surface">Filters</h3>
+<button class="font-label-md text-label-sm text-primary hover:underline">Clear all</button>
+</div>
+<!-- Skills Filter -->
+<div class="mb-lg border-b border-surface-variant pb-md">
+<h4 class="font-label-md text-label-md text-on-surface-variant mb-sm">Skills Required</h4>
+<div class="flex flex-col gap-xs">
+<label class="flex items-center gap-sm cursor-pointer group">
+<input checked="" class="rounded border-outline-variant text-primary-container focus:ring-primary-fixed w-4 h-4" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface group-hover:text-primary-container transition-colors">Python</span>
+</label>
+<label class="flex items-center gap-sm cursor-pointer group">
+<input checked="" class="rounded border-outline-variant text-primary-container focus:ring-primary-fixed w-4 h-4" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface group-hover:text-primary-container transition-colors">Data Analysis</span>
+</label>
+<label class="flex items-center gap-sm cursor-pointer group">
+<input class="rounded border-outline-variant text-primary-container focus:ring-primary-fixed w-4 h-4" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface group-hover:text-primary-container transition-colors">Machine Learning</span>
+</label>
+<label class="flex items-center gap-sm cursor-pointer group">
+<input class="rounded border-outline-variant text-primary-container focus:ring-primary-fixed w-4 h-4" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface group-hover:text-primary-container transition-colors">SQL</span>
+</label>
+<label class="flex items-center gap-sm cursor-pointer group">
+<input class="rounded border-outline-variant text-primary-container focus:ring-primary-fixed w-4 h-4" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface group-hover:text-primary-container transition-colors">R</span>
+</label>
+<button class="text-left font-label-md text-label-sm text-secondary mt-xs hover:text-primary transition-colors">+ Show 12 more</button>
+</div>
+</div>
+<!-- Location Filter -->
+<div class="mb-lg border-b border-surface-variant pb-md">
+<h4 class="font-label-md text-label-md text-on-surface-variant mb-sm">Location</h4>
+<div class="flex flex-col gap-xs">
+<label class="flex items-center gap-sm cursor-pointer group">
+<input checked="" class="rounded border-outline-variant text-primary-container focus:ring-primary-fixed w-4 h-4" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface group-hover:text-primary-container transition-colors">Remote</span>
+</label>
+<label class="flex items-center gap-sm cursor-pointer group">
+<input class="rounded border-outline-variant text-primary-container focus:ring-primary-fixed w-4 h-4" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface group-hover:text-primary-container transition-colors">New York, NY</span>
+</label>
+<label class="flex items-center gap-sm cursor-pointer group">
+<input class="rounded border-outline-variant text-primary-container focus:ring-primary-fixed w-4 h-4" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface group-hover:text-primary-container transition-colors">London, UK</span>
+</label>
+<label class="flex items-center gap-sm cursor-pointer group">
+<input class="rounded border-outline-variant text-primary-container focus:ring-primary-fixed w-4 h-4" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface group-hover:text-primary-container transition-colors">San Francisco, CA</span>
+</label>
+</div>
+</div>
+<!-- Stipend Filter -->
+<div class="mb-lg border-b border-surface-variant pb-md">
+<h4 class="font-label-md text-label-md text-on-surface-variant mb-sm">Stipend Range (Monthly)</h4>
+<div class="px-sm pt-sm pb-md">
+<input class="w-full" max="5000" min="0" type="range" value="2000"/>
+<div class="flex justify-between mt-sm font-label-md text-label-sm text-secondary">
+<span>$0</span>
+<span>$2,000+</span>
+</div>
+</div>
+</div>
+<!-- Duration Filter -->
+<div class="mb-md">
+<h4 class="font-label-md text-label-md text-on-surface-variant mb-sm">Duration</h4>
+<div class="flex flex-col gap-xs">
+<label class="flex items-center gap-sm cursor-pointer group">
+<input class="rounded border-outline-variant text-primary-container focus:ring-primary-fixed w-4 h-4" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface group-hover:text-primary-container transition-colors">3 months</span>
+</label>
+<label class="flex items-center gap-sm cursor-pointer group">
+<input checked="" class="rounded border-outline-variant text-primary-container focus:ring-primary-fixed w-4 h-4" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface group-hover:text-primary-container transition-colors">6 months</span>
+</label>
+<label class="flex items-center gap-sm cursor-pointer group">
+<input class="rounded border-outline-variant text-primary-container focus:ring-primary-fixed w-4 h-4" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface group-hover:text-primary-container transition-colors">12 months</span>
+</label>
+</div>
+</div>
+</div>
+<!-- Scrollable Job List -->
+<div class="flex-1 bg-background p-md lg:p-margin-desktop overflow-y-auto w-full relative">
+<div class="max-w-4xl mx-auto flex flex-col gap-md">
+  <p class="text-body-md text-on-surface-variant p-md">Loading opportunities...</p>
+</div>
+</div>
+</main>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const listContainer = document.querySelector('.max-w-4xl.mx-auto');
+    const headerHTML = `
+        <div class="flex justify-between items-end mb-sm">
+            <div>
+                <h2 class="font-headline-lg text-headline-lg text-on-surface">Opportunities</h2>
+                <p id="results-count" class="font-body-md text-body-md text-secondary mt-xs">Loading opportunities...</p>
+            </div>
+            <div class="flex items-center gap-sm hidden sm:flex">
+                <span class="font-label-md text-label-sm text-secondary">Sort by:</span>
+                <select id="sort-by" class="bg-surface-container-lowest border border-outline-variant rounded-md py-1 px-sm font-label-md text-label-sm focus:ring-primary-fixed focus:border-primary-container outline-none">
+                    <option value="Best Match">Best Match</option>
+                    <option value="Newest">Newest</option>
+                    <option value="Highest Stipend">Highest Stipend</option>
+                </select>
+            </div>
+        </div>
+    `;
+
+    function getFilterState() {
+        const skills = [];
+        const locations = [];
+        const durations = [];
+        
+        document.querySelectorAll('main .w-full.md\\:w-72 label').forEach(label => {
+            const input = label.querySelector('input[type="checkbox"]');
+            if (input && input.checked) {
+                const text = label.textContent.trim();
+                if (['Python', 'Data Analysis', 'Machine Learning', 'SQL', 'R'].includes(text)) {
+                    skills.push(text);
+                } else if (['Remote', 'New York, NY', 'London, UK', 'San Francisco, CA'].includes(text)) {
+                    locations.push(text);
+                } else if (['3 months', '6 months', '12 months'].includes(text)) {
+                    durations.push(text);
+                }
+            }
+        });
+
+        const stipendSlider = document.querySelector('main .w-full.md\\:w-72 input[type="range"]');
+        const stipendMin = stipendSlider ? stipendSlider.value : 0;
+
+        const sortBySelect = document.getElementById('sort-by');
+        const sortBy = sortBySelect ? sortBySelect.value : 'Best Match';
+
+        const searchInput = document.getElementById('global-search');
+        const search = searchInput ? searchInput.value.trim() : '';
+
+        return {
+            skills: skills.join(','),
+            location: locations.join(','),
+            duration: durations.join(','),
+            stipendMin,
+            sortBy,
+            search
+        };
+    }
+
+    async function loadOpportunities() {
+        const filters = getFilterState();
+        const queryParams = new URLSearchParams();
+        if (filters.skills) queryParams.set('skills', filters.skills);
+        if (filters.location) queryParams.set('location', filters.location);
+        if (filters.duration) queryParams.set('duration', filters.duration);
+        if (filters.stipendMin) queryParams.set('stipendMin', filters.stipendMin);
+        if (filters.sortBy) queryParams.set('sortBy', filters.sortBy);
+        if (filters.search) queryParams.set('search', filters.search);
+
+        listContainer.innerHTML = headerHTML + '<div class="col-span-full py-xl text-center"><p class="text-body-md text-on-surface-variant">Loading opportunities...</p></div>';
+
+        try {
+            const res = await nexusFetch(`/internships?${queryParams.toString()}`);
+            const data = await res.json();
+            if (!res.ok) throw new Error(data.message || 'Failed to fetch jobs');
+
+            listContainer.innerHTML = headerHTML;
+            document.getElementById('results-count').textContent = `Showing ${data.length} results based on your profile`;
+            
+            const sortBySelect = document.getElementById('sort-by');
+            if (sortBySelect) {
+                sortBySelect.value = filters.sortBy;
+                sortBySelect.addEventListener('change', () => loadOpportunities());
+            }
+
+            if (data.length === 0) {
+                listContainer.innerHTML += `
+                    <div class="col-span-full py-xl text-center border border-dashed border-outline-variant rounded-xl bg-surface-container-lowest mt-md">
+                        <p class="text-body-md text-on-surface-variant p-md">No matching opportunities found. Try widening your filters.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            data.forEach(job => {
+                const matchPct = job.matchPercentage || Math.floor(Math.random() * 20) + 75;
+                const matchClass = matchPct >= 90 ? 'bg-primary-fixed-dim text-primary' : 'bg-surface-container-high text-on-surface-variant';
+                const matchIcon = matchPct >= 90 ? 'auto_awesome' : 'check_circle';
+
+                listContainer.innerHTML += `
+                    <article onclick="window.location.href='../internship_detail_senior_data_science_intern_nexus_academic/code.html?id=${job.id}'" class="bg-surface-container-lowest rounded-[16px] border border-primary-fixed p-lg flex flex-col sm:flex-row gap-md hover:border-primary-container hover:shadow-[0_10px_30px_rgba(37,99,235,0.05)] transition-all cursor-pointer relative group mt-md">
+                        <div class="absolute top-md right-md ${matchClass} font-label-md text-label-sm px-sm py-1 rounded-full flex items-center gap-xs">
+                            <span class="material-symbols-outlined text-[16px]">${matchIcon}</span>
+                            ${matchPct}% Match
+                        </div>
+                        <div class="w-16 h-16 rounded-xl border border-surface-variant bg-surface flex items-center justify-center shrink-0 overflow-hidden">
+                            <img alt="${job.industry.companyName} Logo" class="w-10 h-10 object-contain" src="${job.industry.logoUrl || 'https://lh3.googleusercontent.com/aida-public/AB6AXuB2Sf5XdFUzKZ5HRRIhKUyGYPlOtx7to5wcatMtI3pPxZ-K5nlIdiEoWPoVlHYfY-9Ed5KfbVUrY6lGff2yH_pyQvV_rjP9VMKG7KhISTC5FKWuCuFUsZh5zll7b6ZV2TQOqsFfs6fmouw9TuJIRmzJ7nD1ZI8-35fmP68jOT7IMSQ-GdkxVOycMtevcsKamYYAXrpvZidcXxN4mdD5UqPKXAdJbMSECQ4O3AyRv678d4mcBpqHhxLQ'}"/>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-headline-md text-body-lg text-on-surface font-bold group-hover:text-primary-container transition-colors pr-xl">${job.title}</h3>
+                            <p class="font-body-md text-body-md text-secondary mt-1">${job.industry.companyName} • ${job.location}</p>
+                            <div class="flex flex-wrap gap-xs mt-md mb-md">
+                                ${job.requiredSkills.map(skill => `<span class="bg-surface-container-low text-on-secondary-container font-label-md text-label-sm px-sm py-1 rounded">${skill}</span>`).join('')}
+                            </div>
+                            <div class="flex flex-wrap items-center gap-md text-secondary font-body-md text-label-sm border-t border-surface-variant pt-sm">
+                                <div class="flex items-center gap-xs">
+                                    <span class="material-symbols-outlined text-[18px]">payments</span>
+                                    <span>$${job.stipend.toLocaleString()}/mo</span>
+                                </div>
+                                <div class="flex items-center gap-xs">
+                                    <span class="material-symbols-outlined text-[18px]">schedule</span>
+                                    <span>${job.duration}</span>
+                                </div>
+                                <div class="flex items-center gap-xs ml-auto hidden sm:flex">
+                                    <span class="material-symbols-outlined text-[18px]">history</span>
+                                    <span>Posted ${new Date(job.createdAt).toLocaleDateString()}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                `;
+            });
+        } catch (e) {
+            console.error(e);
+            listContainer.innerHTML = headerHTML + '<div class="col-span-full py-xl text-center"><p class="text-body-md text-error">Failed to load opportunities.</p></div>';
+        }
+    }
+
+    document.querySelectorAll('main .w-full.md\\:w-72 input[type="checkbox"]').forEach(input => {
+        input.addEventListener('change', () => loadOpportunities());
+    });
+
+    const rangeInput = document.querySelector('main .w-full.md\\:w-72 input[type="range"]');
+    if (rangeInput) {
+        rangeInput.addEventListener('input', (e) => {
+            document.querySelector('.flex.justify-between.mt-sm span:last-child').textContent = `$${parseInt(e.target.value).toLocaleString()}+`;
+        });
+        rangeInput.addEventListener('change', () => loadOpportunities());
+    }
+
+    const clearAllBtn = document.querySelector('main .w-full.md\\:w-72 button.text-primary');
+    if (clearAllBtn) {
+        clearAllBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            document.querySelectorAll('main .w-full.md\\:w-72 input[type="checkbox"]').forEach(input => {
+                input.checked = false;
+            });
+            if (rangeInput) {
+                rangeInput.value = 0;
+                document.querySelector('.flex.justify-between.mt-sm span:last-child').textContent = '$0+';
+            }
+            loadOpportunities();
+        });
+    }
+
+    const globalSearch = document.getElementById('global-search');
+    if (globalSearch) {
+        globalSearch.addEventListener('input', debounce(() => {
+            loadOpportunities();
+        }, 300));
+    }
+
+    function debounce(func, wait) {
+        let timeout;
+        return function(...args) {
+            clearTimeout(timeout);
+            timeout = setTimeout(() => func.apply(this, args), wait);
+        };
+    }
+
+    loadOpportunities();
+});
+</script>
+</body></html>

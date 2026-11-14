@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Publish Training Program - Nexus Academic</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary-fixed": "#0e1d2b",
+                      "background": "#f7f9fb",
+                      "inverse-on-surface": "#eff1f3",
+                      "on-primary-fixed": "#00174b",
+                      "tertiary": "#2c4bb9",
+                      "surface-container-lowest": "#ffffff",
+                      "tertiary-fixed-dim": "#b8c4ff",
+                      "tertiary-container": "#4865d4",
+                      "on-tertiary-fixed-variant": "#173bab",
+                      "on-background": "#191c1e",
+                      "on-secondary": "#ffffff",
+                      "on-secondary-container": "#576676",
+                      "surface-container-highest": "#e0e3e5",
+                      "on-error": "#ffffff",
+                      "primary": "#004ac6",
+                      "surface-variant": "#e0e3e5",
+                      "secondary-fixed": "#d5e4f8",
+                      "on-surface": "#191c1e",
+                      "surface": "#f7f9fb",
+                      "error-container": "#ffdad6",
+                      "on-secondary-fixed-variant": "#3a4858",
+                      "surface-tint": "#0053db",
+                      "surface-container": "#eceef0",
+                      "on-primary": "#ffffff",
+                      "primary-fixed-dim": "#b4c5ff",
+                      "outline-variant": "#c3c6d7",
+                      "outline": "#737686",
+                      "secondary": "#516070",
+                      "primary-fixed": "#dbe1ff",
+                      "primary-container": "#2563eb",
+                      "error": "#ba1a1a",
+                      "surface-dim": "#d8dadc",
+                      "secondary-container": "#d5e4f8",
+                      "on-primary-container": "#eeefff",
+                      "on-tertiary": "#ffffff",
+                      "surface-container-high": "#e6e8ea",
+                      "surface-bright": "#f7f9fb",
+                      "inverse-primary": "#b4c5ff",
+                      "on-primary-fixed-variant": "#003ea8",
+                      "on-tertiary-fixed": "#001453",
+                      "tertiary-fixed": "#dde1ff",
+                      "on-surface-variant": "#434655",
+                      "on-error-container": "#93000a",
+                      "inverse-surface": "#2d3133",
+                      "on-tertiary-container": "#eff0ff",
+                      "secondary-fixed-dim": "#b9c8db",
+                      "surface-container-low": "#f2f4f6"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "xl": "80px",
+                      "gutter": "24px",
+                      "lg": "48px",
+                      "margin-desktop": "64px",
+                      "xs": "4px",
+                      "md": "24px",
+                      "base": "8px",
+                      "sm": "12px",
+                      "margin-mobile": "16px"
+              },
+              "fontFamily": {
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "headline-lg-mobile": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "label-sm": [
+                              "Inter"
+                      ],
+                      "display": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.0",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "1.0",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "display": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        .material-symbols-outlined {
+          font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined[data-weight="fill"] {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+      </style>
+  <script src="../nexus-shared.js"></script>
+</head>
+<body data-active-tab="Publish Course" class="bg-background text-on-background font-body-md min-h-screen">
+<!-- TopNavBar -->
+<nav class="bg-surface-container-lowest/80 dark:bg-surface-dim/80 text-primary dark:text-primary-fixed-dim fixed top-0 right-0 w-[calc(100%-16rem)] z-50 border-b border-secondary-container dark:border-outline-variant backdrop-blur-md hidden md:block">
+<div class="flex justify-between items-center h-16 px-gutter max-w-[1280px] mx-auto">
+<div class="flex-1 flex items-center gap-md">
+<div class="relative w-96 group focus-within:ring-2 focus-within:ring-primary/20 rounded-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-full py-2 pl-10 pr-4 text-body-md focus:ring-0" placeholder="Search..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<button class="text-secondary dark:text-secondary-fixed-dim hover:text-on-primary-container dark:hover:text-primary-fixed transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-secondary dark:text-secondary-fixed-dim hover:text-on-primary-container dark:hover:text-primary-fixed transition-colors">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<img alt="Recruiter Profile" class="w-8 h-8 rounded-full object-cover border border-outline-variant" data-alt="A small circular profile picture of a professional recruiter smiling in a bright office environment, used as a user avatar in the top navigation bar. Clean, modern, corporate aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbu0ZruMcOfFbF9uuTXxdc_eyUpisMt9vN-HlOAsvwVPT4Go2wIBIWC5Z6gZkgBepds9B5NUCsKfKYQS-qWgR_9WL4CH-cAoPexFX0JT_qE9uvOU66VnF5JZ9l2LL_71-A4sAQvWOqxAl5hx3EzFmXXDtae_VvRn4gXT834zEjHFjz1P-ps_6fmgx4ks3-d7HzkpvV3helceNCyp--Rqj8TANarUULb6NvgEp0HmFg6pC0zy1dMXII"/>
+</div>
+</div>
+</nav>
+<!-- SideNavBar -->
+<aside class="bg-surface-container-lowest dark:bg-surface-dim text-primary dark:text-primary-fixed-dim h-screen w-64 fixed left-0 top-0 overflow-y-auto border-r border-secondary-container dark:border-outline-variant hidden md:block">
+<div class="flex flex-col h-full py-lg px-md gap-md">
+<!-- Header -->
+<div class="flex items-center gap-sm mb-md px-sm">
+<img alt="Nexus Academic Logo" class="w-10 h-10 object-contain" data-alt="A stylized geometric logo for Nexus Academic, featuring deep blue academic motifs and clean lines, signifying trust and innovation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnubEfpJ6cbmjkllFOObcBIB-LBLhE5NnzjscweSLETeKEIA3Qt2cWflGSHFS0W_f2r_YbCSx81kdnyhd1wAUdUHkIIOQLxVAsupyUkOxTKgWdYaD58XtLlote7hrYZ8E4yIN8NQU3RPl1LUNTzmEblAyILGA5QD5TbHpfSLFV_N6zlW2B4n4QQNzW3aRBoNTN9aVN5DB1lmvcRqXc6DbGDTOjhkMtvQEJQBJ-YiRvPVESFLddl4Ki"/>
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">Nexus Academic</h1>
+<p class="font-label-sm text-label-sm text-secondary">Industry Portal</p>
+</div>
+</div>
+<!-- CTA -->
+<button class="w-full bg-primary-container text-on-primary rounded-lg py-3 px-4 font-label-md text-label-md shadow-sm hover:opacity-90 transition-opacity mb-md">
+                Post a New Job
+            </button>
+<!-- Nav Links -->
+<nav class="flex-1 flex flex-col gap-xs">
+<a class="flex items-center gap-sm px-md py-sm text-secondary dark:text-secondary-fixed-dim hover:bg-surface-container-high dark:hover:bg-surface-variant transition-all duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-sm px-md py-sm bg-secondary-container dark:bg-on-primary-fixed-variant text-on-secondary-container dark:text-primary-fixed rounded-lg font-bold scale-[0.98] transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="work" data-weight="fill">work</span>
+<span class="font-label-md text-label-md">My Postings</span>
+</a>
+<a class="flex items-center gap-sm px-md py-sm text-secondary dark:text-secondary-fixed-dim hover:bg-surface-container-high dark:hover:bg-surface-variant transition-all duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-label-md text-label-md">Candidates</span>
+</a>
+<a class="flex items-center gap-sm px-md py-sm text-secondary dark:text-secondary-fixed-dim hover:bg-surface-container-high dark:hover:bg-surface-variant transition-all duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="person_search">person_search</span>
+<span class="font-label-md text-label-md">Talent Pool</span>
+</a>
+<a class="flex items-center gap-sm px-md py-sm text-secondary dark:text-secondary-fixed-dim hover:bg-surface-container-high dark:hover:bg-surface-variant transition-all duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-label-md text-label-md">Analytics</span>
+</a>
+</nav>
+<!-- Footer Links -->
+<div class="flex flex-col gap-xs mt-auto pt-md border-t border-secondary-container">
+<a class="flex items-center gap-sm px-md py-sm text-secondary dark:text-secondary-fixed-dim hover:bg-surface-container-high dark:hover:bg-surface-variant transition-all duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+<a class="flex items-center gap-sm px-md py-sm text-secondary dark:text-secondary-fixed-dim hover:bg-surface-container-high dark:hover:bg-surface-variant transition-all duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="font-label-md text-label-md">Support</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="md:ml-64 pt-24 pb-24 px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto min-h-screen">
+<div class="mb-10 border-b border-surface-container-highest pb-6">
+<h1 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-primary-fixed mb-2">Publish Training Program</h1>
+<p class="font-body-lg text-body-lg text-secondary">Create a new structured learning path for emerging academic talent.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+<!-- Left Column: Form -->
+<div class="lg:col-span-7 space-y-8">
+<!-- Section 1: Program Details -->
+<section class="bg-surface-container-lowest rounded-xl p-8 border border-secondary-fixed shadow-[0_4px_24px_rgba(0,0,0,0.02)]">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">edit_document</span>
+                        Program Details
+                    </h2>
+<div class="space-y-5">
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-2" for="program-title">Program Title</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg px-4 py-3 text-body-md text-on-surface focus:border-primary focus:ring-2 focus:ring-secondary-fixed transition-all" id="program-title" placeholder="e.g., Advanced Bioinformatics Certification" type="text" value="Advanced Machine Learning Bootcamp"/>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-2" for="program-desc">Description</label>
+<textarea class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg px-4 py-3 text-body-md text-on-surface focus:border-primary focus:ring-2 focus:ring-secondary-fixed transition-all" id="program-desc" placeholder="Detail the objectives and outcomes..." rows="4"></textarea>
+</div>
+</div>
+</section>
+<!-- Section 2: Duration & Commitment -->
+<section class="bg-surface-container-lowest rounded-xl p-8 border border-secondary-fixed shadow-[0_4px_24px_rgba(0,0,0,0.02)]">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">schedule</span>
+                        Duration &amp; Commitment
+                    </h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-2" for="duration-weeks">Duration (Weeks)</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg px-4 py-3 text-body-md text-on-surface focus:border-primary focus:ring-2 focus:ring-secondary-fixed transition-all" id="duration-weeks" type="number" value="12"/>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-2" for="hours-week">Hours per Week</label>
+<select class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg px-4 py-3 text-body-md text-on-surface focus:border-primary focus:ring-2 focus:ring-secondary-fixed transition-all" id="hours-week">
+<option>5-10 hours</option>
+<option selected="">10-20 hours</option>
+<option>20-30 hours</option>
+<option>Full-time (40+ hours)</option>
+</select>
+</div>
+</div>
+</section>
+<!-- Section 3: Curriculum -->
+<section class="bg-surface-container-lowest rounded-xl p-8 border border-secondary-fixed shadow-[0_4px_24px_rgba(0,0,0,0.02)]">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">menu_book</span>
+                        Curriculum
+                    </h2>
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-2">Skills Covered</label>
+<div id="skills-box" class="w-full min-h-[50px] bg-surface-container-lowest border border-outline-variant rounded-lg p-2 flex flex-wrap gap-2 focus-within:border-primary focus-within:ring-2 focus-within:ring-secondary-fixed transition-all">
+<input id="skill-input" class="flex-1 min-w-[150px] bg-transparent border-none focus:ring-0 text-body-md py-1" placeholder="Add a skill and press Enter..." type="text"/>
+</div>
+<p class="font-label-sm text-label-sm text-secondary mt-2">These tags help students discover your program.</p>
+</div>
+</section>
+<!-- Section 4: Certification -->
+<section class="bg-surface-container-lowest rounded-xl p-8 border border-secondary-fixed shadow-[0_4px_24px_rgba(0,0,0,0.02)]">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">workspace_premium</span>
+                        Certification
+                    </h2>
+<div class="border-2 border-dashed border-outline-variant rounded-xl p-8 text-center hover:bg-surface-container-low transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-display text-outline group-hover:text-primary transition-colors mb-4">upload_file</span>
+<p class="font-label-md text-label-md text-on-surface mb-1">Upload template certificate (Optional)</p>
+<p class="font-label-sm text-label-sm text-secondary">PDF, JPG, or PNG (max. 10MB)</p>
+</div>
+</section>
+<!-- Action Bar -->
+<div class="flex justify-end pt-4">
+    <button id="publish-btn" class="bg-primary-container hover:bg-primary-container/90 text-on-primary font-label-md text-label-md px-8 py-4 rounded-lg shadow-sm transition-all flex items-center gap-2">
+        <span class="material-symbols-outlined">publish</span> Publish Program
+    </button>
+</div>
+</div>
+<!-- Right Column: Live Preview -->
+<div class="lg:col-span-5 hidden lg:block">
+<div class="sticky top-24">
+<h3 class="font-label-md text-label-md text-secondary uppercase tracking-wider mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+                        Live Student Preview
+                    </h3>
+<!-- Preview Card -->
+<div class="bg-surface-container-lowest rounded-[16px] border border-secondary-fixed p-[32px] shadow-[0_10px_40px_rgba(0,0,0,0.04)] relative overflow-hidden group">
+<div class="absolute top-0 left-0 right-0 h-2 bg-primary"></div>
+<div class="flex items-start justify-between mb-6">
+<div class="bg-secondary-container text-primary-container font-label-sm text-label-sm px-3 py-1 rounded-full inline-block mb-3">
+                                Industry Training
+                            </div>
+<span class="material-symbols-outlined text-outline">bookmark_border</span>
+</div>
+<h4 id="preview-title" class="font-headline-md text-headline-md text-on-primary-fixed mb-3 pr-4">Advanced Machine Learning Bootcamp</h4>
+<p id="preview-desc" class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-3">
+                            An intensive program designed to bridge the gap between academic theory and industry application in modern machine learning paradigms.
+                        </p>
+<div class="flex items-center gap-6 mb-8 text-secondary font-label-sm text-label-sm">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+<span id="preview-duration">12 Weeks</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px]">schedule</span>
+<span id="preview-hours">10-20 hrs/wk</span>
+</div>
+</div>
+<div class="border-t border-surface-container-highest pt-6">
+<p class="font-label-sm text-label-sm text-on-surface mb-3">Skills Acquired</p>
+<div class="flex flex-wrap gap-2" id="preview-skills">
+    <span class="bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm px-3 py-1 rounded-[4px]">Python</span>
+</div>
+</div>
+<div class="mt-8">
+<button class="w-full bg-surface-container-low text-primary font-label-md text-label-md py-3 rounded-lg border border-transparent group-hover:border-primary/20 transition-all cursor-not-allowed" disabled>
+                                Enroll Now
+                            </button>
+</div>
+</div>
+<div class="mt-6 p-4 bg-secondary-fixed/30 rounded-lg flex gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-primary shrink-0">info</span>
+<p class="font-label-sm text-label-sm leading-relaxed">This is exactly how your program will appear in the student marketplace.</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+    const user = getLoggedUser();
+    if (!user || user.role !== 'INDUSTRY') {
+        alert('Please log in as an Industry Partner first.');
+        window.location.href = '../login_sign_up_nexus_academic/code.html';
+        return;
+    }
+
+    // Input elements
+    const titleInput = document.getElementById('program-title');
+    const descInput = document.getElementById('program-desc');
+    const durationInput = document.getElementById('duration-weeks');
+    const hoursSelect = document.getElementById('hours-week');
+    const skillInput = document.getElementById('skill-input');
+    const skillsBox = document.getElementById('skills-box');
+    const publishBtn = document.getElementById('publish-btn');
+
+    // Preview elements
+    const previewTitle = document.getElementById('preview-title');
+    const previewDesc = document.getElementById('preview-desc');
+    const previewDuration = document.getElementById('preview-duration');
+    const previewHours = document.getElementById('preview-hours');
+    const previewSkills = document.getElementById('preview-skills');
+
+    let skills = ['Python', 'TensorFlow', 'Data Ethics'];
+
+    function renderSkills() {
+        const chips = skillsBox.querySelectorAll('.inline-flex');
+        chips.forEach(c => c.remove());
+
+        skills.forEach(skill => {
+            const chip = document.createElement('span');
+            chip.className = 'inline-flex items-center gap-1 bg-surface-container text-on-surface-variant font-label-sm text-label-sm px-3 py-1.5 rounded-full';
+            chip.innerHTML = `${skill} <button class="hover:text-error transition-colors"><span class="material-symbols-outlined text-[14px]">close</span></button>`;
+            
+            chip.querySelector('button').addEventListener('click', (e) => {
+                e.preventDefault();
+                skills = skills.filter(s => s !== skill);
+                renderSkills();
+            });
+            skillsBox.insertBefore(chip, skillInput);
+        });
+
+        // Update preview tags
+        previewSkills.innerHTML = '';
+        skills.forEach(skill => {
+            previewSkills.innerHTML += `<span class="bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm px-3 py-1 rounded-[4px]">${skill}</span>`;
+        });
+    }
+
+    function updatePreview() {
+        previewTitle.textContent = titleInput.value.trim() || 'Advanced Machine Learning Bootcamp';
+        previewDesc.textContent = descInput.value.trim() || 'An intensive program designed to bridge the gap between academic theory and industry application in modern machine learning paradigms.';
+        previewDuration.textContent = durationInput.value.trim() ? `${durationInput.value.trim()} Weeks` : '12 Weeks';
+        previewHours.textContent = hoursSelect.value;
+    }
+
+    // Add skill keydown
+    skillInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            const val = skillInput.value.trim();
+            if (val && !skills.includes(val)) {
+                skills.push(val);
+                skillInput.value = '';
+                renderSkills();
+            }
+        }
+    });
+
+    [titleInput, descInput, durationInput, hoursSelect].forEach(inp => {
+        inp.addEventListener('input', updatePreview);
+    });
+
+    publishBtn.addEventListener('click', async () => {
+        if (!titleInput.value.trim() || !descInput.value.trim()) {
+            alert('Please fill out Program Title and Description.');
+            return;
+        }
+
+        const dto = {
+            title: titleInput.value.trim(),
+            description: descInput.value.trim(),
+            skillsCovered: skills,
+            duration: `${durationInput.value.trim() || '12'} Weeks`,
+            hasCertificate: true
+        };
+
+        publishBtn.disabled = true;
+        publishBtn.textContent = 'Publishing...';
+
+        try {
+            const res = await nexusFetch('/learning-programs', {
+                method: 'POST',
+                body: JSON.stringify(dto)
+            });
+            const data = await res.json();
+            if (!res.ok) throw new Error(data.message || 'Failed to publish program');
+
+            alert('Training program published successfully!');
+            window.location.href = '../industry_dashboard_nexus_academic/code.html';
+        } catch (e) {
+            alert(e.message);
+            publishBtn.disabled = false;
+            publishBtn.textContent = 'Publish Program';
+        }
+    });
+
+    renderSkills();
+    updatePreview();
+});
+</script>
+</body></html>
